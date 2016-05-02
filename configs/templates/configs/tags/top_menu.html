@@ -1,36 +1,22 @@
-<div class="top-menu">
-	
-	<div class="navbar navbar-default">
-        <div class="container">
-          <!--<div class="navbar-header">	
-            <a class="navbar-brand" href="/">
-            	<img src="{{ config.get_logo_url }}" class="logo">
-            </a>
-          </div>-->
-          <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-            	<li>
-              		<a href="tel:{{ config.get_main_phone }}"><i class="fa fa-phone"></i>&nbsp;{{ config.get_main_phone }}</a>
-               	</li>
-               	<li>
-              		<a href="mail:{{ config.site_email }}"><i class="fa fa-envelope-o"></i>&nbsp;{{ config.site_email }}</a>
-               	</li>
-            </ul>
-            <!--<form class="navbar-form navbar-left">
-              <div class="form-group is-empty">
-                <input type="text" class="form-control col-md-8" placeholder="Search">
-              <span class="material-input"></span></div>
-            </form>-->
-            <ul class="nav navbar-nav navbar-right">
-            	{% if request.user.is_authenticated %}
-            		<li><a href="/logout">Выйти</a></li>
-            	{% else %}
-            		<li><a href="/login">Войти</a></li>
-            		<li><a href="/register">Регистрация</a></li>
-            	{% endif %}
-            </ul>
-          </div>
-        </div>
-  	</div>
-
+<div class="header-top BGdark">
+  <div class="container">
+    <div class="col-md-8 col-sm-12 col-xs-12">
+      <span><i class="fa fa-phone"></i> (123) 456-7890 </span>
+      <span><i class="fa fa-fax"></i> (123) 456-7890</span>
+      <span><i class="fa fa-envelope-o"></i> <a href="/static/joyus/mailto:info@companynme.com" title="">info@companynme.com</a> </span>
+    </div>
+    <div class="col-md-4 hidden-sm hidden-xs">
+      <ul class="social list-inline pull-right">
+        <li><a class="fb" href="/static/joyus/index.html#" title="Follow Us on Facebook"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="tw" href="/static/joyus/index.html#" title="Follow Us on Twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="yt" href="/static/joyus/index.html#" title="Watch Our Videos"><i class="fa fa-youtube-play"></i></a></li>
+        <li><a class="pt" href="/static/joyus/index.html#" title="Watch Our Videos"><i class="fa fa-pinterest"></i></a></li>
+        <li><a class="li" href="/static/joyus/index.html#" title="Follow Us on LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="fl" href="/static/joyus/index.html#" title="Watch Our gallery"><i class="fa fa-flickr"></i></a></li>
+        <li><a class="gplus" href="/static/joyus/index.html#" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+        <li><a class="ig" href="/static/joyus/index.html#" title="Watch Our Gallery"><i class="fa fa-instagram"></i></a></li>
+        <li><a class="vk" href="/static/joyus/index.html#" title="Follow Us on vk"><i class="fa fa-vk"></i></a></li>
+      </ul>
+    </div>
+  </div>
 </div>

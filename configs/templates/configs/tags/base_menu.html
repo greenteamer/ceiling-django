@@ -1,5 +1,5 @@
 {% load sitetree %}
-<div class="header-main header-default header-no-border">
+<!--<div class="header-main header-default header-no-border">
 	<div class="container">
 		<div class="header-main-wrapper">
 			<div class="navbar-header">
@@ -9,4 +9,121 @@
 			{% sitetree_menu from "base" include 'trunk' template "sitetree/menu.html" %}
 		</div>
 	</div>
-</div>
+</div>-->
+
+
+<nav class="navbar navbar-default">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="menu">
+  
+    <!-- ::: Main Nav ::: -->
+     <ul class="nav navbar-nav">
+        <li class="active sub"><a href="/static/joyus/index.html#" title="Home">Home</a>
+        	<!-- ::: Nav Level 1 ::: -->
+            <ul class="sub-nav">
+                <li><a href="/static/joyus/index.html" title="Home Version 1">Home Version 1</a></li>
+                <li><a href="/static/joyus/index2.html" title="Home Version 2">Home Version 2</a></li>
+                <li><a href="/static/joyus/index3.html" title="Home Version 3">Home Version 3</a></li>
+                <li><a href="/static/joyus/index4.html" title="Home Version 4">Home Version 4</a></li>
+            </ul>
+            <!-- ::: Nav Level 1 end::: -->
+        </li>
+        <li class="sub"><a href="/static/joyus/index.html#" title="About">About</a>
+            <!-- ::: Nav Level 1 ::: -->
+            <ul class="sub-nav">
+                <li><a href="/static/joyus/about1.html" title="About Us">About 1</a></li>
+                <li><a href="/static/joyus/about2.html" title="About Us">About 2</a></li>
+                <li class="sub"><a href="/static/joyus/index.html#" title="Team">Team</a>
+                    <!-- ::: Nav Level 2 ::: -->
+                    <ul class="sub-nav">
+                      <li><a href="/static/joyus/team1.html" title="Team 1">Team Hover 1</a></li>
+                      <li><a href="/static/joyus/team2.html" title="Team 2">Team Hover 2</a></li>
+                      <li><a href="/static/joyus/team3.html" title="Team 1">Team Hover 3</a></li>
+                      <li><a href="/static/joyus/team-single.html" title="John Doe">Team Single</a></li>
+                    </ul>
+                    <!-- ::: Nav Level 2 ::: -->
+                </li>
+            </ul>
+            <!-- ::: Nav Level 1 end::: -->
+        </li>
+        
+        <li class="sub"><a href="/static/joyus/index.html#" title="Pages">Pages</a>
+            <!-- ::: Nav Level 1 ::: -->
+            <ul class="sub-nav">
+                <li class="sub"><a href="/static/joyus/index.html#" title="Service">Services</a>
+                    <!-- ::: Nav Level 2 ::: -->
+                    <ul class="sub-nav">
+                      <li><a href="/static/joyus/services.html" title="Service">Services</a></li>
+                      <li><a href="/static/joyus/services-single-1.html" title="Service Sinle Page">Services Single</a></li>
+                    </ul>
+                    <!-- ::: Nav Level 2 ::: -->
+                </li>
+                <li><a href="/static/joyus/testimonials.html" title="Testimonials">Testimonials</a></li>
+                <li><a href="/static/joyus/faq.html" title="FAQ">FAQ</a></li>
+                <li><a href="/static/joyus/clients.html" title="Clients">Clients</a></li>
+                <li><a href="/static/joyus/career.html" title="Career">Career</a></li>
+                <li><a href="/static/joyus/press.html" title="Press">Press</a></li>
+                <li><a href="/static/joyus/404.html" title="404" target="_blank">404</a></li>
+                <li><a href="/static/joyus/sitemap.html" title="Sitemap">Sitemap</a></li>
+                <li><a href="/static/joyus/elements.html" title="Elements">Elements</a></li>
+            </ul>
+            <!-- ::: Nav Level 1 end::: -->
+        </li>
+        
+        <li class="sub"><a href="/static/joyus/index.html#" title="Portfolio">Portfolio</a>
+            <!-- ::: Nav Level 1 ::: -->
+            <ul class="sub-nav">
+              <li><a href="/static/joyus/portfolio-2col.html" title="Portfolio 2 Column"> Portfolio 2 Column</a></li>
+              <li><a href="/static/joyus/portfolio-3col.html" title="Portfolio 3 Column"> Portfolio 3 Column</a></li>
+              <li><a href="/static/joyus/portfolio-4col.html" title="Portfolio 4 Column"> Portfolio 4 Column</a></li>
+              <li><a href="/static/joyus/portfolio-full-width.html" title="Portfolio Full Width"> Portfolio Full Width</a></li>
+              <li><a href="/static/joyus/portfolio1.html" title="Portfolio Single 1">Portfolio Single 1</a></li>
+              <li><a href="/static/joyus/portfolio2.html" title="Portfolio Single 2">Portfolio Single 2</a></li>
+            </ul>
+            <!-- ::: Nav Level 1 end::: -->
+        </li>
+           
+        <li class="sub"><a href="/static/joyus/index.html#" title="Gallery">Gallery</a>
+            <!-- ::: Nav Level 1 ::: -->
+            <ul class="sub-nav">
+              <li><a href="/static/joyus/gallery4.html" title="Gallery 4 Column">Gallery 4 Column</a></li>    
+              <li><a href="/static/joyus/gallery3.html" title="Gallery 3 Column">Gallery 3 Column</a></li>
+              <li><a href="/static/joyus/gallery2.html" title="Gallery 2 Column">Gallery 2 Column</a></li>
+              <li><a href="/static/joyus/gallery-full-width.html" title="Gallery Full Width">Gallery Full Width</a></li>
+            </ul>
+            <!-- ::: Nav Level 1 end::: -->
+        </li>
+        
+        <li class="sub"><a href="/static/joyus/index.html#" title="Blog">Blog</a>
+            <!-- ::: Nav Level 1 ::: -->
+            <ul class="sub-nav">
+              <li><a href="/static/joyus/blog.html" title="Gallery 4 Column">Blog Main</a></li>    
+              <li><a href="/static/joyus/blog-single.html" title="Gallery 3 Column">Single Post</a></li>
+            </ul>
+            <!-- ::: Nav Level 1 end::: -->
+        </li>
+        
+        <li class="sub"><a href="/static/joyus/index.html#" title="Contact">Contact</a>
+            <!-- ::: Nav Level 1 ::: -->
+            <ul class="sub-nav">
+              <li><a href="/static/joyus/contact1.html" title="Contact">Contact 1</a></li>
+              <li><a href="/static/joyus/contact2.html" title="Contact">Contact 2</a></li>
+            </ul>
+            <!-- ::: Nav Level 1 end::: -->
+        </li> 
+        
+      </ul>
+      <!-- ::: Main Nav ::: -->
+      
+  </div><!-- /.navbar-collapse -->
+</nav>

@@ -1,0 +1,127 @@
+@charset "UTF-8";
+/* CSS Document 
+Author Name: Saptarang
+Author URI: http://www.saptarang.org
+Themeforest: http://themeforest.net/user/saptarang?ref=saptarang
+Creation Date: 06 Oct, 2015
+Description: A default stylesheet for Striking Interior Design Template, Designed & Developed By Saptarang.
+*/
+@media only screen and (min-width: 1201px) {
+/* +=+=+=+=+=+=+=+=+=+=+=+=+=+=+= \
+  ----- BOXED VERSION BACKGROUND 
+  \ +=+=+=+=+=+=+=+=+=+=+=+=+=+=+= */
+body {
+	background-color: #e0dcd5 !important;
+}
+/* === if you want texture, enable this === */
+  /*body {
+  	background-image:url(../images/texture/01.png);
+  	background-repeat:repeat;
+  	background-position:0 0;
+  	background-attachment:fixed;
+  	border-top: 1px solid rgba(0,0,0,0);
+  }*/
+  /* === if you want background image, enable this === */
+  body {
+  	background-image:url(../images/bgimages/boxed-bg.jpg);
+  	background-repeat:no-repeat;
+  	background-position:center;
+  	background-attachment:fixed;
+  	background-size:cover;
+  }
+.boxed {
+	display: block;
+	width: 1170px;
+	margin: 0 auto;
+	background-color: #fff;
+	-webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.1);
+}
+.boxed header {
+	width: 1170px;
+	margin: 0 auto;
+	right: 0;
+}
+.boxed #slides {
+	margin-top: 100px;
+}
+.boxed #slides .symbol {
+	width: 50em;
+	height: 50em;
+	margin-top: 27%;
+}
+.boxed #slides.slides2 .symbol {
+	margin-top: 10%;
+}
+.boxed .page-block-large {
+	padding: 6em 0;
+}
+.boxed .page-block {
+	padding: 5em 0;
+}
+.boxed .bx-wrapper .bx-controls-direction a {
+	top: 48%;
+}
+.boxed .navigation {
+	position: absolute;
+	top: 0;
+	margin: 0;
+}
+.boxed #slides.slides2 .bx-wrapper {
+	height: auto;
+}
+.boxed #services-single .navigation {
+	position: absolute;
+	top: 3.65em;
+}
+.boxed #owl-recent-project .item {
+	height: 366px;
+}
+.boxed #owl-recent-project .item .project-data {
+	font-size: 0.85em;
+	padding: 2.35em;
+}
+.boxed #owl-recent-project .item .project-data li {
+	font-size: 0.90em;
+	height: auto;
+	padding-top: 0.85em;
+	padding-bottom: 1em;
+}
+.boxed .project-data li i {
+	top: 0.85em;
+}
+.boxed .blog-content {
+	background-color: transparent;
+}
+.boxed aside.widget, .boxed .single-post article {
+	border: 0;
+}
+.boxed aside.widget {
+	padding: 0 1.5em;
+	margin: 2.35em 0 3.35em;
+}
+.boxed aside .widget-title {
+	color: #fff;
+	padding: 0.65em;
+	font-size: 1.35em;
+}
+.boxed aside .widget-title strong {
+	color: #fff;
+}
+.boxed #contact .container {
+	padding-left: 0;
+	padding-right: 0;
+}
+.boxed #contact form {
+	padding: 1.5em;
+}
+.boxed .jumbo > div {
+	padding: 0;
+}
+.boxed aside.widget .search-submit {
+	right: 1.65em;
+}
+.boxed footer.page-block-large {
+	padding-bottom: 0;
+}
+}
