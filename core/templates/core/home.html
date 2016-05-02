@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+{% load core_tags %}
+{% load flatblocks %}
+{% load cropping %}
+						
+{% block banner_block %}
+	<div class="section">
+		<div class="banner-01 banner-full-screen-2"></div>
+	</div>
+{% endblock banner_block %}
+
+
+{% block search_block %}
+	{# {% search_tag request %} #}
+{% endblock search_block %}
+
+
+{% block modal_block %}
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Обратный звонок</h4>
+				</div>
+
+				<div class="modal-body">
+					<form action="." method="post">{% csrf_token %}
+						{{ form }}
+						<br>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+						<button type="submit" class="btn btn-blue">Отправить</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+{% endblock modal_block %}
+
+
+{% block about_block %}
+<div class="section">
+    <div class="about-house-section padding-top padding-bottom">
+		<div class="container">
+			<div class="about-house-wrapper">
+
+				<div class="about-house-banner">
+					<div class="about-house-banner-wrapper"><a href="index.html#" class="title">Специальное предложение</a><a href="#" class="address">Дом на побережье моря в экологически чистой зоне</a>
+
+						<div class="price-for-house">
+							<div class="price"><sup><i class="fa fa-rub"></i></sup><span class="amount">11</span><span class="small amount">,999 / м²</span></div>
+						</div>
+						<a name="" data-toggle="modal" data-target="#myModal" class="btn btn-transparent white">Отправить заявку</a>
+					</div>
+					{% flatblock "home_numbers" using="flatblocks/text.html" %}
+				</div>
+
+				<div class="about-house-content about-house-padding-left">
+					{% flatblock "home_about" using="flatblocks/text.html" %}
+				</div>
+				<div class="about-house-content-center">
+					<div class="sunhouse-title">
+						<h2 class="main-title">Строительсто домов без предоплаты</h2>
+						<p class="sub-title">Строительная компания Монолит — продажа и строительство частных домов под ключ в Новороссийске</p><br>
+						{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
+					</div>
+					{% flatblock "home_center" using="flatblocks/text.html" %}
+				</div>	
+
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<div class="section">
+	<div class="newest-properties padding-top padding-bottom">
+		<div class="container">
+			<div class="newest-properties-wrapper">
+				<div class="sunhouse-title">
+					<div class="icon-image"><img src="/static/assets/images/favicon_black3_min2.png" alt="" class="img-responsive"/><!--.icon-title--><!--    i.icon-church--></div>
+					<h2 class="main-title">Выберите дом Вашей мечты</h2>
+
+					<p class="sub-title">Мы охотим сделать поиск Вашего любимого дома как можно проще!</p></div>
+				<div class="row">
+					<div class="newest-properties-content">
+
+						{% for project in project_list %}
+						<div class="col-md-4 col-xs-6">
+							<div class="sunhouse-item">
+								<a href="{{ project.get_url }}" class="wrapper-image">
+									<img src="{% cropped_thumbnail project.get_all_images.0 "cropping_750x455" scale=1 %}" alt="" class="img-responsive layout-1"/>
+									<img src="{% cropped_thumbnail project.get_all_images.1 "cropping_750x455" scale=1 %}" alt="" class="img-responsive layout-2"/>
+								</a>
+								{% if project.for_sale %}
+									<div class="note for-rent"><p class="text">Продажа</p></div>
+								{% else %}
+									<div class="note for-sale"><p class="text">Проект</p></div>
+								{% endif %}
+								<div class="wrapper-content">
+									<div class="info-house">
+										<div class="info">
+											<i class="icon-house_1"></i>
+											<p>{{ project.square }} м²</p>
+										</div>
+										<div class="info">
+											<i class="icon-bed"></i>
+											<p>{{ project.badrooms }} спльных комнат</p>
+										</div>
+										<div class="info">
+											<i class="icon-bath"></i>
+											<p>{{ project.bathrooms }} ванных комнат</p>
+										</div>
+									</div>
+									<div class="about-house"><a href="search-properties.html" class="title">{{ project.name }}</a>
+										<div class="text">{{ project.text|safe|truncatechars:200 }}</div>
+									</div>
+									<div class="more-info-house">
+										{# <div class="place-house"><i class="fa fa-map-marker"></i><a href="index.html#">{{ project.address }}</a></div> #}
+										<div class="price"><a href="{{ project.get_url }}" class="btn btn-blue">подробнее</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock content %}
+
+
+{% block services_block %}
+	<div class="our-service padding-top padding-bottom">
+		<div class="container">
+			<div class="our-service-wrapper">
+				<div class="sunhouse-title">
+					<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/><!--.icon-title--><!--   i.icon-mail_box--></div>
+					<h2 class="main-title">Наши услуги</h2>
+
+					<p class="sub-title">Ваше время и деньги будут сэкономлены, благодаря опыту и качеству нашей работы</p>
+				</div>
+				<div class="row">
+					<div class="our-service-content">
+
+						{% for service in service_list %}
+						<div class="col-md-3">
+							<div data-wow-delay="0.2s" data-wow-duration="1s" class="our-service-items wow fadeInUp">
+								<div class="icon-wrapper">{{ service.icon|safe }}</div>
+								<h3 class="name">{{ service.name }}</h3>
+
+								<div class="text">{{ service.text|safe|truncatechars:100 }}</div>
+								<a href="{{ service.get_url }}" class="btn-readmore">Подробнее</a>
+							</div>
+						</div>
+						{% endfor %}
+
+					</div>
+					<div class="block-about-text">
+						<div class="sunhouse-title">
+							<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/></div>
+							<h2 class="main-title">О строительно	  компании "Монолит"</h2>
+							<p class="sub-title">Строительная компания Монолит — продажа и строительство частных домов под ключ в Новороссийске</p><br>
+							{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
+						</div>
+
+						{% flatblock "block_about" using="flatblocks/text.html" %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock services_block %}
+
+
+{% block trigger1_block	%}
+<div class="section">
+	<div class="find-best-house bg-overlay padding-bottom padding-top">
+		<div class="container">
+			<div class="find-best-house-wrapper"><p class="sub-title">Новая услуга</p>
+
+				<h2 class="title">{{ service_main.name }}</h2>
+
+				<p class="content">{{ service_main.text|safe|truncatechars:250 }}</p>
+				<a href="{{ service_main.get_url }}" class="btn btn-blue accent">подробнее</a>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock trigger1_block %}
+
+
+{% block agents_block %}
+<div class="section">
+	<div class="our-agents padding-bottom padding-top">
+		<div class="container">
+			<div class="our-agents-wrapper">
+				<div class="sunhouse-title">
+					<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/></div>
+					<h2 class="main-title">Полезное о строительстве</h2>
+					<p class="sub-title">Всякое о строительстве, ремонте, продаже и покупке своего дома</p><br>
+					{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
+				</div>
+				<div class="posts">
+					<div class="row">
+						<div class="col-xs-12 col-md-8">
+							{% for post in post_list %}
+								<div class="post-item">
+									<h4>{{ post.name }}</h4>
+									<div class="text">{{ post.text|safe|truncatechars:200 }}</div>
+									<a href="{{ post.get_url }}" class="btn-readmore">Подробнее</a>
+									{# <a href="{{ post.get_url }}" class="">Подробнее</a> #}
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--<div class="section">
+	<div class="our-agents padding-bottom padding-top">
+		<div class="container">
+			<div class="our-agents-wrapper">
+				<div class="sunhouse-title">
+					<div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/></div>
+					<h2 class="main-title">Our Agents</h2>
+
+					<p class="sub-title">One day however a small line of blind text by the name of Lorem Ipsum decided to</p></div>
+				<div class="our-agents-content">
+					<div class="our-agent-item">
+						<div class="item-wrapper">
+							<div class="our-agent-avatar"><img src="/static/assets/images/avatars/avatar-3.png" alt="" class="img-responsive"/></div>
+							<div class="our-agent-socials"><a href="index.html#" class="link facebook"><i class="fa fa-facebook"></i></a><a href="index.html#" class="link twitter"><i class="fa fa-twitter"></i></a><a href="index.html#" class="link google"><i class="fa fa-google-plus"></i></a><a href="index.html#" class="link instagram"><i class="fa fa-instagram"></i></a></div>
+						</div>
+						<div class="our-agent-info"><a href="agent-single.html" class="name">John Anderson</a>
+
+							<p class="job">Director</p></div>
+					</div>
+					<div class="our-agent-item">
+						<div class="item-wrapper">
+							<div class="our-agent-avatar"><img src="/static/assets/images/avatars/avatar-4.png" alt="" class="img-responsive"/></div>
+							<div class="our-agent-socials"><a href="index.html#" class="link facebook"><i class="fa fa-facebook"></i></a><a href="index.html#" class="link twitter"><i class="fa fa-twitter"></i></a><a href="index.html#" class="link google"><i class="fa fa-google-plus"></i></a><a href="index.html#" class="link instagram"><i class="fa fa-instagram"></i></a></div>
+						</div>
+						<div class="our-agent-info"><a href="agent-single.html" class="name">Robert Lee</a>
+
+							<p class="job">Expert Agent</p></div>
+					</div>
+					<div class="our-agent-item">
+						<div class="item-wrapper">
+							<div class="our-agent-avatar"><img src="/static/assets/images/avatars/avatar-5.png" alt="" class="img-responsive"/></div>
+							<div class="our-agent-socials"><a href="index.html#" class="link facebook"><i class="fa fa-facebook"></i></a><a href="index.html#" class="link twitter"><i class="fa fa-twitter"></i></a><a href="index.html#" class="link google"><i class="fa fa-google-plus"></i></a><a href="index.html#" class="link instagram"><i class="fa fa-instagram"></i></a></div>
+						</div>
+						<div class="our-agent-info"><a href="agent-single.html" class="name">Adam Smith</a>
+
+							<p class="job">Expert Agent</p></div>
+					</div>
+					<div class="our-agent-item">
+						<div class="item-wrapper">
+							<div class="our-agent-avatar"><img src="/static/assets/images/avatars/avatar-6.png" alt="" class="img-responsive"/></div>
+							<div class="our-agent-socials"><a href="index.html#" class="link facebook"><i class="fa fa-facebook"></i></a><a href="index.html#" class="link twitter"><i class="fa fa-twitter"></i></a><a href="index.html#" class="link google"><i class="fa fa-google-plus"></i></a><a href="index.html#" class="link instagram"><i class="fa fa-instagram"></i></a></div>
+						</div>
+						<div class="our-agent-info"><a href="agent-single.html" class="name">Leonard Gonzalez</a>
+
+							<p class="job">Expert Agent</p></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>-->
+{% endblock agents_block %}
+
+
+{% block zindex_block %}
+<div class="section">
+	<div class="banner-sale-off">
+		<div class="banner-sale-off-background">
+			<div class="background-gray"></div>
+			<div class="background-glass"><img src="/static/assets/images/libs/background-glass.png" alt="" class="img-responsive"/></div>
+			<div data-wow-delay="0.25s" data-wow-duration="0.8s" class="background-house wow fadeInUp"><img src="/static/assets/images/libs/background-house-1.png" alt="" class="img-responsive"/></div>
+		</div>
+		<div class="container">
+			<div data-parallax="{&quot;y&quot;:&quot;20%&quot;}" class="banner-sale-off-wrapper">
+				<div class="name-house"><h2 class="title">Элитные дома</h2>
+
+					<p class="description">Современные, Инновационные, Прекрассные</p></div>
+				<div class="price-house">
+					<div class="price-for-house">
+						<div class="price"><sup><i class="fa fa-rub"></i></sup><span class="amount">24</span><span class="small amount">,999</span></div>
+						<div class="sub-price">м²</div>
+					</div>
+					<a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-transparent white">Узнать</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock zindex_block %}
+
+
+{% block reviews_block %}
+<div class="section">
+	<div class="our-clients-said padding-top padding-bottom">
+		<div class="container">
+			<div class="our-clients-said-wrapper">
+				<div class="sunhouse-title">
+					<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/><!--.icon-title--><!--   i.icon-warehouse--></div>
+					<h2 class="main-title">Отзывы наших клиентов</h2>
+
+					<p class="sub-title">Спасибо за Ваши отзывы они помогают нам чувствовать себя полезными</p></div>
+				<div class="our-clients-said-content">
+
+					{% for review in review_list %}
+					<div class="items"><p class="saying">{{ review.text }}</p>
+
+						<div class="info-client">
+							<div class="avatar"><img src="{{ review.get_photo_url }}" alt="" class="img-responsive"/></div>
+							<div class="more-info"><p class="name">{{ review.name }}</p>
+
+								<p class="job"> {{ review.position }}</p></div>
+						</div>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock reviews_block %}
+
+
+{% block logos_block %}
+<div class="section">
+	<div class="group-logos">
+		<div class="container">
+			<div class="slider-logo-wrapper">
+				<div class="carousel-logos">
+					{% for partner in partner_list %}
+						<div class="logo-item item"><a href="{{ partner.link }}"><img src="{{ partner.get_logo_url }}" alt="" class="img-responsive"/></a></div>	
+					{% endfor %}
+					{% for partner in partner_list %}
+						<div class="logo-item item"><a href="{{ partner.link }}"><img src="{{ partner.get_logo_url }}" alt="" class="img-responsive"/></a></div>	
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock logos_block %}
+
+
+{% block contact_form %}
+	{% contact_form request %}
+{% endblock contact_form %}
+
+
+
+{% block page_js %}
+	<script src="/static/assets/js/main.js"></script>
+{% endblock page_js %}
+

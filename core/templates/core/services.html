@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load core_tags %}
+{% load flatblocks %}
+{% load cropping %}
+
+
+{% block content %}
+<div class="section">
+    <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    {% for service in services %}
+                        <div class="row">
+                            <div class="col-md-12"><h3>{{ service.name }}</h3></div>
+                            <div class="col-xs-12 col-md-3">
+                                <img width="100%" src="{{ service.get_image_url }}">
+                            </div>
+                            <div class="col-xs-12 col-md-9">
+                                <p>{{ service.text|safe|truncatechars:500 }}</p>
+                                <a href="{{ service.get_url }}">подробнее</a>
+                            </div>
+                        </div>
+                        <br/>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}

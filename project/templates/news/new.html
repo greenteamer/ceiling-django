@@ -1,0 +1,45 @@
+<!--
+    new - объект новости
+        - new.id - id услуги
+        - new.name - имя услуги
+        - new.image - фотка услуги
+        - new.description - описание услуги
+        - new.meta_title - meta title услуги
+        - new.meta_description - meta title услуги
+        - new.get_absolute_url - полный путь до услуги
+        - new.get_new_images - полный путь для фотки
+
+    - объект изображения
+        - image.id - id услуги
+        - image.image - фотка услуги
+        - image.alt - alt услуги
+        - image.get_image_url - полный url фотки
+ -->
+
+{% extends "base.html" %}
+{% load header_tags %}
+{% load static from staticfiles %}
+{% load flatblocks %}
+
+{% block header %}
+    {% top_menu request %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="news-page">
+        <h1 class="align-center">{{ new.name }}</h1>
+        {# <h2 class="align-center">(temlates/news/new.html)</h2>#}
+        <div class="row">
+            <div class="col-md-16">
+                <img src="{{ new.get_image_url }}" width="200" align="left" hspace="15" vspace="10" alt="" />
+                {{ new.description|safe }}
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

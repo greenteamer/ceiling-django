@@ -1,0 +1,38 @@
+{% load configs_tags %}
+
+<div class="contact-us">
+	<div class="container">
+		<div data-parallax="{&quot;y&quot;:&quot;20%&quot;}" class="contact-us-scroll">
+			<div class="contact-us-wrapper">
+				<div class="contact-us-content"><h2 class="title">Контакты</h2>
+
+					<p class="text">Мы всегда рады помочь Вам, какие бы у Вас не возникали вопросы.</p>
+
+					<div class="info-list">
+						<ul class="list-unstyled">
+							<li class="info-line"><i class="info-icon fa fa-map-marker"></i><a href="index.html#" class="info-text">{{ config.site_address }}</a></li>
+							{% for phone in config.get_all_phones %}
+								<li class="info-line"><i class="info-icon fa fa-phone"></i><a href="index.html#" class="info-text">{{ phone }}</a></li>
+							{% endfor %}
+							<li class="info-line"><i class="info-icon fa fa-envelope-o"></i><a href="index.html#" class="info-text">{{ config.site_email }}</a></li>
+							{# <li class="info-line"><i class="info-icon fa fa-skype"></i><a href="index.html#" class="info-text">domain.sunhouse</a></li> #}
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="new-letter-wrapper">
+				<div class="new-letter-content"><h4 class="title">Наши новости</h4>
+
+					<p class="text">Подпишитесь на наши новости и будьте в курсе обо всех акциях и новых предложениях.</p>
+
+					<form action="/subscribe" method="post">{% csrf_token %}
+						<input type="name" name="name" placeholder="Ваше имя" class="contact-form"/>
+						<input type="email" name="email" placeholder="Ваш Email" class="contact-form"/>
+						<textarea name="text" placeholder="Поле для вопросов" class="contact-form"></textarea>
+						<button type="submit" class="btn btn-blue accent">Отправить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

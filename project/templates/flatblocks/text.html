@@ -1,0 +1,7 @@
+<div class="flatblock block-{{ flatblock.slug }} pk-{{ flatblock.pk }}">
+	{% if user.is_admin %}<a class="btn btn-edit" href="/flatblocks/{{ flatblock.pk }}/edit">редактировать</a>{% endif %}
+	{% if flatblock.header %}
+    <h2 class="flatblock-title black-text">{{ flatblock.header }}</h2>
+	{% endif %}
+    <div class="flatblock-content">{{ flatblock.content|safe }}</div>
+</div>

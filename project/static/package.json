@@ -1,0 +1,41 @@
+{
+  "name": "helpchina-project",
+  "version": "1.0.0",
+  "description": "test",
+  "author": "Vladimir",
+  "homepage": "http://helphcina.ru",
+  "browserify": {
+    "transform": [
+      [
+        "reactify",
+        {
+          "es6": false
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "jquery": "^2.1.4",
+    "js-cookie": "^1.5.1",
+    "material-ui": "^0.8.0",
+    "merge": "^1.2.0",
+    "microevent": "^1.0.0",
+
+    "react": "latest",
+    "react-dom": "^0.14.3",
+    "react-render-service": "^0.12.2",
+    "react-router": "^2.0.0",
+    "react-select": "^0.6.2",
+    "reflux": "^0.3.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "browserify": "latest",
+    "reactify": "^1.1.1",
+    "watchify": "^3.2.1"
+  },
+  "scripts": {
+    "prod": "jsx -x jsx ./app/views ./app/views",
+    "index-watch": "watchify ./app/admin/profile.jsx -o ./app/admin/profile_bundle.js -v"
+  }
+}

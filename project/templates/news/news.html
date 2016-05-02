@@ -1,0 +1,50 @@
+<!--
+    news - список всех новостей
+    - объект новости
+        - new.id - id услуги
+        - new.name - имя услуги
+        - new.image - фотка услуги
+        - new.description - описание услуги
+        - new.meta_title - meta title услуги
+        - new.meta_description - meta title услуги
+        - new.get_absolute_url - полный путь до услуги
+        - new.get_new_images - полный путь для фотки
+
+    - объект изображения
+        - image.id - id услуги
+        - image.image - фотка услуги
+        - image.alt - alt услуги
+        - image.get_image_url - полный url фотки
+ -->
+
+{% extends "base.html" %}
+{% load header_tags %}
+{% load static from staticfiles %}
+{% load flatblocks %}
+
+{% block header %}
+    {% top_menu request %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="news-list">
+        <h1 class="align-center">Новости</h1>
+        {# <h2 class="align-center">(temlates/news/news.html)</h2>#}
+        <div class="row">
+            {% for new in news %}
+                <div class="col-md-16">
+                    <h2>{{ new.name }}</h2>
+                    <img src="{{ new.get_image_url }}" width="200" align="left" hspace="15" vspace="10" alt="" />
+                    <p>{{ new.description|truncatewords:50|safe }}</p>
+                    <a class="bt_link" href="{{ new.get_absolute_url }}">подробнее</a>
+                </div>
+            {% endfor %}
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,101 @@
+<!--
+    service - объект услуги
+        - service.id - id услуги
+        - service.name - имя услуги
+        - service.icon - иконка услуги
+        - service.image - фотка услуги
+        - service.description - описание услуги
+        - service.meta_title - meta title услуги
+        - service.meta_description - meta title услуги
+        - service.get_icon_url - урл иконки
+        - service.get_absolute_url - полный путь до услуги
+        - service.get_image_url - полный путь для фотки
+        - service.get_service_works - все работы этой услуги
+        - service.get_main_work - основной объект work
+
+    children_service - список подкатегории этой услуги
+        - (у каждого объекта списка такой же набор данных как и у service)
+    all_services - список всех сервисов
+        - (у каждого объекта списка такой же набор данных как и у service)
+
+    - объект work
+        - work.service - объект сервиса к которому прикремлена работа
+        - work.name - название работы
+        - work.slug - slug работы
+        - work.address - адрес работы
+        - work.description - описание работы
+        - work.meta_title - meta title работы
+        - work.meta_description - meta description работы
+        - work.get_work_images - все фотки этой работы
+        - work.get_work_main_image_url - основная фотка url
+            - [если Object == image]:
+                - image.work - объект работы к которой пренадлежит эта фотка
+                - image.get_image_url - полный url фотки
+                - image.alt - alt фотки
+ -->
+
+{% extends "base.html" %}
+{% load header_tags %}
+{% load static from staticfiles %}
+{% load flatblocks %}
+
+{% block header %}
+    {% top_menu request %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="service-page">
+        <h1 class="align-center">
+            <img src="{{ service.get_icon_url }}" alt="" />
+            {{ service.name }}
+        </h1>
+        <div class="row">
+            <div class="col-md-16">
+                <h4>Подробнее об услуге:</h4>
+                  <div class="img-service"><img src="/media/{{service.image}}" alt="" /></div>
+                {{ service.description|safe }}
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+                <h4>Выполненные работы:</h4>
+                <div class="work-photo-services">
+                    {% for serv in all_services %}
+                        {% for work in serv.get_service_works|slice:":3" %}
+                          <div class="work-block">
+                            <div class="work-address">
+                            	{{ work.address }}
+                            </div>
+                              <div class="work-images">
+                                {% for img in work.get_work_images|slice:":3" %}
+                                  <a class="image-popup-no-margins" rel="group" href="{{ img.get_image_url }}">
+                                      <img src="{{ img.get_image_url }}" width="150" alt="" />
+                                  </a>
+                                {% endfor %}
+                              </div>
+                          </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="servise-chidren">
+            {% for serv in children_service %}
+              <div class="col-xs-12 col-sm-8">
+                <h3>{{ serv.name }}</h3>
+                <div class="line_title"></div>
+                <div class="servise-description-chidren">{{ serv.description }}</div>
+                <div class="button-serv">
+                  <a href="{{ serv.get_absolute_url }}" class="btn btn-btlink" >Подробнее</a>
+              </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+
+{% endblock %}

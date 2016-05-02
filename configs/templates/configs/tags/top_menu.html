@@ -1,0 +1,36 @@
+<div class="top-menu">
+	
+	<div class="navbar navbar-default">
+        <div class="container">
+          <!--<div class="navbar-header">	
+            <a class="navbar-brand" href="/">
+            	<img src="{{ config.get_logo_url }}" class="logo">
+            </a>
+          </div>-->
+          <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+            	<li>
+              		<a href="tel:{{ config.get_main_phone }}"><i class="fa fa-phone"></i>&nbsp;{{ config.get_main_phone }}</a>
+               	</li>
+               	<li>
+              		<a href="mail:{{ config.site_email }}"><i class="fa fa-envelope-o"></i>&nbsp;{{ config.site_email }}</a>
+               	</li>
+            </ul>
+            <!--<form class="navbar-form navbar-left">
+              <div class="form-group is-empty">
+                <input type="text" class="form-control col-md-8" placeholder="Search">
+              <span class="material-input"></span></div>
+            </form>-->
+            <ul class="nav navbar-nav navbar-right">
+            	{% if request.user.is_authenticated %}
+            		<li><a href="/logout">Выйти</a></li>
+            	{% else %}
+            		<li><a href="/login">Войти</a></li>
+            		<li><a href="/register">Регистрация</a></li>
+            	{% endif %}
+            </ul>
+          </div>
+        </div>
+  	</div>
+
+</div>

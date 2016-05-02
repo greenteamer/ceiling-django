@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="flatblock-edit">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Custom Edit "{{ flatblock.slug }}"</h1>
+
+				<form method="post">{% csrf_token %}
+					{{ form.as_p }}
+					<input type="submit" class="btn btn-success" value="Save" />
+				</form>    				
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,36 @@
+.top-menu {
+	background: #292f32;
+}
+.top-menu li p {
+	padding: 15px 0;
+    margin: 0;
+    line-height: 20px;
+    color: #a1b1bc;
+}
+.top-menu .navbar-default .navbar-nav li a {
+    color: #a1b1bc;
+    font-size: 14px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #263238;
+}
+.top-menu .navbar-default .navbar-nav>li>a:focus, 
+.top-menu .navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+    border-bottom: 2px solid #00E676;
+}
+
+.top-menu .navbar-default {
+    background-color: #263238;
+    border: none;
+    margin-bottom: 0;
+}
+
+.top-menu .navbar-form .form-control {
+    border-radius: 0px;
+}
+
+img.logo {
+    height: 73px;
+    position: absolute;
+    top: 11px;
+}

@@ -1,0 +1,113 @@
+<!--
+    В Этом шаблоне 1 переменная all_services
+    все остальное мы получаем у нее циклом
+
+    all_services - список всех сервисов
+        - (у каждого объекта списка такой же набор данных как и у service)
+
+    объект услуги
+        - service.id - id услуги
+        - service.name - имя услуги
+        - service.icon - иконка услуги
+        - service.image - фотка услуги
+        - service.description - описание услуги
+        - service.meta_title - meta title услуги
+        - service.meta_description - meta title услуги
+        - service.get_icon_url - урл иконки
+        - service.get_absolute_url - полный путь до услуги
+        - service.get_image_url - полный путь для фотки
+        - service.get_service_works - полный путь для фотки
+        - service.get_main_work - основной объект work
+
+        объект работы
+            - work.service - объект сервиса к которому прикремлена работа
+            - work.name - название работы
+            - work.slug - slug работы
+            - work.address - адрес работы
+            - work.description - описание работы
+            - work.meta_title - meta title работы
+            - work.meta_description - meta description работы
+            - work.get_work_images - все фотки этой работы
+            - work.get_work_main_image_url - основная фотка url
+                - [если Object == image]:
+                    - image.work - объект работы к которой пренадлежит эта фотка
+                    - image.get_image_url - полный url фотки
+                    - image.alt - alt фотки
+ -->
+
+
+{% extends "base.html" %}
+{% load header_tags %}
+{% load static from staticfiles %}
+{% load flatblocks %}
+
+{% block home_section %}
+{% endblock %}
+
+{% block tabs_section %}
+<div class="container">
+
+
+    <div class="content-folio">
+        <h1 class="align-center">Портфолио</h1>
+
+            {% for serv in all_services %}
+                {% if serv.get_service_works|length > 0 %}
+                <h2>{{ serv.name }}</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>{{ serv.get_main_work.name }}</h4>
+                        <a class="image-popup-no-margins" href="{{ serv.get_main_work.get_work_main_image_url  }}">
+                            <img src="{{ serv.get_main_work.get_work_main_image_url  }}" width="100%" height="auto">
+                        </a>
+                        <h4>{{ serv.get_main_work.address }}</h4>
+                        <div id="work-popup-{{ serv.get_main_work.id }}" class="white-popup mfp-hide zoom-anim-dialog">
+                            <h3>{{ serv.get_main_work.name }}</h3>
+                            <div class="work-description-node">{{ serv.get_main_work.description }}</div>
+                            <div class="work-img-node">
+                                {% for img in serv.get_main_work.get_work_images %}
+                                    <img src="{{ img.get_image_url }}" width="100%" height="auto">
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="link-work-popup">
+                            <a href="#work-popup-{{ serv.get_main_work.id }}"class="popup-with-move-anim btn btn-btlink btn-close">Подробнее</a>
+                        </div>
+                    </div>
+
+                    <div class="work-folio">
+                        <div class="col-md-6">
+                            <div class="row">
+                                {% for work in serv.get_service_works %}
+                                    <div class="col-xs-6 col-sm-6 col-md-4">
+                                        <h4>{{ work.name }}</h4>
+                                        {% for image in work.get_work_images|slice:":1" %}
+                                            <a class="image-popup-no-margins" rel="group" href="{{ image.get_image_url }}">
+                                                <img src="{{ image.get_image_url }}" width="100%" alt="" />
+                                            </a>
+                                        {% endfor %}
+                                        <h4>{{ work.address }}</h4>
+                                        <div id="work-popup-{{ work.id }}" class="white-popup mfp-hide zoom-anim-dialog">
+                                            <h3>{{ work.name }}</h3>
+                                            <div class="work-description-node">{{ work.description }}</div>
+                                            <div class="work-img-node">
+                                                {% for img in work.get_work_images %}
+                                                    <img src="{{ img.get_image_url }}" width="100%" height="auto">
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="link-work-popup">
+                                            <a href="#work-popup-{{ work.id }}"class="popup-with-move-anim btn btn-btlink btn-close">Подробнее</a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% load sitetree %}
+<div class="header-main header-default header-no-border">
+	<div class="container">
+		<div class="header-main-wrapper">
+			<div class="navbar-header">
+				<div class="logo logo-black pull-left"><a href="index.html" class="header-logo"><img src="/static/assets/images/logo-1.png" alt=""/></a></div>
+				<div class="logo logo-white pull-left"><a href="index.html" class="header-logo"><img src="/static/assets/images/logo-2.png" alt=""/></a></div>
+				<button type="button" data-toggle="collapse" data-target=".navigation" class="navbar-toggle btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+			</div>
+			{% sitetree_menu from "base" include 'trunk' template "sitetree/menu.html" %}
+		</div>
+	</div>
+</div>

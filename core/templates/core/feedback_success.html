@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load header_tags %}
+{% load static from staticfiles %}
+{% load flatblocks %}
+
+{% block header %}
+    {% top_menu request %}
+{% endblock %}
+
+{% block menu_slider %}
+{% endblock %}
+
+{% block info_slider %}
+{% endblock %}
+
+{% block content %}
+
+    <h1>Ваша заявка отправлена</h1>
+    <p>
+        В ближайшее время с Вами свяжутся
+    </p>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load material_form %}
+
+{% block meterial %}
+    <!--{% include 'material/includes/material_css.html' %}
+    {% include 'material/includes/material_js.html' %}-->
+{% endblock meterial %}
+
+
+{% block content %}
+    <div class="our-service padding-top padding-bottom">
+        <div class="container">
+            <div class="our-service-wrapper">
+                <div class="sunhouse-title">
+                    <div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/><!--.icon-title--><!--   i.icon-mail_box--></div>
+                    <h2 class="main-title">Войти</h2>
+                </div>
+                <div class="row">
+                    <div class="our-service-content">
+                        <div class="col-md-12">
+
+                            <p>{{ message }}</p>
+                            <div class="pure_form">
+                                <form action="" method="post" id="form_cart">{% csrf_token %}
+                                    {% if not user.is_authenticated %}
+                                        <!--{% form form=form %}{% endform %}-->
+                                        <input type="email" name="username" class="form-control"  />
+                                        <input type="password" name="password" class="form-control"  />
+                                    {% endif %}
+                                    <input id="submit" type="submit" name="checkout" class="btn btn-blue" value="Войти" />
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load header_tags %}
+{% load static from staticfiles %}
+{% load flatblocks %}
+
+{% block header %}
+    {% top_menu request %}
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="reviews-list">
+        <h1 class="align-center">Отзывы</h1>
+        <div class="row">
+            {% for review in reviews %}
+                <div class="review_item">
+                    <div class="col-xs-18">
+                        <div class="image-wrapper">
+                            <img src="{{ review.get_photo_url }}" class="review-img" alt="" />
+                        </div>
+                        <h3>{{ review.about }}</h3>
+                        <p>{{ review.text }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load core_tags %}
+{% load flatblocks %}
+{% load cropping %}
+
+
+{% block content %}
+<div class="section">
+    <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="sunhouse-title">
+                        <div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/><!--.icon-title--><!--    i.icon-church--></div>
+                        <h1 class="main-title">{{ post.name }}</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3">
+                            <img width="100%" src="{{ post.get_image_url }}">
+                        </div>
+                        <div class="col-xs-12 col-md-9">
+                            <p>{{ post.text|safe }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
