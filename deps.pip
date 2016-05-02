@@ -10,6 +10,7 @@ django-graphiql==0.4.4
 django-image-cropping==1.0.3
 django-mptt==0.8.3
 django-mptt-tree-editor==0.1.2
+django-robots==2.0
 django-sitetree==1.5.1
 django-suit==0.2.18
 djangorestframework==3.3.2

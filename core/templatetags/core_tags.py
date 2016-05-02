@@ -14,7 +14,7 @@ def phone(context, request):
 register.inclusion_tag('core/tags/phone.html', takes_context=True)(phone)
 
 
-def sub_footer(context, request):
+def footer(context, request):
     config = get_site_config(request)
     project_list = Project.objects.order_by('created_at')[:3]
     post_list = Post.objects.order_by('created_at')[:3]
@@ -26,7 +26,7 @@ def sub_footer(context, request):
         'post_list': post_list,
         'page_list': page_list
     }
-register.inclusion_tag('core/tags/sub_footer.html', takes_context=True)(sub_footer)
+register.inclusion_tag('core/tags/footer.html', takes_context=True)(footer)
 
 
 def contact_form(context, request):
