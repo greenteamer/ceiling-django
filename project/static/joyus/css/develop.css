@@ -1,0 +1,17 @@
+.seo-title{
+	text-align: center;
+	margin-bottom: 2em;
+}
+.seo-title h1{
+    font-weight: 400;
+}
+.tip-potolka h2{
+    font-size: 1.50em;
+    font-weight: 400;
+}
+.tip-potolka h2 small {
+    display: block;
+    font-weight: 100;
+    text-transform: none;
+    font-size: 1em;
+}

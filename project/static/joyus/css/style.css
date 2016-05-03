@@ -1864,11 +1864,12 @@ footer.footer2 .social a:hover {
 	width: 80%;
 	z-index: 999;
 }
-#slides h1 {
+#slides p {
 	color: #fff;
 	text-transform: uppercase;
+    font-size: 3em;
 }
-#slides h1 small {
+#slides p small {
 	font-size: 24px;
 	display: block;
 	margin: 0.5em 0;
