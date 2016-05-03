@@ -8,9 +8,9 @@ from core.models import Service, Post, Review, Partner, Page
 from configs.methods import get_site_config
 
 
-# def home(request, template_name="core/home.html"):
-# 	form = ContactForm()
-# 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+def home(request, template_name="core/home.html"):
+	form = ContactForm()
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 class ContactFormView(FormView):
