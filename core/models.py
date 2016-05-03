@@ -3,6 +3,47 @@ from __future__ import unicode_literals
 
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
+from mptt.models import MPTTModel, TreeForeignKey
+
+class Category(MPTTModel):
+    """Класс для категорий проектов"""
+    name             = models.CharField(u'Название',
+                        max_length=50, 
+                        unique=False)
+    slug             = models.SlugField(verbose_name=u'Ссылка на категорию',
+                        max_length=50, 
+                        unique=True, 
+                        help_text=u'Ссылка формируется автоматически при заполнении.')
+    text             = RichTextUploadingField()
+    meta_keywords    = models.CharField(verbose_name=u'Мета ключевые слова',
+                        max_length=255, 
+                        blank=True)
+    meta_description = models.CharField(verbose_name=u'Мета описание',
+                        max_length=255,
+                        help_text=u'Нужно для СЕО', 
+                        blank=True)
+    created_at       = models.DateTimeField(verbose_name=u'Создана',
+                        null=True, 
+                        auto_now_add=True)
+    updated_at       = models.DateTimeField(verbose_name=u'Обновлена',
+                        null=True, 
+                        auto_now=True)
+    parent           = TreeForeignKey('self',
+                        verbose_name=u'Родительская категория', 
+                        related_name='children',
+                        blank=True, 
+                        help_text=u'Родительская категория для текущей категоири',
+                        null=True)
+
+    class Meta:
+        ordering = ['created_at']
+        verbose_name_plural = u'Категории'
+
+    def __unicode__(self):
+        try:
+            return "%s-%s" % ('--' * self.level, self.parent.name, self.name)
+        except:
+            return '%s%s' % ('--' * self.level, self.name)
 
 
 class Service(models.Model):
@@ -64,6 +105,10 @@ class Service(models.Model):
 
 
 class Page(models.Model):
+    category         = models.ForeignKey(Category, 
+                        verbose_name=u'Категория', 
+                        null=True, 
+                        blank=True)
     name             = models.CharField(u'Заголовок',
                         max_length=50,
                         unique=False)
@@ -74,6 +119,11 @@ class Page(models.Model):
     icon             = models.CharField(max_length=200,
                         verbose_name=u"Иконка для страницы")
     text             = RichTextUploadingField()
+    preview_name     = models.CharField(u'preview Заголовок',
+                        max_length=50,
+                        unique=False)
+    preview_text     = RichTextUploadingField()
+
     meta_title       = models.CharField(verbose_name=u'Мета title',
                         max_length=80,
                         blank=True)
