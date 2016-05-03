@@ -23,9 +23,11 @@ def home(request, template_name="core/home.html"):
 	last_page = Page.objects.get(slug='mnogourovnevye-natyazhnye-potolki')
 	last_page.split_name = last_page.name.split(" ")
 	pages.append(last_page)
-	print pages[:4]
 
+	# подготовка текста "о нас"
 	about_page = Page.objects.get(slug='o-nas')
+
+	
 
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 

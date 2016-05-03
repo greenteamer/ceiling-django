@@ -119,6 +119,11 @@ class Page(models.Model):
     icon             = models.CharField(max_length=200,
                         verbose_name=u"Иконка для страницы")
     text             = RichTextUploadingField()
+    preview_name     = models.CharField(u'preview Заголовок',
+                        max_length=50,
+                        unique=False)
+    preview_text     = RichTextUploadingField()
+
     meta_title       = models.CharField(verbose_name=u'Мета title',
                         max_length=80,
                         blank=True)
