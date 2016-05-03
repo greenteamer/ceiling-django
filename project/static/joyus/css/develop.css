@@ -5,13 +5,14 @@
 .seo-title h1{
     font-weight: 400;
 }
-.tip-potolka h2{
-    font-size: 1.50em;
+.tip-potolka h2 small{
+    font-size: 1em;
     font-weight: 400;
+    text-transform: uppercase;
 }
-.tip-potolka h2 small {
+.tip-potolka h2 {
     display: block;
     font-weight: 100;
     text-transform: none;
-    font-size: 1em;
+    font-size: 1.50em;
 }

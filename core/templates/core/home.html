@@ -54,16 +54,16 @@
 			{% for page in pages %}	
 				<div class="tip-potolka">
 					<div class="col-md-3 col-sm-3 col-xs-12 wow fadeInDown" data-wow-duration="0.50s" data-wow-delay="0.50s">
-						<h3>
+						<h2>
 							{% for word in page.split_name %}
 								{% if forloop.first %}
 									<small>{{ word }}</small>
 								{% else %}{{ word }} {% endif %}	
 							{% endfor %}
-						</h3>
+						</h2>
 						<span class="line"></span>
 						{{ page.text|truncatewords:20|safe }}
-						<a class="btn btn-primary" href="/static/joyus/about1.html" title="See All">Read More <i class="fa fa-chevron-circle-right"></i></a>
+						<a class="btn btn-primary" href="/static/joyus/about1.html" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
 					</div>
 				</div>
 			{% endfor %}
@@ -88,8 +88,8 @@
 		<div class="container wow zoomIn" data-wow-duration="0.50s" data-wow-delay="0.50s">
 			<div class="col-md-12">
 				<div class="section-heading">
-						<h2><i class="fa fa-paint-brush square BGsec"></i>Our Projects <small>Our latest creation</small></h2>
-						<a class="btn btn-primary" href="/static/joyus/portfolio-2col.html" title="View All Projects">View All Projects <i class="fa fa-chevron-circle-right"></i></a>
+						<h2><i class="fa fa-rub square BGsec"></i>Стоимость натяжного потолка<small>по типу помещения</small></h2>
+						<a class="btn btn-primary" href="/static/joyus/portfolio-2col.html" title="View All Projects">Смотреть еще <i class="fa fa-chevron-circle-right"></i></a>
 						<div class="clear"></div>
 				</div>
 				
