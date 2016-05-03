@@ -45,7 +45,7 @@
 {% endblock slider %}
 
 
-{% block advantages %}
+{% block content %}
 	<section class="page-block-large">
 		<div class="container">
 			<div class="seo-title">
@@ -62,14 +62,14 @@
 							{% endfor %}
 						</h2>
 						<span class="line"></span>
-						{{ page.text|truncatewords:20|safe }}
-						<a class="btn btn-primary" href="/static/joyus/about1.html" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
+						{{ page.preview_text|truncatewords:20|safe }}
+						<a class="btn btn-primary" href="{{ page.get_url }}" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
 					</div>
 				</div>
 			{% endfor %}
 
 	</section>
-{% endblock advantages %}
+{% endblock content %}
 
 
 {% block trigger1 %}

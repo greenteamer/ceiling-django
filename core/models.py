@@ -149,7 +149,10 @@ class Page(models.Model):
         return self.name
 
     def get_url(self):
-        return "/pages/%s" % self.slug
+        try:
+            return "/natyazhnye-potolki/%s/%s/" % (self.category.slug, self.slug)
+        except Exception:
+            return "/natyazhnye-potolki/%s/" %  self.slug
 
 
 class Post(models.Model):
