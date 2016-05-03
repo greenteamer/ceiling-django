@@ -22,10 +22,6 @@ from django.contrib.auth.decorators import login_required
 # REST API
 from rest_framework import routers
 from restapi.views import *
-# GraphQL
-from django.views.decorators.csrf import csrf_exempt
-from graphene.contrib.django.views import GraphQLView
-from core.schema import schema
 
 
 router = routers.DefaultRouter()
@@ -34,10 +30,6 @@ router.register(r'accounts', AccountsViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
-    url(r'^graphql', csrf_exempt(GraphQLView.as_view(schema=schema))),
-    url(r'^graphiql', include('django_graphiql.urls')),
-    
     url(r'^api/', include(router.urls)),
     url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit), name='flatblocks-edit'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),

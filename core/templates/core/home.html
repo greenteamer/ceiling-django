@@ -48,32 +48,21 @@
 {% block advantages %}
 	<section class="page-block-large">
 		<div class="container">
-			<div class="seo-title">
-				<h1>Натяжные потолки в Новороссийске</h1>
-			</div>
-			<div class="tip-potolka">
+
+			{% for page in pages %}	
 				<div class="col-md-3 col-sm-3 col-xs-12 wow fadeInDown" data-wow-duration="0.50s" data-wow-delay="0.50s">
-					<h2>Матовый<small>натяжной потолок</small>  </h3><span class="line"></span>
-					<p>
-						Самый распространенный вид полотен. Может быть изготовлен из пленки ПВХ или ткани. На вид абсолютно не отличается от идеально оштукатуренного потолка. Великолепно смотрится в любом интерьере.
-					</p>
+					<h3>
+						{% for word in page.split_name %}
+							{% if forloop.first %}
+								<small>{{ word }}</small>
+							{% else %}{{ word }} {% endif %}	
+						{% endfor %}
+					</h3>
+					<span class="line"></span>
+					{{ page.text|truncatewords:20|safe }}
+					<a class="btn btn-primary" href="/static/joyus/about1.html" title="See All">Read More <i class="fa fa-chevron-circle-right"></i></a>
 				</div>
-				
-				<div class="col-md-3 col-sm-3 col-xs-12 wow fadeInDown" data-wow-duration="0.50s" data-wow-delay="0.75s">
-					<h2><small>Wide Range</small> VARIETIES</h3><span class="line"></span>
-					<p>Etiam aliquam lacinia rutrum. Sed sit amet tortor id eros suscipit semper. Suspendisse nec condimentum metus, nec porttitor risus.</p>
-				</div>
-				
-				<div class="col-md-3 col-sm-3 col-xs-12 wow fadeInDown" data-wow-duration="0.50s" data-wow-delay="1s">
-					<h2><small>Premium</small> FEATURES</h3><span class="line"></span>
-					<p>Quisque sodales ultricies posuere. Vestibulum ante ipsum primis in faucibus orci luctu. Proin scelerisque neque porta astapasta.</p>
-				</div>
-				
-				<div class="col-md-3 col-sm-3 col-xs-12 wow fadeInDown" data-wow-duration="0.50s" data-wow-delay="1.25s">
-					<h2><small>Industry</small> EXPERTS</h3><span class="line"></span>
-					<p>Sed bibendum lectus at cursus pharetra. Donec quis auctor mauris. Aenean ultricies elit augue, eget ultrices ante pretium in.</p>
-				</div>
-			</div>	
+			{% endfor %}
 								
 		</div><!-- end container -->
 	</section>
@@ -141,7 +130,7 @@
 						
 						<li>
 							<img class="img-responsive" src="/static/joyus/images/project/recent-home/04.jpg" width="725" height="475" alt="Project Name" />
-						 	<div class="project-data">
+							<div class="project-data">
 								<ul>
 										<li><i class="fa fa-home squareSmall outline"></i> <strong>Bunglow</strong>Lake Avenue</li>
 										<li><i class="fa fa-paint-brush squareSmall outline"></i> <strong>Work Done</strong>Total Interior &amp; exterior</li>
@@ -197,12 +186,11 @@
 		
 			<div class="col-md-6 col-sm-6 col-xs-12 content-box wow fadeInLeft" data-wow-duration="0.50s" data-wow-delay="0.50s">
 				<div class="section-heading">
-					<h2><i class="fa fa-building square BGsec"></i>About Us <small>Who are we</small></h2>
+					<h2><i class="fa fa-building square BGsec"></i>О нас <small>кто мы</small></h2>
 					<div class="clear"></div>
 				</div>
-				<p>Lorem ipsum dolor sit amet, rislaoreetsuscipit turpis mollis non. Lcons is molli  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis quam non tellus ultricies accumsan. Praesent volutpat neque non hendrerit finibus. Pellentesque sit amet fermentum risus.</p>
-				<p>Maecenas molestie pulas molestie pulvinar augue. Ut quis sem ut neque gravida ullamcorper. Nunc nisi risus, accumsan nec elit ac, molvinar augue. Ut quis sem ut neque gravida ullamcorper. Nunc nisi risus, accumsan nec elit ac, molestie varius urna.</p>
-				<a class="btn btn-primary" href="/static/joyus/about1.html" title="See All">Read More <i class="fa fa-chevron-circle-right"></i></a>
+				{{ about_page.text|truncatewords:100|safe }}
+				<a class="btn btn-primary" href="{{ about_page.get_url }}" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
 			</div>
 		
 			<div class="col-md-6 col-sm-6 col-xs-12 content-box wow fadeInRight" data-wow-duration="0.50s" data-wow-delay="0.50s">
