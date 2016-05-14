@@ -7,6 +7,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from mptt.models import MPTTModel, TreeForeignKey
 
 from authentication.models import Account
+from ceilings.models import Filter
 
 
 class Amenities(models.Model):
@@ -21,19 +22,21 @@ class Amenities(models.Model):
 
 class Project(models.Model):
 	account    = models.ForeignKey(Account)
-	amenities  = models.ManyToManyField(Amenities, 
+	amenities  = models.ManyToManyField(Amenities,
+					blank=True)
+	filter  = models.ManyToManyField(Filter,
 					blank=True)
 	name       = models.CharField(max_length=100,
 					verbose_name=u'Название проекта')
 	address    = models.CharField(max_length=100,
 					verbose_name=u'Адрес')
 	slug       = models.SlugField(verbose_name=u'Ссылка на проект',
-					max_length=50, 
-					unique=True, 
+					max_length=50,
+					unique=True,
 					help_text=u'Ссылка формируется автоматически при заполнении.')
 	text       = RichTextField()
 	sku        = models.IntegerField(verbose_name=u'Артикул',
-					null=True, 
+					null=True,
 					blank=True)
 	for_sale   = models.BooleanField(default=False,
 					verbose_name=u"на продажу")
@@ -43,10 +46,10 @@ class Project(models.Model):
 	badrooms   = models.IntegerField(verbose_name=u'Колличество спален')
 	bathrooms  = models.IntegerField(verbose_name=u'Колличество ванных комнат')
 	created_at = models.DateTimeField(u'Created at',
-					null=True, 
+					null=True,
 					auto_now_add=True)
 	updated_at = models.DateTimeField(u'Updated at',
-					null=True, 
+					null=True,
 					auto_now=True)
 
 	class Meta:
@@ -64,20 +67,20 @@ class Project(models.Model):
 
 class ProjectImage(models.Model):
 	project          = models.ForeignKey(Project,
-						verbose_name=u'Выбрать проект', 
+						verbose_name=u'Выбрать проект',
 						related_name='images')
 	image            = models.ImageField(verbose_name=u'Изображение проекта',
-						upload_to='projects/', 
-						help_text=u'Изображение', 
+						upload_to='projects/',
+						help_text=u'Изображение',
 						blank=True)
 	cropping         = ImageRatioField('image',
-						'500x320', 
+						'500x320',
 						verbose_name=u'Обрезка для проекта 500x320')
 	cropping_250x375 = ImageRatioField('image',
-						'250x375', 
+						'250x375',
 						verbose_name=u'Обрезка для проекта 250x375')
 	cropping_750x455 = ImageRatioField('image',
-						'750x455', 
+						'750x455',
 						verbose_name=u'Обрезка для катрочки проекта 750x455')
 
 	def get_url(self):

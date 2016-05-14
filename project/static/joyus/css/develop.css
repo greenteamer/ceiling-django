@@ -3,15 +3,28 @@
 	margin-bottom: 3em;
 }
 .seo-title h1{
-    font-weight: 400;
+	font-weight: 400;
 }
 .tip-potolka h2{
-    font-size: 1.50em;
-    font-weight: 400;
+	font-size: 1.50em;
+	font-weight: 400;
 }
 .tip-potolka h2 small {
-    display: block;
-    font-weight: 100;
-    text-transform: none;
-    font-size: 1em;
+	display: block;
+	font-weight: 100;
+	text-transform: none;
+	font-size: 1em;
+}
+
+@media only screen and (min-width: 1201px){
+	.boxed .page-block-large {
+	  padding: 12em 0!important;
+	}
+}
+ul.list-default li {
+	text-align: left;
+	list-style: none;
+}
+ul.list-default li ul.children {
+	padding-left: 0;
 }

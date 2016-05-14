@@ -4,6 +4,7 @@ register = template.Library()
 from configs.methods import get_site_config
 from siteprojects.models import Project
 from core.models import Page, Post
+from ceilings.models import Ceiling, Filter, FilterType
 
 
 def phone(context, request):
@@ -38,9 +39,29 @@ def contact_form(context, request):
 register.inclusion_tag('core/tags/contact_form.html', takes_context=True)(contact_form)
 
 
+def categories_list(context, request):
+    # textures = Texture.
+    categories = []
+    return {
+        'categories': categories,
+        'request': request,
+    }
+register.inclusion_tag('core/tags/categories_list.html', takes_context=True)(categories_list)
+
+
 def search_tag(context, request):
     return {
     	# 'configs': configs,
         'request': request,
     }
 register.inclusion_tag('core/tags/search_tag.html', takes_context=True)(search_tag)
+
+
+def sidebar(context, request):
+    # categories = Category.objects.all()
+    categories = []
+    return {
+        'categories': categories,
+        'request': request,
+    }
+register.inclusion_tag('core/tags/sidebar.html', takes_context=True)(sidebar)
