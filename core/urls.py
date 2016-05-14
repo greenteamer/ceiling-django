@@ -24,6 +24,7 @@ urlpatterns = [
     # url(ur'разрешение-на-строительство/$', views.redirect, name='redirect'),
     url(r'^$', views.home, name="home"),
     url(r'natyazhnye-potolki/(?P<category_slug>[-\w]+)/(?P<page_slug>[-\w]+)/$', views.page_item, name="page_item"),
+    url(r'natyazhnye-potolki/$', views.ceilings, name="ceilings"),
     url(r'services/$', views.services, name="service_list"),
     url(r'services/(?P<slug>[-\w]+)/$', views.service_item, name="service_item"),
     # url(r'pages/(?P<slug>[-\w]+)/$', views.page_item, name="page_item"),
