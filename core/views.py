@@ -4,25 +4,24 @@ from django.template import RequestContext
 from configs.forms import ContactForm
 from django.views.generic.edit import FormView
 from siteprojects.models import Project
-from core.models import Service, Post, Review, Partner, Page, Category
+from core.models import Service, Post, Review, Partner, Page
 from configs.methods import get_site_config
+from ceilings.models import FilterType, Filter, Ceiling
 
 
 def home(request, template_name="core/home.html"):
 	# подготовка плока из ч видов потолков
-	cat = Category.objects.get(slug='faktura')
-	categories = cat.get_children()
-	pages = []
-	for c in categories:
-		try: 
-			p = Page.objects.get(category=c)
-			p.split_name = p.preview_name.split(" ")
-			pages.append(p)
-		except Exception: 
-			pass
-	last_page = Page.objects.get(slug='mnogourovnevye-natyazhnye-potolki')
-	last_page.split_name = last_page.preview_name.split(" ")
-	pages.append(last_page)
+	# filters = Filter.objects.filter(type='po-fakture')
+	# ceilings = []
+	# for filter in filters:
+	# 	ceiling = Ceiling.objects.filter(filter=filter)[0]
+
+	# 	ceiling.split_name = ceiling.preview_name.split(" ")
+	# 	ceilings.append(ceiling)
+
+	# last_page = Page.objects.get(slug='mnogourovnevye-natyazhnye-potolki')
+	# last_page.split_name = last_page.preview_name.split(" ")
+	# pages.append(last_page)
 
 	# подготовка текста "о нас"
 	about_page = Page.objects.get(slug='o-nas')
@@ -72,24 +71,31 @@ def service_item(request, slug, template_name="core/service_item.html"):
 	title = ""
 	if service.meta_title:
 		title = service.meta_title
-	else: 
+	else:
 		title = service.name
 	description = service.meta_description
 
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
+def ceilings(request, template_name="core/ceilings.html"):
+	# categories = Category.objects.all()
+	pages = Page.objects.all()
+	title = u"Каталог потолков"
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
 def page_item(request, category_slug, page_slug, template_name="core/page_item.html"):
-	category = Category.objects.get(slug=category_slug)
+	# category = Category.objects.get(slug=category_slug)
 	page = Page.objects.get(slug=page_slug)
 
 	title = ""
 	if page.meta_title:
 		title = page.meta_title
-	else: 
+	else:
 		title = page.name
 	description = page.meta_description
-	
+
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
@@ -99,7 +105,7 @@ def post_item(request, slug, template_name="core/post_item.html"):
 	title = ""
 	if post.meta_title:
 		title = post.meta_title
-	else: 
+	else:
 		title = post.name
 	description = post.meta_description
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))

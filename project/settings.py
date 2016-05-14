@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication',
     'restapi',
+    'ceilings',
     'core',
     'configs',
     'flatblocks',
@@ -60,6 +61,7 @@ INSTALLED_APPS = [
     'image_cropping',
     'easy_thumbnails',
     'robots',
+    'mptt',
 
     # 'graphene'
 ]

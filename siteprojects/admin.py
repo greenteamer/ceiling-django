@@ -24,7 +24,7 @@ class ProjectAdmin(admin.ModelAdmin):
         #     'fields': ['special_image','special_body']}),
     # ]
     prepopulated_fields = {'slug': ('name', ), }
+    filter_horizontal = ('filter',)
     inlines = [ProjectImageInline, ]
-  
-admin.site.register(Project, ProjectAdmin)
 
+admin.site.register(Project, ProjectAdmin)

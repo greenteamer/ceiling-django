@@ -1,0 +1,19 @@
+{% load mptt_tags %}
+<aside class="widget wow fadeInUp" data-wow-duration="0.50s" data-wow-delay="0.50s">
+	<h4 class="widget-title">Категории</h4>
+	<ul class="list-default">
+		{% recursetree categories %}
+			<li>
+				<a href="{{ node.get_url }}" title="">{{ node.name }}</a>
+				{% if not node.is_leaf_node %}
+					<ul class="children">
+							{{ children }}
+					</ul>
+				{% endif %}
+			</li>
+		{% endrecursetree %}
+	</ul>
+
+	
+
+</aside>
