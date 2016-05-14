@@ -5,13 +5,62 @@
 .seo-title h1{
     font-weight: 400;
 }
-.tip-potolka h2{
-    font-size: 1.50em;
+.tip-potolka h2 small{
+    font-size: 1em;
     font-weight: 400;
+    text-transform: uppercase;
 }
-.tip-potolka h2 small {
+.tip-potolka h2 {
     display: block;
     font-weight: 100;
     text-transform: none;
-    font-size: 1em;
+    font-size: 1.50em;
+}
+.tip-potolka p{
+	margin-bottom: 5px;
+}
+.project-data h3 {
+    font-size: 1.40em;
+    padding-left: 24px;
+}
+.predl-uslugi-itogo b {
+color: #E54B49;
+}
+.predl-uslugi-itogo {
+    font-size: 20px;
+    padding: 10px 23px;
+}
+.predl-uslugi-itogo .fa{
+	margin-left: 6px;
+}
+.item.zoom-gallery a i,.item.popup-gallery a i{
+    background-color: #eeae1e;
+}
+
+
+.zoom-gallery a:hover::before,.popup-gallery a:hover::before{
+
+    bottom: 50%;
+    right: 40%;
+    opacity: 1;
+}
+.zoom-gallery a::before,.popup-gallery a::before{
+    position: absolute;
+    content: "\f00e";
+    font-family: FontAwesome;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    bottom:0;
+    color: #fff;
+    background: #eeae1e;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    padding: 16px;
+    font-size: 22px;
+    opacity: 0;
+    right: 0;
 }

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="project-gallery page-block-large">
+	<div class="container"> 
+		
+		<div class="filter-button-group button-group text-center">
+			<button class="btn btn-dark active" data-filter="*">All</button>
+			<button class="btn btn-dark" data-filter=".com">Commercial</button>
+			<button class="btn btn-dark" data-filter=".res">Residential</button>
+			<button class="btn btn-dark" data-filter=".ext">Exterior</button>
+			<button class="btn btn-dark" data-filter=".ren">Renovation</button>
+		</div>
+			<div class="grid four">
+
+				{% for project in projects %}
+					<div class="item com popup-gallery">
+						<a href="{{ project.get_image.get_url }}">
+							<img class="img-responsive" src="{{ project.get_image.get_url }}" width="300" height="300" alt="" />
+							<div class="overlay hasBoth"></div>
+						</a>
+					</div>
+				{% endfor %}
+
+			</div>
+	</div>
+</section>
+{% endblock content %}

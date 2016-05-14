@@ -16,18 +16,18 @@ def home(request, template_name="core/home.html"):
 	for c in categories:
 		try: 
 			p = Page.objects.get(category=c)
-			p.split_name = p.name.split(" ")
+			p.split_name = p.preview_name.split(" ")
 			pages.append(p)
 		except Exception: 
 			pass
 	last_page = Page.objects.get(slug='mnogourovnevye-natyazhnye-potolki')
-	last_page.split_name = last_page.name.split(" ")
+	last_page.split_name = last_page.preview_name.split(" ")
 	pages.append(last_page)
 
 	# подготовка текста "о нас"
 	about_page = Page.objects.get(slug='o-nas')
 
-	
+
 
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
@@ -79,8 +79,9 @@ def service_item(request, slug, template_name="core/service_item.html"):
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
-def page_item(request, slug, template_name="core/page_item.html"):
-	page = Page.objects.get(slug=slug)
+def page_item(request, category_slug, page_slug, template_name="core/page_item.html"):
+	category = Category.objects.get(slug=category_slug)
+	page = Page.objects.get(slug=page_slug)
 
 	title = ""
 	if page.meta_title:
