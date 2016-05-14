@@ -1,7 +1,7 @@
 #-*- coding: utf-8 -*-
 from django.contrib import admin
 from django import forms
-from siteprojects.models import Project, ProjectImage, Amenities
+from siteprojects.models import Project, ProjectImage
 from image_cropping import ImageCroppingMixin
 from ckeditor.widgets import CKEditorWidget
 
@@ -24,8 +24,7 @@ class ProjectAdmin(admin.ModelAdmin):
         #     'fields': ['special_image','special_body']}),
     # ]
     prepopulated_fields = {'slug': ('name', ), }
-    filter_horizontal = ('amenities',)
     inlines = [ProjectImageInline, ]
   
 admin.site.register(Project, ProjectAdmin)
-admin.site.register(Amenities)
+
