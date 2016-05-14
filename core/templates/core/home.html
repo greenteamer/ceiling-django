@@ -54,16 +54,16 @@
 			{% for page in pages %}	
 				<div class="tip-potolka">
 					<div class="col-md-3 col-sm-3 col-xs-12 wow fadeInDown" data-wow-duration="0.50s" data-wow-delay="0.50s">
-						<h3>
+						<h2>
 							{% for word in page.split_name %}
 								{% if forloop.first %}
 									<small>{{ word }}</small>
 								{% else %}{{ word }} {% endif %}	
 							{% endfor %}
-						</h3>
+						</h2>
 						<span class="line"></span>
-						{{ page.preview_text|truncatewords:20|safe }}
-						<a class="btn btn-primary" href="{{ page.get_url }}" title="See All">Read More <i class="fa fa-chevron-circle-right"></i></a>
+						{{ page.preview_text|safe }}
+						<a class="btn btn-primary" href="{{ page.get_url }}" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
 					</div>
 				</div>
 			{% endfor %}
@@ -88,59 +88,67 @@
 		<div class="container wow zoomIn" data-wow-duration="0.50s" data-wow-delay="0.50s">
 			<div class="col-md-12">
 				<div class="section-heading">
-						<h2><i class="fa fa-paint-brush square BGsec"></i>Our Projects <small>Our latest creation</small></h2>
-						<a class="btn btn-primary" href="/static/joyus/portfolio-2col.html" title="View All Projects">View All Projects <i class="fa fa-chevron-circle-right"></i></a>
-						<div class="clear"></div>
+					<h2><i class="fa fa-rub square BGsec"></i>Стоимость натяжного потолка<small>по типу помещения</small></h2>
+					<a class="btn btn-primary" href="/static/joyus/portfolio-2col.html" title="View All Projects">Смотреть еще <i class="fa fa-chevron-circle-right"></i></a>
+					<div class="clear"></div>
 				</div>
 				
 					<ul class="bxslider">
 						<li>
 							<img class="img-responsive" src="/static/joyus/images/project/recent-home/01.jpg" width="725" height="475" alt="Project Name" />
 							<div class="project-data">
+								<h3>Натяжной потолок на кухне</h3>
 								<ul>
-										<li><i class="fa fa-building squareSmall outline"></i> <strong>Company</strong>Awesome It Solutions</li>
-										<li><i class="fa fa-paint-brush squareSmall outline"></i> <strong>Work Done</strong>Total Infrastructure</li>
-										<li><i class="fa fa-calendar squareSmall outline"></i> <strong>Duration</strong>2 Week</li>
-										<li><i class="fa fa-dollar squareSmall outline"></i> <strong>Cost</strong>$50,000</li>
+										<li><i class="fa fa-object-ungroup squareSmall outline"></i> <strong>Монтаж полотна 8 м2</strong>3 040</li>
+										<li><i class="fa fa-square-o squareSmall outline"></i> <strong>Количество углов 4 шт</strong>1 900</li>
+										<li><i class="fa fa-circle-o squareSmall outline"></i> <strong>Окантовка трубы</strong>1 900</li>
+										<li><i class="fa fa-lightbulb-o squareSmall outline"></i> <strong>Установка люстры:1шт</strong>50,000</li>
 								</ul>
-								<a class="btn btn-dark btn-lg" href="/static/joyus/portfolio1.html" title="View Details">View Details<i class="fa fa-chevron-circle-right"></i></a>
+								<div class="predl-uslugi-itogo"><b>ИТОГО:</b> 3 670<i class="fa fa-rub" aria-hidden="true"></i></div>
+								<a class="btn btn-dark btn-lg" href="/static/joyus/portfolio1.html" title="Смотреть подробнее">Смотреть подробнее<i class="fa fa-chevron-circle-right"></i></a>
 							</div>
 						</li>
 						<li>
 							 <img class="img-responsive" src="/static/joyus/images/project/recent-home/02.jpg" width="725" height="475" alt="Project Name" />
 							<div class="project-data">
+								<h3>Натяжной потолок в детской комнате</h3>
 								<ul>
-										<li><i class="fa fa-home squareSmall outline"></i> <strong>House</strong>Platinum Eve</li>
-										<li><i class="fa fa-paint-brush squareSmall outline"></i> <strong>Work Done</strong>Living Room, Kitchen</li>
-										<li><i class="fa fa-calendar squareSmall outline"></i> <strong>Duration</strong>2 Week</li>
-										<li><i class="fa fa-dollar squareSmall outline"></i> <strong>Cost</strong>$30,000</li>
+										<li><i class="fa fa-object-ungroup squareSmall outline"></i> <strong>Монтаж полотна 15 м2</strong>1 900</li>
+										<li><i class="fa fa-square-o squareSmall outline"></i> <strong>Количество углов 4 шт</strong>1 900</li>
+										<li><i class="fa fa-circle-o squareSmall outline"></i> <strong>Окантовка трубы</strong>1 900</li>
+										<li><i class="fa fa-lightbulb-o squareSmall outline"></i> <strong>Установка люстры:1шт</strong>50,000</li>
 								</ul>
-								<a class="btn btn-dark btn-lg" href="/static/joyus/portfolio2.html" title="View Details">View Details<i class="fa fa-chevron-circle-right"></i></a>
+								<div class="predl-uslugi-itogo"><b>ИТОГО:</b> 3 670<i class="fa fa-rub" aria-hidden="true"></i></div>
+								<a class="btn btn-dark btn-lg" href="/static/joyus/portfolio1.html" title="Смотреть подробнее">Смотреть подробнее<i class="fa fa-chevron-circle-right"></i></a>
 							</div>
 						</li>
 						<li>
 							<img class="img-responsive" src="/static/joyus/images/project/recent-home/03.jpg" width="725" height="475" alt="Project Name" />
-						 <div class="project-data">
+							<div class="project-data">
+								<h3>Натяжной потолок в гостиной</h3>
 								<ul>
-										<li><i class="fa fa-building squareSmall outline"></i> <strong>Company</strong>Globocom Infotec</li>
-										<li><i class="fa fa-paint-brush squareSmall outline"></i> <strong>Work Done</strong>Total Interior</li>
-										<li><i class="fa fa-calendar squareSmall outline"></i> <strong>Duration</strong>3 Week</li>
-										<li><i class="fa fa-dollar squareSmall outline"></i> <strong>Cost</strong>$150,000</li>
+										<li><i class="fa fa-object-ungroup squareSmall outline"></i> <strong>Монтаж полотна 20 м2</strong>1 900</li>
+										<li><i class="fa fa-square-o squareSmall outline"></i> <strong>Количество углов 4 шт</strong>1 900</li>
+										<li><i class="fa fa-circle-o squareSmall outline"></i> <strong>Окантовка трубы</strong>1 900</li>
+										<li><i class="fa fa-lightbulb-o squareSmall outline"></i> <strong>Установка люстры:1шт</strong>50,000</li>
 								</ul>
-								<a class="btn btn-dark btn-lg" href="/static/joyus/portfolio3.html" title="View Details">View Details<i class="fa fa-chevron-circle-right"></i></a>
+								<div class="predl-uslugi-itogo"><b>ИТОГО:</b> 3 670<i class="fa fa-rub" aria-hidden="true"></i></div>
+								<a class="btn btn-dark btn-lg" href="/static/joyus/portfolio1.html" title="Смотреть подробнее">Смотреть подробнее<i class="fa fa-chevron-circle-right"></i></a>
 							</div>
 						</li>
 						
 						<li>
 							<img class="img-responsive" src="/static/joyus/images/project/recent-home/04.jpg" width="725" height="475" alt="Project Name" />
 							<div class="project-data">
+								<h3>Натяжной потолок в спальне</h3>
 								<ul>
-										<li><i class="fa fa-home squareSmall outline"></i> <strong>Bunglow</strong>Lake Avenue</li>
-										<li><i class="fa fa-paint-brush squareSmall outline"></i> <strong>Work Done</strong>Total Interior &amp; exterior</li>
-										<li><i class="fa fa-calendar squareSmall outline"></i> <strong>Duration</strong>3 Week</li>
-										<li><i class="fa fa-dollar squareSmall outline"></i> <strong>Cost</strong>$75,000</li>
+										<li><i class="fa fa-object-ungroup squareSmall outline"></i> <strong>Монтаж полотна 12 м2</strong>1 900</li>
+										<li><i class="fa fa-square-o squareSmall outline"></i> <strong>Количество углов 4 шт</strong>1 900</li>
+										<li><i class="fa fa-circle-o squareSmall outline"></i> <strong>Окантовка трубы</strong>1 900</li>
+										<li><i class="fa fa-lightbulb-o squareSmall outline"></i> <strong>Установка люстры:1шт</strong>50,000</li>
 								</ul>
-								<a class="btn btn-dark btn-lg" href="/static/joyus/portfolio4.html" title="View Details">View Details<i class="fa fa-chevron-circle-right"></i></a>
+								<div class="predl-uslugi-itogo"><b>ИТОГО:</b> 3 670<i class="fa fa-rub" aria-hidden="true"></i></div>
+								<a class="btn btn-dark btn-lg" href="/static/joyus/portfolio1.html" title="Смотреть подробнее">Смотреть подробнее<i class="fa fa-chevron-circle-right"></i></a>
 							</div>
 						</li>
 					</ul>
@@ -151,35 +159,87 @@
 
 
 {% block promo %}
-	<section class="promoBox">
-		<div class="container-fluid">
-			<div class="row">
-			
-				<div class="col-md-6 commercial wow fadeInLeft" data-wow-duration="0.50s" data-wow-delay="0.50s">
-					<div class="absShape BGprime opaque">
-						<div class="info">
-							<h3>Commercial</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis quam non tellus ultricies accumsan. Praesent volutpat neque non hendrerit</p>
-						</div>
-					</div>
-					<a href="/static/joyus/portfolio1.html" title=""><i class="fa fa-link square BGdark"></i></a>
+<section id="owl-recent-project" class="owl-carousel owl-theme zoom-gallery">
+	<!-- Item Start -->
+		<div class="item">
+			<a href="/static/joyus/images/project/recent-home/owl/01.jpg" title="Натяжные потолки"data-source="/portfolio">
+				<div class="img">
+					<img class="img-responsive" src="/static/joyus/images/project/recent-home/owl/01.jpg" width="400" height="500" alt="Project Name" />
 				</div>
-				
-				<div class="col-md-6 residential wow fadeInRight" data-wow-duration="0.50s" data-wow-delay="0.50s">
-					<div class="absShape BGsec opaque">
-						<div class="info">
-							<h3>Residential</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis quam non tellus ultricies accumsan. Praesent volutpat neque non hendrerit</p>
-						</div>
-					</div>
-					<div class="col-md-5 col-sm-4 col-xs-12">
-					</div>
-					<a href="/static/joyus/portfolio2.html" title=""><i class="fa fa-link square BGdark"></i></a>
+		    	<div class="project-data"></div>
+	    	</a>
+		</div>
+
+		<!-- Item Start -->
+		<div class="item">
+			<a href="/static/joyus/images/project/recent-home/owl/02.jpg"title="Натяжные потолки"data-source="/portfolio">
+				<div class="img">
+					<img class="img-responsive" src="/static/joyus/images/project/recent-home/owl/02.jpg" width="400" height="500" alt="Project Name" />
 				</div>
-				
-			</div><!-- end row -->
-		</div><!-- end container -->
-	</section>
+				<div class="project-data"></div>
+			</a>
+		</div>
+
+		<!-- Item Start -->
+		<div class="item">
+			<a href="/static/joyus/images/project/recent-home/owl/03.jpg"title="Натяжные потолки"data-source="/portfolio">
+				<div class="img">
+					<img class="img-responsive" src="/static/joyus/images/project/recent-home/owl/03.jpg" width="400" height="500" alt="Project Name" />
+				</div>
+				<div class="project-data"></div>
+			</a>
+		</div>
+
+		<!-- Item Start -->
+		<div class="item">
+			<a href="/static/joyus/images/project/recent-home/owl/04.jpg"title="Натяжные потолки"data-source="/portfolio">
+				<div class="img">
+					<img class="img-responsive" src="/static/joyus/images/project/recent-home/owl/04.jpg" width="400" height="500" alt="Project Name" />
+				</div>
+				<div class="project-data"></div>
+			</a>
+		</div>
+
+		<!-- Item Start -->
+		<div class="item">
+			<a href="/static/joyus/images/project/recent-home/owl/05.jpg"title="Натяжные потолки"data-source="/portfolio">
+				<div class="img">
+					<img class="img-responsive" src="/static/joyus/images/project/recent-home/owl/05.jpg" width="400" height="500" alt="Project Name" />
+				</div>
+				<div class="project-data"></div>
+			</a>
+		</div>
+
+		<!-- Item Start -->
+		<div class="item">
+			<a href="/static/joyus/images/project/recent-home/owl/06.jpg"title="Натяжные потолки"data-source="/portfolio">
+				<div class="img">
+					<img class="img-responsive" src="/static/joyus/images/project/recent-home/owl/06.jpg" width="400" height="500" alt="Project Name" />
+				</div>
+				<div class="project-data"></div>
+			</a>
+		</div>
+
+		<!-- Item Start -->
+		<div class="item">
+			<a href="/static/joyus/images/project/recent-home/owl/07.jpg"title="Натяжные потолки"data-source="/portfolio">
+				<div class="img">
+					<img class="img-responsive" src="/static/joyus/images/project/recent-home/owl/07.jpg" width="400" height="500" alt="Project Name" />
+				</div>
+				<div class="project-data"></div>
+			</a>
+		</div>
+
+		<!-- Item Start -->
+		<div class="item">
+			<a href="/static/joyus/images/project/recent-home/owl/08.jpg"title="Натяжные потолки"data-source="/portfolio">
+				<div class="img">
+					<img class="img-responsive" src="/static/joyus/images/project/recent-home/owl/08.jpg" width="400" height="500" alt="Project Name" />
+				</div>
+				<div class="project-data"></div>
+			</a>
+		</div>
+</section>
 {% endblock promo %}
 
 

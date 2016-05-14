@@ -10,41 +10,16 @@ from authentication.models import Account
 from ceilings.models import Filter
 
 
-class Amenities(models.Model):
-	name = models.CharField(max_length=100,
-				verbose_name=u'Название удобства')
-	class Meta:
-		verbose_name        = u"Удобство"
-		verbose_name_plural = u"Удобства"
-	def __unicode__(self):
-		return self.name
-
-
 class Project(models.Model):
-	account    = models.ForeignKey(Account)
-	amenities  = models.ManyToManyField(Amenities,
-					blank=True)
 	filter  = models.ManyToManyField(Filter,
 					blank=True)
 	name       = models.CharField(max_length=100,
 					verbose_name=u'Название проекта')
-	address    = models.CharField(max_length=100,
-					verbose_name=u'Адрес')
 	slug       = models.SlugField(verbose_name=u'Ссылка на проект',
 					max_length=50,
 					unique=True,
 					help_text=u'Ссылка формируется автоматически при заполнении.')
-	text       = RichTextField()
-	sku        = models.IntegerField(verbose_name=u'Артикул',
-					null=True,
-					blank=True)
-	for_sale   = models.BooleanField(default=False,
-					verbose_name=u"на продажу")
-	featured   = models.BooleanField(default=False,
-					verbose_name=u"В интересное")
-	square     = models.IntegerField(verbose_name=u'Площадь дома')
-	badrooms   = models.IntegerField(verbose_name=u'Колличество спален')
-	bathrooms  = models.IntegerField(verbose_name=u'Колличество ванных комнат')
+
 	created_at = models.DateTimeField(u'Created at',
 					null=True,
 					auto_now_add=True)

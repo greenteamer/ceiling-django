@@ -18,18 +18,22 @@
 <!-- Google Font Code -->
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&amp;subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&amp;subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <!-- Stylesheets -->
 <link href="/static/joyus/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <link href="/static/joyus/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="/static/joyus/css/animate.min.css">
-<link rel="stylesheet" href="/static/joyus/css/prettyPhoto.css">
-<link rel="stylesheet" href="/static/joyus/css/jquery.datetimepicker.css">
+<link rel="stylesheet" href="/static/joyus/css/animate.min.css"/>
+<link rel="stylesheet" href="/static/joyus/css/prettyPhoto.css"/>
+<link rel="stylesheet" href="/static/joyus/css/jquery.datetimepicker.css"/>
 <link rel="stylesheet" href="/static/joyus/css/bxslider.css">
 <link rel="stylesheet" href="/static/joyus/css/color.css" />
 <link rel="stylesheet" href="/static/joyus/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/static/joyus/css/develop.css">
-<link rel="stylesheet" href="/static/joyus/css/boxed.css" />
+<link rel="stylesheet" href="/static/joyus/css/develop.css"/>
+<link rel="stylesheet" href="/static/joyus/css/boxed.css"/>
+<link rel="stylesheet" href="/static/joyus/css/owl.carousel.css"/>
+<link rel="stylesheet" href="/static/joyus/css/boxed.css">
+<link rel="stylesheet" href="/static/joyus/css/magnific-popup.css"/>
+<link rel="stylesheet" href="/static/joyus/css/popup.css"/>
 
 <script src="/static/joyus/js/modernizr.custom.js"></script>
 <!--[if lt IE 9]>
@@ -140,6 +144,11 @@
 	<script src="/static/joyus/js/owl.carousel.min.js"></script>
 	<script src="/static/joyus/js/custom.js"></script>
 	<script src="/static/joyus/js/master.js"></script>
+	<script src="/static/joyus/js/jquery.magnific-popup.min.js"></script>
+	<script src="/static/joyus/js/popup.js"></script>
+	<script>
+	try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}
+	</script>
 </body>
 </html>
 

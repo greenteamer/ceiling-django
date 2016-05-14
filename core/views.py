@@ -86,7 +86,7 @@ def ceilings(request, template_name="core/ceilings.html"):
 
 
 def page_item(request, category_slug, page_slug, template_name="core/page_item.html"):
-	category = Category.objects.get(slug=category_slug)
+	# category = Category.objects.get(slug=category_slug)
 	page = Page.objects.get(slug=page_slug)
 
 	title = ""

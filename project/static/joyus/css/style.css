@@ -1927,15 +1927,12 @@ ul.bxslider {
 	list-style-type: none;
 	padding: 1.35em 1.15em 0.5em 6em;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	height: 96px;
+	height: 78px;
 }
 .project-data li i {
 	position: absolute;
 	top: 1.15em;
 	left: 1.15em;
-}
-.project-data li strong {
-	display: block;
 }
 .project-data li:hover i {
 	opacity: 1;
@@ -1963,7 +1960,7 @@ ul.bxslider {
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	font-size: 2.50em;
+	font-size: 1.7em;
 	font-weight: 100;
 	color: #fff;
 	padding: 0.65em 1.45em;
