@@ -96,14 +96,16 @@
 			<!-- ::: END ::: -->
 
 			<div class="gapS"></div>
+			{% if filter.get_advantages|length > 0 %}
+				<h4>Преимущества данного вида потолка:</h4>
+				<span class="line"></span>
+				<ul class="list-default">
+					{% for adv in filter.get_advantages %}
+						<li>{{ adv.name }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
 
-			<h4>Преимущества данного вида потолка:</h4>
-			<span class="line"></span>
-			<ul class="list-default">
-				{% for adv in filter.get_advantages %}
-					<li>{{ adv.name }}</li>
-				{% endfor %}
-			</ul>
 
 		</div><!-- end col-md-4 -->
 
