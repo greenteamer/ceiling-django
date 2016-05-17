@@ -39,16 +39,6 @@ def contact_form(context, request):
 register.inclusion_tag('core/tags/contact_form.html', takes_context=True)(contact_form)
 
 
-def categories_list(context, request):
-    # textures = Texture.
-    categories = []
-    return {
-        'categories': categories,
-        'request': request,
-    }
-register.inclusion_tag('core/tags/categories_list.html', takes_context=True)(categories_list)
-
-
 def search_tag(context, request):
     return {
     	# 'configs': configs,

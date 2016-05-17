@@ -35,8 +35,12 @@ class FilterType(models.Model):
 
 	def __unicode__(self):
 		return self.name
+
 	def get_url(self):
 		return "/natyazhnye-potolki/filter-type/%s/" % self.slug
+
+	def get_filters(self):
+		return Filter.objects.filter(type=self)
 
 
 class Filter(MPTTModel):
@@ -81,8 +85,9 @@ class Filter(MPTTModel):
 			return "%s-%s" % ('--' * self.level, self.parent.name, self.name)
 		except:
 			return '%s%s' % ('--' * self.level, self.name)
+
 	def get_url(self):
-		return "/natyazhnye-potolki/filter/%s/" % self.slug
+		return "/natyazhnye-potolki/%s/" % self.slug
 
 
 class FilterManager(models.Manager):
@@ -119,8 +124,7 @@ class Ceiling(models.Model):
 	preview_name     = models.CharField(u'preview Заголовок',
 														max_length=50,
 														unique=False)
-	preview_text     = RichTextUploadingField()
-
+	preview_text     = models.TextField()
 	meta_title       = models.CharField(verbose_name=u'Мета title',
 														max_length=80,
 														blank=True)
@@ -153,7 +157,8 @@ class Ceiling(models.Model):
 	def get_url(self):
 		return "/natyazhnye-potolki/%s/" %  self.slug
 
+	def get_image_url(self):
+		return "/media/%s/" %  self.image
+
 	def split_name(self):
 		return self.name.split(" ")
-
-
