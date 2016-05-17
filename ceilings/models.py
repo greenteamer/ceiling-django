@@ -14,7 +14,7 @@ class FilterType(models.Model):
 														unique=True,
 														help_text=u'Ссылка формируется автоматически при заполнении.')
 	text             = RichTextUploadingField(blank=True,
-	                          null=True)
+														null=True)
 	meta_keywords    = models.CharField(verbose_name=u'Мета ключевые слова',
 														max_length=255,
 														blank=True)
@@ -41,7 +41,7 @@ class FilterType(models.Model):
 
 class Filter(MPTTModel):
 	type 						 = models.ForeignKey(FilterType,
-	                          verbose_name=u'тип фильтра')
+														verbose_name=u'тип фильтра')
 	name             = models.CharField(u'Название',
 														max_length=50,
 														unique=False)
@@ -50,7 +50,7 @@ class Filter(MPTTModel):
 														unique=True,
 														help_text=u'Ссылка формируется автоматически при заполнении.')
 	text             = RichTextUploadingField(blank=True,
-	                          null=True)
+														null=True)
 	meta_keywords    = models.CharField(verbose_name=u'Мета ключевые слова',
 														max_length=255,
 														blank=True)
@@ -83,6 +83,26 @@ class Filter(MPTTModel):
 			return '%s%s' % ('--' * self.level, self.name)
 	def get_url(self):
 		return "/natyazhnye-potolki/filter/%s/" % self.slug
+
+
+class FilterManager(models.Manager):
+	def by_filter_type(self, filter_type):
+		# фильтруем натяжные потолки по типу фильтра
+		# сначала достаем все фильтры этого типа
+		# и добавляем все потолки отфильтрованные по каждому фильтру в set
+		# функция возвращает список [list]
+		ceilings = set()
+		filter_list = Filter.objects.filter(type=filter_type)
+		for filter in filter_list:
+			c_list = filter.ceiling_set.all()
+			ceilings.update(set(c_list))
+		return list(ceilings)
+
+	def by_filter_slug(self, filter_slug):
+		# фильтруем натяжные потолки по slug фильтра
+		# функция возвращает [list]
+		filter = Filter.objects.get(slug=filter_slug)
+		return filter.ceiling_set.all()
 
 
 class Ceiling(models.Model):
@@ -120,6 +140,9 @@ class Ceiling(models.Model):
 														null=True,
 														auto_now=True)
 
+	objects = models.Manager()
+	filter_objects = FilterManager()
+
 	class Meta:
 		verbose_name = u"Потолок"
 		verbose_name_plural = u"Потолки"
@@ -129,3 +152,8 @@ class Ceiling(models.Model):
 
 	def get_url(self):
 		return "/natyazhnye-potolki/%s/" %  self.slug
+
+	def split_name(self):
+		return self.name.split(" ")
+
+
