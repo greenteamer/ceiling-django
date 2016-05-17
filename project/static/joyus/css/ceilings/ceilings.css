@@ -1,0 +1,21 @@
+#ceiling-list .sidebar ul.list-default li {
+  list-style: none;
+  padding-left: 18px;
+  text-align: left;
+}
+
+#ceiling-list .sidebar ul>li>ul.children {
+  padding-left: 10px;
+}
+
+#ceiling-list .promoBox .commercial .absShape,
+#ceiling-list .promoBox .residential .absShape {
+  width: 100%;
+}
+#ceiling-list .promoBox .residential,
+#ceiling-list .promoBox .commercial {
+  height: 20em;
+}
+#ceiling-list .price {
+	color: #fff;
+}

@@ -5,12 +5,15 @@
 
 
 {% block content %}
-<section id="ceiling-list" class="member-info page-block-large">
+<section id="ceiling-lits" class="member-info page-block-large">
 	<div class="container">
 
 		<!-- start SIDEBAR -->
 		<div class="sidebar">
 			<div class="col-md-4 col-sm-4 col-xs-12 text-center wow fadeInUp" data-wow-duration="0.75s" data-wow-delay="1s">
+				<div class="img">
+					<a href="team-single.html" title="Person Name"><img class="img-responsive" src="/static/joyus/images/people/rectangle/02.jpg" alt="img"></a>
+				</div>
 				<div class="gapM"></div>
 					<ul class="social list-inline">
 						<li><a class="fb" href="team-single.html#" title="Follow Us on Facebook"><i class="fa fa-facebook"></i></a></li>
@@ -28,10 +31,7 @@
 		<!-- end SIDEBAR -->
 
 		<div class="col-md-8 col-sm-8 col-xs-12 wow fadeInUp" data-wow-duration="0.75s" data-wow-delay="0.50s">
-			<h1 class="big">
-				<strong>Каталог</strong>
-				натяжных потолков
-			</h1>
+			<h1 class="big"><strong>John</strong> Doe</h1>
 			<div class="meta-data BGlight row">
 				<div class="col-md-4 col-sm-12">
 					Founder
@@ -46,40 +46,15 @@
 			<blockquote>
 				<i class="fa fa-quote-left fa-4x"></i>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo purus quis urna vehicula ultricies. Ut tincidunt est vitae justo Phasellus vel tempor sapien.
-			</blockquote>
+		 	</blockquote>
 
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo purus quis urna vehicula ultricies. Ut tincidunt est vitae justo feugiat, quis mollis nisi consectetur. Phasellus vel tempor sapien. Ut scelerisque enim a susccilisis. Sed congue faucibus porta. Morbi sit amet purus erat. Cras urna nisl, porta  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo purus quis urna vehicula ultricies. Ut tincidunt est vitae justo feugiat, quis mollis nisi consectetur. </p>
+		 	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo purus quis urna vehicula ultricies. Ut tincidunt est vitae justo feugiat, quis mollis nisi consectetur. Phasellus vel tempor sapien. Ut scelerisque enim a susccilisis. Sed congue faucibus porta. Morbi sit amet purus erat. Cras urna nisl, porta  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo purus quis urna vehicula ultricies. Ut tincidunt est vitae justo feugiat, quis mollis nisi consectetur. </p>
 
-			<!--  :::  PROMO BOX ::: -->
-			<section class="promoBox">
-				<div class="container-fluid">
-					<div class="row">
+		 	<div class="gapS"></div>
 
-						{% for ceiling in ceilings %}
-					    <div
-					    	class="col-md-6 {% cycle 'commercial' 'residential' %}"
-					    	style="background: url({{ ceiling.get_image_url }}) no-repeat center center;">
-								<div class="absShape {% cycle 'BGprime' 'BGsec' %} opaque">
-									<div class="info">
-											<h3>{{ ceiling.name }}</h3>
-											<div class="price">{{ ceiling.price }} руб/м²</div>
-											<p>{{ ceiling.preview_text|truncatechars:100|safe }}</p>
-									</div>
-								</div>
-								<a href="portfolio1.html" title=""><i class="fa fa-link square BGdark"></i></a>
-							</div>
-						{% endfor %}
-
-					</div><!-- end row -->
-				</div><!-- end container -->
-			</section>
-			<!-- ::: END ::: -->
-
-			<div class="gapS"></div>
-
-			<h4>Skills</h4>
-			<span class="line"></span>
-			<ul class="list-default">
+		 	<h4>Skills</h4>
+		 	<span class="line"></span>
+		 	<ul class="list-default">
 				<li>Anim pariatur cliche reprehenderit, </li>
 				<li>enim eiusmod high life accusamus terry richardson ad squi</li>
 				<li>moon officia aute, non cupidatat skateboard dolor brunch  </li>
