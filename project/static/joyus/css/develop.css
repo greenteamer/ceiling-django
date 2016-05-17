@@ -36,8 +36,44 @@ color: #E54B49;
 .item.zoom-gallery a i,.item.popup-gallery a i{
     background-color: #eeae1e;
 }
-
-
+.featured h2, .featured h2 small {
+    color: #fff;
+    text-align: center;
+}
+.featured h2 {
+    font-size: 3em;
+    font-weight: 100;
+}
+.header_zakaz {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 24px;
+}
+.section-heading h3 {
+    float: left;
+    white-space: nowrap;
+    font-size: 1.85em;
+    text-transform: uppercase;
+    margin: 0;
+}
+.section-heading h3 .fa{
+    background-color: #eeae1e;
+    font-size: 0.75em;
+    float: left;
+    margin-right: 0.55em;
+    width: 2.35em;
+    height: 2.35em;
+    line-height: 2.35em;
+    color: #fff;
+    text-align: center;
+}
+.section-heading.folio-home {
+    padding: 5.7em 0 0em;
+    margin-bottom: 2.5em;
+}
+.header_zakaz button.btn.btn-primary {
+    border: 1px solid;
+}
 .zoom-gallery a:hover::before,.popup-gallery a:hover::before{
 
     bottom: 50%;
