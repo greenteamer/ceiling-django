@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load core_tags %}
+{% load flatblocks %}
+{% load cropping %}
+
+
+{% block breadcrumbs %}
+	<!--  :::  BREADCRUMBS ::: -->
+	<section class="breadcrumbs breadcrumbs2 servicesBG wow fadeInDown" data-wow-duration="0.25s" data-wow-delay="0.45s">
+	  <div class="boxedeb">
+	    <div class="container page-block-small">
+	      <div class="col-md-12 col-sm-12 col-xs-12">
+	          <h2>Services</h2>
+	          <span class="line"></span>
+	        <div class="rightText">
+	            <a href="index.html" title="Home">Home</a> / <a href="services.html" title="Services">Services</a> / Commercial Interior Design
+	        </div>
+	      </div>
+	    </div><!--end-container-->
+	  </div>
+	</section>
+	<!-- ::: END ::: -->
+{% endblock breadcrumbs %}
+
+
+{% block content %}
+	<section id="services-single" class="page-block-large">
+
+  	<!-- NAVIGATION FOR PREV / NEXT ITEM -->
+    <div class="absShape navigation">
+        <a href="services-single-4.html" title="Previous"><i class="fa fa-angle-left square BGsec"></i></a>
+        <a href="services-single-2.html" title="Next"><i class="fa fa-angle-right square BGsec"></i></a>
+    </div>
+
+  	<div class="container">
+
+      <div class="col-md-3 col-sm-4 col-xs-12 text-center wow fadeInUp" data-wow-duration="0.50s" data-wow-delay="0.50s">
+         <!-- Widget start -->
+        {% sidebar request %}
+      </div><!-- end col-md-4 -->
+
+      <div class="col-md-9 col-sm-8 col-xs-12 wow fadeInUp" data-wow-duration="0.50s" data-wow-delay="0.75s">
+      	<h1 class="big"><strong>Commercial</strong>Interior design</h1>
+        <div class="smallSlider">
+        	<ul class="bxslider">
+              <li>
+                <img class="img-responsive" src="images/project/01/slider/01.jpg" width="725" height="475" alt="Project Name" />
+              </li>
+              <li>
+                 <img class="img-responsive" src="images/project/01/slider/02.jpg" width="725" height="475" alt="Project Name" />
+              </li>
+              <li>
+                <img class="img-responsive" src="images/project/01/slider/03.jpg" width="725" height="475" alt="Project Name" />
+              </li>
+
+              <li>
+                <img class="img-responsive" src="images/project/01/slider/04.jpg" width="725" height="475" alt="Project Name" />
+              </li>
+            </ul>
+        </div>
+        <br>
+         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo purus quis urna vehicula ultricies. Ut tincidunt est vitae justo feugiat, quis mollis nisi consectetur. Phasellus vel tempor sapien. Ut scelerisque enim a susccilisis. Sed congue faucibus porta. Morbi sit amet purus erat. Cras urna nisl, porta  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus commodo purus quis urna vehicula ultricies. Ut tincidunt est vitae justo feugiat, quis mollis nisi consectetur. </p>
+
+         <div class="gapS"></div>
+
+         <h4>Lorem ipsum dolor sit amet</h4>
+         <span class="line"></span>
+         <ul class="list-default">
+            <li>Anim pariatur cliche reprehenderit, </li>
+            <li>enim eiusmod high life accusamus terry richardson ad squi</li>
+            <li>moon officia aute, non cupidatat skateboard dolor brunch  </li>
+            <li>Brunch 3 wolf moon tempor, sunt aliqua put a bird o</li>
+            <li>n it squid single-origin coffee nulla assumenda shoredit</li>
+          </ul>
+
+          <div class="gapM"></div>
+
+           <h2 class="prime text-capitalize">Book Appointment</h2>
+          <p>Fill up form below for appointment and our expert will contaxct you soon. All fields are required.</p>
+          <form id="contact_form" method="post" action="http://dezinethemes.com/envato/striking/200/01/09/form/contact.php">
+            <div class="field-wrapper row">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" />
+                </div>
+                <div class="col-md-6">
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone" />
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" />
+                </div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" value="" id="datetimepicker" name="datetimepicker" placeholder="Preffered Date & Time" />
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <textarea cols="60" rows="3" id="comment" name="comment" class="form-control" placeholder="Write your comment here..."></textarea>
+                </div>
+                <div class="col-md-1">
+                    <input type="text" id="security" name="security" class="form-control hide" value="" />
+                    <input type="submit" value="Submit &#xf138;" class="btn btn-primary btn-lg" id="submit" name="submit" />
+                </div>
+            </div>
+          </form>
+      </div><!-- end col-md-4 -->
+
+   </div><!-- end container -->
+</section>
+{% endblock content %}

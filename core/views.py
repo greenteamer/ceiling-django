@@ -10,25 +10,17 @@ from ceilings.models import FilterType, Filter, Ceiling
 
 
 def home(request, template_name="core/home.html"):
-	# подготовка плока из ч видов потолков
-	# filters = Filter.objects.filter(type='po-fakture')
-	# ceilings = []
-	# for filter in filters:
-	# 	ceiling = Ceiling.objects.filter(filter=filter)[0]
-
-	# 	ceiling.split_name = ceiling.preview_name.split(" ")
-	# 	ceilings.append(ceiling)
-
-	# last_page = Page.objects.get(slug='mnogourovnevye-natyazhnye-potolki')
-	# last_page.split_name = last_page.preview_name.split(" ")
-	# pages.append(last_page)
-
+	# получаем все потолки по фактуре , берем первые 3
+	# получаем по фильтру многоуровневые, берем 1
+	# возвращаем список из 4 объектов потолков
+	filter_type = FilterType.objects.get(slug="po-fakture")
+	ceilings = Ceiling.filter_objects.by_filter_type(filter_type=filter_type)[:3]
+	ceilings_multylavels = Ceiling.filter_objects.by_filter_slug(filter_slug="mnogourovnevye")[0]
+	ceilings.append(ceilings_multylavels)
 	# подготовка текста "о нас"
 	about_page = Page.objects.get(slug='o-nas')
-
-
-
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
 
 
 class ContactFormView(FormView):
@@ -75,13 +67,6 @@ def service_item(request, slug, template_name="core/service_item.html"):
 		title = service.name
 	description = service.meta_description
 
-	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
-
-
-def ceilings(request, template_name="core/ceilings.html"):
-	# categories = Category.objects.all()
-	pages = Page.objects.all()
-	title = u"Каталог потолков"
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
