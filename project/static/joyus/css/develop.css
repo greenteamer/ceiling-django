@@ -80,6 +80,15 @@ color: #E54B49;
     right: 40%;
     opacity: 1;
 }
+    .page-block-large a.btn.btn-primary {
+    margin-top: 10px;
+}
+.stat h3 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 3em;
+    margin: 0;
+}
 .zoom-gallery a::before,.popup-gallery a::before{
     position: absolute;
     content: "\f00e";
