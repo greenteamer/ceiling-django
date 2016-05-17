@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from mptt.models import MPTTModel, TreeForeignKey
+from image_cropping import ImageRatioField
 
 
 class FilterType(models.Model):
@@ -87,7 +88,24 @@ class Filter(MPTTModel):
 			return '%s%s' % ('--' * self.level, self.name)
 
 	def get_url(self):
-		return "/natyazhnye-potolki/%s/" % self.slug
+		return "/natyazhnye-potolki/filters/%s/" % self.slug
+
+	def split_name(self):
+		return self.name.split(" ")
+
+	def get_advantages(self):
+		return FilterAdvantages.objects.filter(filter=self)
+
+
+class FilterAdvantages(models.Model):
+	filter = models.ForeignKey(Filter,
+									verbose_name=u'Фильтр к которому принадлежит преимущество')
+	name   = models.CharField(u'Название преимущества',
+									max_length=50,
+									unique=False)
+
+	def __unicode__(self):
+		return self.name
 
 
 class FilterManager(models.Manager):
@@ -120,6 +138,9 @@ class Ceiling(models.Model):
 														max_length=50,
 														unique=True,
 														help_text=u'Ссылка формируется автоматически при заполнении.')
+	price						 = models.DecimalField(verbose_name=u'Цена за м²',
+	                          max_digits=5,
+	                          decimal_places=2, )
 	text             = RichTextUploadingField()
 	preview_name     = models.CharField(u'preview Заголовок',
 														max_length=50,
@@ -155,10 +176,48 @@ class Ceiling(models.Model):
 		return self.name
 
 	def get_url(self):
-		return "/natyazhnye-potolki/%s/" %  self.slug
+		return "/natyazhnye-potolki/ceilings/%s/" %  self.slug
 
 	def get_image_url(self):
 		return "/media/%s/" %  self.image
 
 	def split_name(self):
 		return self.name.split(" ")
+
+	def get_all_images(self):
+		return CeilingImage.objects.filter(ceiling=self)
+
+
+class CeilingImage(models.Model):
+	ceiling          = models.ForeignKey(Ceiling,
+						verbose_name=u'Выбрать потолок',
+						related_name='images')
+	image            = models.ImageField(verbose_name=u'Изображение',
+						upload_to='ceilings/',
+						help_text=u'Изображение',
+						blank=True)
+	cropping         = ImageRatioField('image',
+						'500x320',
+						verbose_name=u'Обрезка 500x320')
+	cropping_250x375 = ImageRatioField('image',
+						'250x375',
+						verbose_name=u'Обрезка 250x375')
+	cropping_750x455 = ImageRatioField('image',
+						'750x455',
+						verbose_name=u'Обрезка  750x455')
+
+	def get_url(self):
+		if self.image and self.image != '':
+			return "/media/%s" % self.image
+		else:
+			return '/static/images/none_image.png'
+	def get_url_750x455(self):
+		if self.image and self.image != '':
+			return "/media/%s" % self.cropping_750x455
+		else:
+			return '/static/images/none_image.png'
+	def get_url_250x375(self):
+		if self.image and self.image != '':
+			return "/media/%s" % self.cropping_250x375
+		else:
+			return '/static/images/none_image.png'
