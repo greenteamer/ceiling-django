@@ -5,5 +5,6 @@ import ceilings.views as views
 
 urlpatterns = [
 	url(r'natyazhnye-potolki/$', views.ceiling_list, name="ceiling_list"),
+	url(r'natyazhnye-potolki/(?P<filter_slug>[-\w]+)/$', views.filter_item, name="filter_item"),
   url(r'natyazhnye-potolki/(?P<filter_slug>[-\w]+)/(?P<ceiling_slug>[-\w]+)/$', views.ceiling_item, name="ceiling_item"),
 ]

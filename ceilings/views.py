@@ -23,3 +23,10 @@ def ceiling_item(request, filter_slug, ceiling_slug, template_name="ceilings/cei
 	description = ceiling.meta_description
 
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
+def filter_item(request, filter_slug, template_name="ceilings/filter_item.html"):
+	# categories = Category.objects.all()
+	ceilings = Ceiling.objects.all()
+	title = u"Каталог потолков"
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
