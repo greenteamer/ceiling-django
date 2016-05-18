@@ -1333,19 +1333,20 @@ span.clicks {
 	padding: 1.65em 0;
 	margin-top: 100px;
 }
-.breadcrumbs h2, .breadcrumbs h2 small {
+.breadcrumbs h1, .breadcrumbs h1 small {
 	color: #fff;
 }
-.breadcrumbs h2 {
+.breadcrumbs h1 {
 	font-size: 1.80em;
 	text-transform: uppercase;
+	font-weight: 400;
 }
-.breadcrumbs h2 small {
+.breadcrumbs h1 small {
 	display: block;
 	font-weight: 100;
 	text-transform: capitalize;
 }
-.breadcrumbs h2 i.square {
+.breadcrumbs h1 i.square {
 	font-size: 0.75em;
 	float: left;
 	margin-right: 0.55em;
@@ -1368,7 +1369,7 @@ span.clicks {
 .breadcrumbs.breadcrumbs2 .line {
 	margin: 0 auto;
 }
-.breadcrumbs.breadcrumbs2 h2 {
+.breadcrumbs.breadcrumbs2 h1 {
 	margin-top: 0.35em;
 	margin-bottom: 0.65em;
 }
@@ -2382,7 +2383,7 @@ ul.sitemap.list-main.bordered li > ul {
 \ +=+=+=+=+=+=+=+=+=+=+=+=+=+=+= */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
 /* Safari-Opera specific declarations here 
-  h1, .breadcrumbs h2 small, h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .featured h1 small, .recent-project ul.bxslider li .project-data a.btn, .meta.counter, .services .meta.counter {
+  h1, .breadcrumbs h1 small, h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .featured h1 small, .recent-project ul.bxslider li .project-data a.btn, .meta.counter, .services .meta.counter {
   	font-weight: 300;
   }
   html, body, div, p, table, tr, td, th, tbody, tfoot, ul, li, ol, dl, dd, dt, fieldset, blockquote, cite, input, select, textarea, button, section, article, aside, header, footer, nav, span,, .navbar-nav li .sub-nav li a, h6, footer p, footer .office span,
@@ -3166,7 +3167,7 @@ h6 {
 	height: auto;
 	margin-top: 10em;
 }
-.breadcrumbs.breadcrumbs2 h2 {
+.breadcrumbs.breadcrumbs2 h1 {
 	margin-top: 0.85em;
 }
 .header-top span {
