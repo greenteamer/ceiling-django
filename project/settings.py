@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'robots',
     'mptt',
+    'django_bootstrap_breadcrumbs',
 
     # 'graphene'
 ]

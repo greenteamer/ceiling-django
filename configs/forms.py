@@ -17,7 +17,7 @@ class ContactForm(forms.Form):
 	class Meta:
 		fields = [
 			'name',
-			'phone'
+			'phone',
 		]
 		labels = {
 			"name": u"",
@@ -25,6 +25,40 @@ class ContactForm(forms.Form):
 		}
 
 	def send_email(self, request):
+		print "................start send_email"
+		data = self.cleaned_data
+		# получаем данные конфигурации сайта
+		config = get_site_config(request)
+		# отправка формы
+		subject = u'Контактные данные пользователя %s' % config.site.domain
+		message = u'Имя: %s \n телефон: %s' % (data['name'], data['phone'])
+		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+
+
+class CeilingForm(forms.Form):
+	def __init__(self, *args, **kwargs):
+		super(CeilingForm, self).__init__(*args, **kwargs)
+		self.fields['name'].widget.attrs = {'placeholder':'Ваше имя', 'class':'form-control'}
+		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'form-control'}
+		self.fields['name'].label = ""
+		self.fields['phone'].label = ""
+	name = forms.CharField()
+	phone = forms.CharField()
+	ceiling = forms.IntegerField(widget=forms.HiddenInput)
+
+	class Meta:
+		fields = [
+			'name',
+			'phone',
+			'ceiling'
+		]
+		labels = {
+			"name": u"",
+			"phone": u""
+		}
+
+	def send_email(self, request):
+		print "................start send_email"
 		data = self.cleaned_data
 		# получаем данные конфигурации сайта
 		config = get_site_config(request)

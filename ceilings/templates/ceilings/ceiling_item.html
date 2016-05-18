@@ -1,29 +1,21 @@
 {% extends "base.html" %}
 {% load ceilings_tags %}
+{% load configs_tags %}
 {% load flatblocks %}
 {% load cropping %}
+{% load django_bootstrap_breadcrumbs %}
 
 
 {% block breadcrumbs %}
-	<!--  :::  BREADCRUMBS ::: -->
-	<section class="breadcrumbs breadcrumbs2 servicesBG wow fadeInDown" data-wow-duration="0.25s" data-wow-delay="0.45s">
-		<div class="boxedeb">
-			<div class="container page-block-small">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<h2>{{ ceiling.name }}</h2>
-					<span class="line"></span>
-					<div class="rightText">
-						<a href="index.html" title="Home">Home</a> / <a href="services.html" title="Services">Services</a> / Commercial Interior Design
-					</div>
-				</div>
-			</div><!--end-container-->
-		</div>
-	</section>
-	<!-- ::: END ::: -->
+	{% breadcrumb "Главная" "/" %}
+	{% breadcrumb "Каталог товаров" "ceiling_list" %}
+	{% breadcrumb ceiling.name ceiling.get_url %}
 {% endblock breadcrumbs %}
 
 
+
 {% block content %}
+	{% render_breadcrumbs "configs/breadcrumbs/main.html" %}
 	<section id="services-single" class="page-block-large">
 		<div class="container">
 
@@ -72,7 +64,8 @@
 			 	<h2 class="prime text-capitalize">Отправить заявку</h2>
 				<p>Оставьте Ваши данные и мы Вам перезвоним в течении 5 минут.</p>
 
-				<form id="contact_form" method="post" action="/contact-form/">{% csrf_token %}
+				<form id="contact_form" method="post" action="/ceiling-form/">{% csrf_token %}
+					{{ form.ceiling }}
 					<div class="field-wrapper row">
 						<div class="col-md-6">
 							{{ form.name }}
