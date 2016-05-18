@@ -49,6 +49,9 @@ class Service(models.Model):
 	def get_url(self):
 		return "/services/%s" % self.slug
 
+	def get_absolute_url(self):
+		return "/services/%s" % self.slug
+
 	def get_image_url(self):
 		return "/media/%s" % self.image
 
@@ -94,7 +97,10 @@ class Page(models.Model):
 		return self.name
 
 	def get_url(self):
-		return "/natyazhnye-potolki/%s/" %  self.slug
+		return "/pages/%s/" %  self.slug
+
+	def get_absolute_url(self):
+		return "/pages/%s/" %  self.slug
 
 
 class Post(models.Model):
@@ -135,6 +141,9 @@ class Post(models.Model):
 		return self.name
 
 	def get_url(self):
+		return "/posts/%s" % self.slug
+
+	def get_absolute_url(self):
 		return "/posts/%s" % self.slug
 
 	def get_image_url(self):

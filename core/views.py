@@ -70,7 +70,7 @@ def service_item(request, slug, template_name="core/service_item.html"):
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
-def page_item(request, category_slug, page_slug, template_name="core/page_item.html"):
+def page_item(request, page_slug, template_name="core/page_item.html"):
 	# category = Category.objects.get(slug=category_slug)
 	page = Page.objects.get(slug=page_slug)
 

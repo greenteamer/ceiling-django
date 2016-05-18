@@ -90,6 +90,9 @@ class Filter(MPTTModel):
 	def get_url(self):
 		return "/natyazhnye-potolki/filters/%s/" % self.slug
 
+	def get_absolute_url(self):
+		return "/natyazhnye-potolki/filters/%s/" % self.slug
+
 	def split_name(self):
 		return self.name.split(" ")
 
