@@ -194,6 +194,25 @@
 		  controls : false
 	 
 	  });
+	  	  var owl = $("#owl-recent-project-2");
+	  owl.owlCarousel({
+		 
+		  itemsCustom : [
+			[0, 1],
+			[450, 1],
+			[600, 2],
+			[700, 2],
+			[1000, 3],
+			[1200, 3],
+			[1400, 3],
+			[1600, 3]
+		  ],
+		  pagination: true,
+		  navigation: true,
+		  navigationText: ['<i class="fa fa-chevron-left square BGprime"></i>', '<i class="fa fa-chevron-right square BGprime"></i>'],
+	 
+	  });
+		  
 		  
 	// init Isotope
 	var $grid = $('.grid').isotope({

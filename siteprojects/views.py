@@ -14,4 +14,8 @@ def project_item(request, slug, template_name="siteprojects/project_item.html"):
 
 def project_list(request, template_name="siteprojects/project_list.html"):
 	projects = Project.objects.all()
+	filters = set()
+	for project in projects:
+		project_filters = project.filter.all()
+		filters.update(project_filters)
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))

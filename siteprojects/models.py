@@ -15,11 +15,7 @@ class Project(models.Model):
 					blank=True)
 	name       = models.CharField(max_length=100,
 					verbose_name=u'Название проекта')
-	slug       = models.SlugField(verbose_name=u'Ссылка на проект',
-					max_length=50,
-					unique=True,
-					help_text=u'Ссылка формируется автоматически при заполнении.')
-
+	
 	created_at = models.DateTimeField(u'Created at',
 					null=True,
 					auto_now_add=True)
@@ -38,6 +34,12 @@ class Project(models.Model):
 		return ProjectImage.objects.filter(project=self).first()
 	def get_all_images(self):
 		return ProjectImage.objects.filter(project=self)
+	def filters_to_str(self):
+		filters = self.filter.all()
+		str = ""
+		for filter in filters:
+			str = str + " " + filter.slug
+		return str
 
 
 class ProjectImage(models.Model):
