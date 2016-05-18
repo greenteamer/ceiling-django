@@ -1,29 +1,21 @@
 {% extends "base.html" %}
 {% load ceilings_tags %}
+{% load configs_tags %}
 {% load flatblocks %}
 {% load cropping %}
+{% load django_bootstrap_breadcrumbs %}
 
 
 {% block breadcrumbs %}
-	<!--  :::  BREADCRUMBS ::: -->
-	<section class="breadcrumbs breadcrumbs2 servicesBG wow fadeInDown" data-wow-duration="0.25s" data-wow-delay="0.45s">
-		<div class="boxedeb">
-			<div class="container page-block-small">
-				<div class="col-md-12 col-sm-12 col-xs-12">
-					<h2>{{ ceiling.name }}</h2>
-					<span class="line"></span>
-					<div class="rightText">
-						<a href="index.html" title="Home">Home</a> / <a href="services.html" title="Services">Services</a> / Commercial Interior Design
-					</div>
-				</div>
-			</div><!--end-container-->
-		</div>
-	</section>
-	<!-- ::: END ::: -->
+	{% breadcrumb "Главная" "/" %}
+	{% breadcrumb "Каталог товаров" "ceiling_list" %}
+	{% breadcrumb ceiling.name ceiling.get_url %}
 {% endblock breadcrumbs %}
 
 
+
 {% block content %}
+	{% render_breadcrumbs "configs/breadcrumbs/main.html" %}
 	<section id="services-single" class="page-block-large">
 		<div class="container">
 
@@ -70,27 +62,19 @@
 				{{ ceiling.text|safe }}
 
 			 	<h2 class="prime text-capitalize">Отправить заявку</h2>
-				<p>Оставьте заявку и время в которое Вам будет удобно принять звонок и мы Вам перезвоним.</p>
-				<form id="contact_form" method="post" action="http://dezinethemes.com/envato/striking/200/01/09/form/contact.php">
+				<p>Оставьте Ваши данные и мы Вам перезвоним в течении 5 минут.</p>
+
+				<form id="contact_form" method="post" action="/ceiling-form/">{% csrf_token %}
+					{{ form.ceiling }}
 					<div class="field-wrapper row">
 						<div class="col-md-6">
-							<input type="text" class="form-control" id="name" name="name" placeholder="Your Name" />
+							{{ form.name }}
 						</div>
 						<div class="col-md-6">
-							<input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone" />
-						</div>
-						<div class="col-md-6">
-							<input type="email" class="form-control" id="email" name="email" placeholder="Your Email" />
-						</div>
-						<div class="col-md-6">
-							<input type="text" class="form-control" value="" id="datetimepicker" name="datetimepicker" placeholder="Preffered Date & Time" />
-						</div>
-						<div class="col-md-12 col-sm-12 col-xs-12">
-							<textarea cols="60" rows="3" id="comment" name="comment" class="form-control" placeholder="Write your comment here..."></textarea>
+							{{ form.phone }}
 						</div>
 						<div class="col-md-1">
-							<input type="text" id="security" name="security" class="form-control hide" value="" />
-							<input type="submit" value="Submit &#xf138;" class="btn btn-primary btn-lg" id="submit" name="submit" />
+							<input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" />
 						</div>
 					</div>
 				</form>

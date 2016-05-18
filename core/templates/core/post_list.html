@@ -2,51 +2,40 @@
 {% load core_tags %}
 {% load flatblocks %}
 {% load cropping %}
+{% load django_bootstrap_breadcrumbs %}
 
 
 {% block breadcrumbs %}
-    <!--  :::  BREADCRUMBS ::: -->
-    <section class="breadcrumbs breadcrumbs2 servicesBG wow fadeInDown" data-wow-duration="0.25s" data-wow-delay="0.45s">
-        <div class="boxedeb">
-            <div class="container page-block-small">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h1>Статьи</h1>
-                    <span class="line"></span>
-                    <div class="rightText">
-                        <a href="index.html" title="Home">Home</a> / <a href="services.html" title="Services">Services</a> / Commercial Interior Design
-                    </div>
-                </div>
-            </div><!--end-container-->
-        </div>
-    </section>
-    <!-- ::: END ::: -->
+    {% breadcrumb "Home" "/" %}
+    {% breadcrumb "Статьи" "post_list" %}
 {% endblock breadcrumbs %}
 
 
 {% block content %}
-<div class="section page-block-large">
-    <div class="">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+    {% render_breadcrumbs "configs/breadcrumbs/main.html" %}
+    <div class="section page-block-large">
+        <div class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
 
-                    {% for post in posts %}
-                        <div class="row">
-                            <div class="col-md-12"><h3>{{ post.name }}</h3></div>
-                            <div class="col-xs-12 col-md-3">
-                                <img width="100%" src="{{ post.get_image_url }}">
+                        {% for post in posts %}
+                            <div class="row">
+                                <div class="col-md-12"><h3>{{ post.name }}</h3></div>
+                                <div class="col-xs-12 col-md-3">
+                                    <img width="100%" src="{{ post.get_image_url }}">
+                                </div>
+                                <div class="col-xs-12 col-md-9">
+                                    <p>{{ post.text|safe|truncatechars:500 }}</p>
+                                    <a href="{{ post.get_url }}">подробнее</a>
+                                </div>
                             </div>
-                            <div class="col-xs-12 col-md-9">
-                                <p>{{ post.text|safe|truncatechars:500 }}</p>
-                                <a href="{{ post.get_url }}">подробнее</a>
-                            </div>
-                        </div>
-                        <br/>
-                    {% endfor %}
+                            <br/>
+                        {% endfor %}
+
+                    </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
 {% endblock content %}

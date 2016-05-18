@@ -1,45 +1,36 @@
 {% extends "base.html" %}
+{% load django_bootstrap_breadcrumbs %}
+
 
 {% block breadcrumbs %}
-    <!--  :::  BREADCRUMBS ::: -->
-    <section class="breadcrumbs breadcrumbs2 servicesBG wow fadeInDown" data-wow-duration="0.25s" data-wow-delay="0.45s">
-        <div class="boxedeb">
-            <div class="container page-block-small">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h1>Наши работы</h1>
-                    <span class="line"></span>
-                    <div class="rightText">
-                        <a href="index.html" title="Home">Главная</a> / <a href="services.html" title="Services">Services</a> / Commercial Interior Design
-                    </div>
-                </div>
-            </div><!--end-container-->
-        </div>
-    </section>
-    <!-- ::: END ::: -->
+    {% breadcrumb "Home" "/" %}
+    {% breadcrumb "Наши работы" "project_list" %}
 {% endblock breadcrumbs %}
+
+
 {% block content %}
+	{% render_breadcrumbs "configs/breadcrumbs/main.html" %}
+	<section class="project-gallery page-block-large">
+		<div class="container">
 
-<section class="project-gallery page-block-large">
-	<div class="container"> 
-		
-		<div class="filter-button-group button-group text-center">
-			<button class="btn btn-dark active" data-filter="*">Все</button>
-			{% for filter in filters %}
-				<button class="btn btn-dark" data-filter=".{{ filter.slug }}">{{ filter.name }}</button>
-			{% endfor %}
-		</div>
-			<div class="grid four">
-
-				{% for project in projects %}
-					<div class="item {{ project.filters_to_str }} popup-gallery">
-						<a href="{{ project.get_image.get_url }}">
-							<img class="img-responsive" src="{{ project.get_image.get_url }}" width="300" height="300" alt="" />
-							<div class="overlay hasBoth"></div>
-						</a>
-					</div>
+			<div class="filter-button-group button-group text-center">
+				<button class="btn btn-dark active" data-filter="*">Все</button>
+				{% for filter in filters %}
+					<button class="btn btn-dark" data-filter=".{{ filter.slug }}">{{ filter.name }}</button>
 				{% endfor %}
-
 			</div>
-	</div>
-</section>
+				<div class="grid four">
+
+					{% for project in projects %}
+						<div class="item {{ project.filters_to_str }} popup-gallery">
+							<a href="{{ project.get_image.get_url }}">
+								<img class="img-responsive" src="{{ project.get_image.get_url }}" width="300" height="300" alt="" />
+								<div class="overlay hasBoth"></div>
+							</a>
+						</div>
+					{% endfor %}
+
+				</div>
+		</div>
+	</section>
 {% endblock content %}

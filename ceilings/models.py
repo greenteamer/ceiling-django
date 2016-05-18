@@ -178,6 +178,9 @@ class Ceiling(models.Model):
 	def get_url(self):
 		return "/natyazhnye-potolki/ceilings/%s/" %  self.slug
 
+	def get_absolute_url(self):
+		return "/natyazhnye-potolki/ceilings/%s/" %  self.slug
+
 	def get_image_url(self):
 		return "/media/%s/" %  self.image
 
