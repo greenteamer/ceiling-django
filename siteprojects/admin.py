@@ -23,7 +23,6 @@ class ProjectAdmin(admin.ModelAdmin):
         # (u'Специальная информация', {
         #     'fields': ['special_image','special_body']}),
     # ]
-    prepopulated_fields = {'slug': ('name', ), }
     filter_horizontal = ('filter',)
     inlines = [ProjectImageInline, ]
 

@@ -1,21 +1,51 @@
-#ceiling-list .sidebar ul.list-default li {
-  list-style: none;
-  padding-left: 18px;
-  text-align: left;
+#services-single .price{
+	font-size: 30px;
+	text-align: right;
+	float: right;
+	margin-bottom: 40px;
+	color: #fff;
+	padding: 10px;
+	background: #E54B49;
 }
 
+#services-single .sidebar ul.list-default li,
+#ceiling-list .sidebar ul.list-default li {
+	list-style: none;
+	padding-left: 18px;
+	text-align: left;
+}
+
+#services-single .sidebar ul>li>ul.children,
 #ceiling-list .sidebar ul>li>ul.children {
-  padding-left: 10px;
+	padding-left: 10px;
 }
 
 #ceiling-list .promoBox .commercial .absShape,
 #ceiling-list .promoBox .residential .absShape {
-  width: 100%;
+	width: 100%;
 }
 #ceiling-list .promoBox .residential,
 #ceiling-list .promoBox .commercial {
-  height: 20em;
+	height: 20em;
 }
 #ceiling-list .price {
 	color: #fff;
+	font-size: 30px;
+}
+#ceiling-list .promoBox i.square {
+	height: auto;
+	width: auto;
+	padding: 10px;
+	line-height: 30px;
+}
+#ceiling-list .promoBox .BGprime.opaque,
+#ceiling-list .promoBox .BGsec.opaque {
+	background-color: rgba(58, 58, 58, 0.9);
+}
+
+#ceiling-list .promoBox .commercial:hover .BGprime.opaque{
+	background-color: #e54b49;
+}
+#ceiling-list .promoBox .residential:hover .BGsec.opaque{
+	background-color: rgba(238, 174, 30, 0.9);
 }
