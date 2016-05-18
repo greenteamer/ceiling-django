@@ -148,8 +148,15 @@
 	<script src="/static/joyus/js/master.js"></script>
 	<script src="/static/joyus/js/jquery.magnific-popup.min.js"></script>
 	<script src="/static/joyus/js/popup.js"></script>
+	<script src="/static/joyus/js/jquery.maskedinput-1.2.2.js"></script>
 	<script>
 	try{(function() { for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; if (typeof(lastpass_f.lpsubmitorig2)=='object'){ continue;}lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); if (d) {for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ if (typeof(d.innerText) != 'undefined') { d.innerText=i.toString(); } else { d.textContent=i.toString(); } } } d.dispatchEvent(customEvent); }form.lpsubmitorig2(); } } }})()}catch(e){}
+	</script>
+
+	<script type="text/javascript">
+	   jQuery(function($){
+	   $("#phone").mask("+7(999) 999-9999");
+	   });
 	</script>
 </body>
 </html>
