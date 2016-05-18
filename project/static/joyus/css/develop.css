@@ -23,6 +23,32 @@
     font-size: 1.40em;
     padding-left: 24px;
 }
+.calltoAction i.fa.fa-calculator {
+    top: auto;
+    right: 0.5em;
+    bottom: 0.5em;
+    left: auto;
+    position: absolute;
+    font-size: 3em;
+    margin: 0;
+    opacity: 0.8;
+    color: #eeae1e;
+}
+.calltoAction i.fa.fa-volume-control-phone {
+    top: auto;
+    right: 0.5em;
+    bottom: 0.5em;
+    left: auto;
+    position: absolute;
+    font-size: 3em;
+    margin: 0;
+    opacity: 0.8;
+    color: #eeae1e;
+}
+input#phone {
+    background: url("/static/joyus/images/ico_ph.png") 16px 15px no-repeat rgb(255, 255, 255);
+    padding-left: 40px;
+}
 .predl-uslugi-itogo b {
 color: #E54B49;
 }
@@ -153,4 +179,7 @@ color: #E54B49;
     font-size: 22px;
     opacity: 0;
     right: 0;
+}
+footer.footer2 hr.light2 {
+    margin: 0;
 }
