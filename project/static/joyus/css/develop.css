@@ -183,3 +183,21 @@ color: #E54B49;
 footer.footer2 hr.light2 {
     margin: 0;
 }
+{
+    
+}
+#forma-zakaza .form-control, #forma-zakaza .form-control:focus {
+    padding-left: 1.5em;
+    height: 3em;
+    margin: 1.10em 0;
+}
+.copyright.wow.fadeInUp strong {
+    font-family: 'Aclonica', sans-serif;
+}
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black url(/static/joyus/images/AjaxLoader.gif) center center no-repeat;
+    opacity: .5;
+}

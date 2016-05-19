@@ -79,7 +79,9 @@
 			<div class="col-md-12">
 				<h2><small>Монтаж натяжных потолков</small>Лучшее решение для вашего интерьера</h2>
 				<div class="ostav_zayavku">
-					{% contact_form request %}
+					<div id="forma-zakaza">
+						{% contact_form request %}
+					</div>
 				</div>
 			</div>
 		</div><!--end-container-->
@@ -452,7 +454,7 @@
 				</div>
 				<div class="widget wow fadeInRight" data-wow-duration="0.30s" data-wow-delay="0.30s">
 					<h2>Вызвать замерщика<small>Введите свой номер телефона и мы перезваним Вам в течении минуты</small></h2>
-					<form action="http://dezinethemes.com/envato/striking/200/01/09/form/subscribe.php" id="subscribeForm" method="post">
+					<form id="zamer-form">{% csrf_token %}
 						<div class="form-row">
 							 <input type="tel" id="phone" name="phone" value="" class="form-control" placeholder="Ваш номер телефона">
 							 <input type="text" id="sub-security" name="sub-security" class="form-control hide" value="" />
@@ -461,6 +463,25 @@
 
 					</form>
 					<i class="fa fa-volume-control-phone"></i>
+					<div id="overlay"></div>
+					<div id="response">
+						<div class="modal fade" id="zamer-response" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						        <h3 class="modal-title" id="myModalLabel">Ваша заявка отправленна</h3>
+						      </div>
+						      <div class="modal-body">
+						       <strong>Вам перезвонят в теченни минуты</strong>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button"  data-dismiss="modal"class="btn btn-primary">Закрыть</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+					</div>
 				</div>
 			</div><!-- end container -->
 		</div> <!-- end boxedw -->

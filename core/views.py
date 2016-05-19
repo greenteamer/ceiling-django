@@ -116,3 +116,4 @@ def redirect(request, template_name="404.html"):
 
 	# return redirect('/404')
 	# return render_to_response(template_name, locals(),context_instance=RequestContext(request))
+
