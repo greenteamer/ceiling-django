@@ -1,10 +1,4 @@
 {% extends "base.html" %}
-{% load material_form %}
-
-{% block meterial %}
-    <!--{% include 'material/includes/material_css.html' %}
-    {% include 'material/includes/material_js.html' %}-->
-{% endblock meterial %}
 
 
 {% block content %}
@@ -23,7 +17,6 @@
                             <div class="pure_form">
                                 <form action="" method="post" id="form_cart">{% csrf_token %}
                                     {% if not user.is_authenticated %}
-                                        <!--{% form form=form %}{% endform %}-->
                                         <input type="email" name="username" class="form-control"  />
                                         <input type="password" name="password" class="form-control"  />
                                     {% endif %}

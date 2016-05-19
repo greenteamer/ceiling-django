@@ -42,6 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.redirects',
     'django.contrib.sitemaps',
 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.odnoklassniki',
+    'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.mailru',
     # 'graphql-core',
     # 'graphql-relay',
     'django_graphiql',
@@ -114,6 +123,13 @@ ROBOTS_SITEMAP_URLS = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 AUTH_USER_MODEL = 'authentication.Account'
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases

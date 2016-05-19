@@ -13,7 +13,7 @@ class AccountManager(BaseUserManager):
             raise ValueError('Users must have a valid username.')
 
         account = self.model(
-            email=self.normalize_email(email), 
+            email=self.normalize_email(email),
             username=kwargs.get('username')
         )
 
@@ -45,7 +45,7 @@ class Account(AbstractBaseUser):
     updated_at         = models.DateTimeField(auto_now=True)
 
     objects            = AccountManager()
-    backend            = 'django.contrib.auth.backends.ModelBackend'
+    # backend            = 'django.contrib.auth.backends.ModelBackend'
 
     USERNAME_FIELD     = 'email'
     REQUIRED_FIELDS    = ['username']
@@ -117,7 +117,7 @@ class PerformerProfile(models.Model):
 
 
 class CustomerProfile(models.Model):
-    account    = models.OneToOneField(Account, 
+    account    = models.OneToOneField(Account,
                                         related_name='customer_of_account')
     first_name = models.CharField(max_length=40, blank=True)
     last_name  = models.CharField(max_length=40, blank=True)
