@@ -15,7 +15,7 @@ class Project(models.Model):
 					blank=True)
 	name       = models.CharField(max_length=100,
 					verbose_name=u'Название проекта')
-	
+
 	created_at = models.DateTimeField(u'Created at',
 					null=True,
 					auto_now_add=True)
