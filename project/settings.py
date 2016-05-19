@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.redirects',
+    'django.contrib.sitemaps',
 
     # 'graphql-core',
     # 'graphql-relay',
@@ -62,6 +63,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'robots',
     'mptt',
+    'django_bootstrap_breadcrumbs',
 
     # 'graphene'
 ]
@@ -107,7 +109,7 @@ TEMPLATES = [
 ]
 
 ROBOTS_SITEMAP_URLS = [
-    'http://monolit-stroy.net/sitemap.xml',
+    'http://joy-us.ru/sitemap.xml',
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'

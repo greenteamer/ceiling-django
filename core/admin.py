@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Service, Post, Page, Review, Partner, Notes
+from core.models import Service, Post, Page, Review, Partner
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -20,10 +20,8 @@ class PageAdmin(admin.ModelAdmin):
         js = ('admin/js/admin.js',)
 
 
-
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Page, PageAdmin)
 admin.site.register(Review)
 admin.site.register(Partner)
-admin.site.register(Notes)

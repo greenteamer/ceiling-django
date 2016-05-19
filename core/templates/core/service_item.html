@@ -2,49 +2,37 @@
 {% load core_tags %}
 {% load flatblocks %}
 {% load cropping %}
+{% load django_bootstrap_breadcrumbs %}
 
 
 {% block breadcrumbs %}
-    <!--  :::  BREADCRUMBS ::: -->
-    <section class="breadcrumbs breadcrumbs2 servicesBG wow fadeInDown" data-wow-duration="0.25s" data-wow-delay="0.45s">
-        <div class="boxedeb">
-            <div class="container page-block-small">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h1>{{ service.name }}</h1>
-                    <span class="line"></span>
-                    <div class="rightText">
-                        <a href="index.html" title="Home">Home</a> / <a href="services.html" title="Services">Services</a> / Commercial Interior Design
-                    </div>
-                </div>
-            </div><!--end-container-->
-        </div>
-    </section>
-    <!-- ::: END ::: -->
+    {% breadcrumb "Home" "/" %}
+    {% breadcrumb "Услуги" "service_list" %}
+    {% breadcrumb service.name service.get_url %}
 {% endblock breadcrumbs %}
 
 
 {% block content %}
-<div class="section">
-    <div class="service-item">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="sunhouse-title">
-                        <div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/><!--.icon-title--><!--    i.icon-church--></div>
-                        <h1 class="main-title">{{ service.name }}</h2>
-                        <p class="sub-title">Мы совершенствуем наш сервис для Вас</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-3">
-                            <img width="100%" src="{{ service.get_image_url }}">
+    {% render_breadcrumbs "configs/breadcrumbs/main.html" %}
+    <div class="section">
+        <div class="service-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="sunhouse-title">
+                            <p class="sub-title">Мы совершенствуем наш сервис для Вас</p>
                         </div>
-                        <div class="col-xs-12 col-md-9">
-                            <p>{{ service.text|safe }}</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-3">
+                                <img width="100%" src="{{ service.get_image_url }}">
+                            </div>
+                            <div class="col-xs-12 col-md-9">
+                                <p>{{ service.text|safe }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
 {% endblock content %}

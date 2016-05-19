@@ -10,8 +10,8 @@ urlpatterns = [
     url(r'^$', views.home, name="home"),
     url(r'services/$', views.services, name="service_list"),
     url(r'services/(?P<slug>[-\w]+)/$', views.service_item, name="service_item"),
-    url(r'pages/(?P<slug>[-\w]+)/$', views.page_item, name="page_item"),
-    url(r'posts/(?P<slug>[-\w]+)/$', views.post_item, name="post_item"),
+    url(r'pages/(?P<page_slug>[-\w]+)/$', views.page_item, name="page_item"),
     url(r'posts/$', views.post_list, name="post_list"),
+    url(r'posts/(?P<slug>[-\w]+)/$', views.post_item, name="post_item"),
     url(r'success/$', views.success, name="success"),
 ]

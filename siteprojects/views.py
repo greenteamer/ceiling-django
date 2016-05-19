@@ -1,7 +1,5 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
-
-
 from siteprojects.models import Project, ProjectImage
 
 
@@ -14,6 +12,9 @@ def project_item(request, slug, template_name="siteprojects/project_item.html"):
 
 def project_list(request, template_name="siteprojects/project_list.html"):
 	projects = Project.objects.all()
+	title = u""
+	description = u""
+	keywords = u""
 	filters = set()
 	for project in projects:
 		project_filters = project.filter.all()

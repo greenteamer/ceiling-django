@@ -2,28 +2,17 @@
 {% load core_tags %}
 {% load flatblocks %}
 {% load cropping %}
+{% load django_bootstrap_breadcrumbs %}
 
 
 {% block breadcrumbs %}
-    <!--  :::  BREADCRUMBS ::: -->
-    <section class="breadcrumbs breadcrumbs2 servicesBG wow fadeInDown" data-wow-duration="0.25s" data-wow-delay="0.45s">
-        <div class="boxedeb">
-            <div class="container page-block-small">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h1>Услуги</h1>
-                    <span class="line"></span>
-                    <div class="rightText">
-                        <a href="index.html" title="Home">Home</a> / <a href="services.html" title="Services">Services</a> / Commercial Interior Design
-                    </div>
-                </div>
-            </div><!--end-container-->
-        </div>
-    </section>
-    <!-- ::: END ::: -->
+    {% breadcrumb "Home" "/" %}
+    {% breadcrumb "Услуги" "service_list" %}
 {% endblock breadcrumbs %}
 
 
 {% block content %}
+    {% render_breadcrumbs "configs/breadcrumbs/main.html" %}
     <div class="section page-block-large">
         <div class="">
             <div class="container">

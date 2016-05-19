@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
-from configs.forms import ContactForm
+from configs.forms import ContactForm, CalculatorForm
 from django.views.generic.edit import FormView
 from siteprojects.models import Project
 from core.models import Service, Post, Review, Partner, Page
 from configs.methods import get_site_config
 from ceilings.models import FilterType, Filter, Ceiling
+from core.functions import get_meta
+
+
 
 
 def home(request, template_name="core/home.html"):
@@ -19,7 +22,14 @@ def home(request, template_name="core/home.html"):
 	ceilings.append(ceilings_multylavels)
 	# подготовка текста "о нас"
 	about_page = Page.objects.get(slug='o-nas')
+	# калькулятор форма
+	calculator_form = CalculatorForm()
+	title = u"Главная"
+	description = u""
+	keywords = u""
+
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
 
 
 
@@ -51,55 +61,35 @@ class ContactFormView(FormView):
 
 def services(request, template_name="core/services.html"):
 	services = Service.objects.all()
-
 	title = u"Услуги"
+	description = u""
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def service_item(request, slug, template_name="core/service_item.html"):
-	print "request::::: %s" % request.GET
 	service = Service.objects.get(slug=slug)
-
-	title = ""
-	if service.meta_title:
-		title = service.meta_title
-	else:
-		title = service.name
-	description = service.meta_description
-
+	title, description, keywords = get_meta(service)
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
-def page_item(request, category_slug, page_slug, template_name="core/page_item.html"):
+def page_item(request, page_slug, template_name="core/page_item.html"):
 	# category = Category.objects.get(slug=category_slug)
 	page = Page.objects.get(slug=page_slug)
-
-	title = ""
-	if page.meta_title:
-		title = page.meta_title
-	else:
-		title = page.name
-	description = page.meta_description
-
+	title, description, keywords = get_meta(page)
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def post_item(request, slug, template_name="core/post_item.html"):
 	post = Post.objects.get(slug=slug)
-
-	title = ""
-	if post.meta_title:
-		title = post.meta_title
-	else:
-		title = post.name
-	description = post.meta_description
+	title, description, keywords = get_meta(post)
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def post_list(request, template_name="core/post_list.html"):
 	posts = Post.objects.all()
-
 	title = u"Статьи"
+	description = u""
+	keywords = u""
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
@@ -116,3 +106,4 @@ def redirect(request, template_name="404.html"):
 
 	# return redirect('/404')
 	# return render_to_response(template_name, locals(),context_instance=RequestContext(request))
+

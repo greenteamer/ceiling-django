@@ -5,9 +5,22 @@ from django.conf import settings
 from django.conf.urls.static import static
 from flatblocks.views import edit
 from django.contrib.auth.decorators import login_required
+# SITEMAPS
+from django.contrib.sitemaps.views import sitemap
+from ceilings.sitemaps import CeilingSitemap, FilterSitemap
+from core.sitemaps import ServiceSitemap, PostSitemap, HomeSitemap, PageSitemap
+sitemaps = {
+    'home': HomeSitemap,
+    'ceilings': CeilingSitemap,
+    'filters': FilterSitemap,
+    'services': ServiceSitemap,
+    'posts': PostSitemap,
+    'pages': PageSitemap
+}
 # REST API
 from rest_framework import routers
 from restapi.views import *
+
 
 
 router = routers.DefaultRouter()
@@ -20,6 +33,7 @@ urlpatterns = [
     url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit), name='flatblocks-edit'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^robots\.txt$', include('robots.urls')),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^', include('core.urls')),
     url(r'^', include('ceilings.urls')),
     url(r'^', include('authentication.urls')),

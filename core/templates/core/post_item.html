@@ -2,47 +2,34 @@
 {% load core_tags %}
 {% load flatblocks %}
 {% load cropping %}
+{% load django_bootstrap_breadcrumbs %}
 
 
 {% block breadcrumbs %}
-    <!--  :::  BREADCRUMBS ::: -->
-    <section class="breadcrumbs breadcrumbs2 servicesBG wow fadeInDown" data-wow-duration="0.25s" data-wow-delay="0.45s">
-        <div class="boxedeb">
-            <div class="container page-block-small">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h1>{{ post.name }}</h1>
-                    <span class="line"></span>
-                    <div class="rightText">
-                        <a href="index.html" title="Home">Home</a> / <a href="services.html" title="Services">Services</a> / Commercial Interior Design
-                    </div>
-                </div>
-            </div><!--end-container-->
-        </div>
-    </section>
-    <!-- ::: END ::: -->
+    {% breadcrumb "Home" "/" %}
+    {% breadcrumb "Статьи" "post_list" %}
+    {% breadcrumb post.name post.get_url %}
 {% endblock breadcrumbs %}
 
 
 {% block content %}
-<div class="section page-block-large">
-    <div class="">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="sunhouse-title">
-                        <div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/><!--.icon-title--><!--    i.icon-church--></div>
-                        <h1 class="main-title">{{ post.name }}</h1>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-3">
-                            <img width="100%" src="{{ post.get_image_url }}">
-                        </div>
-                        <div class="col-xs-12 col-md-9">
-                            <p>{{ post.text|safe }}</p>
+    {% render_breadcrumbs "configs/breadcrumbs/main.html" %}
+    <div class="section page-block-large">
+        <div class="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-3">
+                                <img width="100%" src="{{ post.get_image_url }}">
+                            </div>
+                            <div class="col-xs-12 col-md-9">
+                                <p>{{ post.text|safe }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>

@@ -30,13 +30,13 @@ def footer(context, request):
 register.inclusion_tag('core/tags/footer.html', takes_context=True)(footer)
 
 
-def contact_form(context, request):
-    config = get_site_config(request)
-    return {
-        'config': config,
-        'request': request,
-    }
-register.inclusion_tag('core/tags/contact_form.html', takes_context=True)(contact_form)
+# def contact_form(context, request):
+#     config = get_site_config(request)
+#     return {
+#         'config': config,
+#         'request': request,
+#     }
+# register.inclusion_tag('core/tags/contact_form.html', takes_context=True)(contact_form)
 
 
 def search_tag(context, request):
