@@ -7,9 +7,15 @@ from flatblocks.views import edit
 from django.contrib.auth.decorators import login_required
 # SITEMAPS
 from django.contrib.sitemaps.views import sitemap
-from ceilings.sitemaps import CeilingSitemap
+from ceilings.sitemaps import CeilingSitemap, FilterSitemap
+from core.sitemaps import ServiceSitemap, PostSitemap, HomeSitemap, PageSitemap
 sitemaps = {
+    'home': HomeSitemap,
     'ceilings': CeilingSitemap,
+    'filters': FilterSitemap,
+    'services': ServiceSitemap,
+    'posts': PostSitemap,
+    'pages': PageSitemap
 }
 # REST API
 from rest_framework import routers

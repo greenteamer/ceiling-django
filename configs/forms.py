@@ -10,7 +10,7 @@ class ContactForm(forms.Form):
 	def __init__(self, *args, **kwargs):
 		super(ContactForm, self).__init__(*args, **kwargs)
 		self.fields['name'].widget.attrs = {'placeholder':'Ваше имя', 'class':'form-control'}
-		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'form-control'}
+		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'form-control', 'id': 'phone'}
 		self.fields['name'].label = ""
 		self.fields['phone'].label = ""
 	name = forms.CharField()
