@@ -2,6 +2,8 @@
 from django import forms
 from django.core.mail import send_mail
 from methods import get_site_config
+from ceilings.models import FilterType, Filter
+
 
 
 class ContactForm(forms.Form):
@@ -79,7 +81,6 @@ class SubscribeForm(forms.Form):
 		self.fields['text'].label = ""
 	name = forms.CharField()
 	phone = forms.CharField()
-	phone = forms.Textarea()
 
 	class Meta:
 		fields = [
@@ -103,29 +104,37 @@ class SubscribeForm(forms.Form):
 		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
 
 
-class СalculatorForm(forms.Form):
+class CalculatorForm(forms.Form):
 	def __init__(self, *args, **kwargs):
-		super(СalculatorForm, self).__init__(*args, **kwargs)
-		self.fields['name'].widget.attrs = {'placeholder':'Ваше имя', 'class':'form-control'}
-		self.fields['email'].widget.attrs = {'placeholder':'Ваш email', 'class':'form-control'}
-		self.fields['text'].widget.attrs = {'placeholder':'Поле для вопроса', 'class':'form-control'}
-		self.fields['name'].label = ""
-		self.fields['email'].label = ""
-		self.fields['text'].label = ""
-	name = forms.CharField()
+		super(CalculatorForm, self).__init__(*args, **kwargs)
+		self.fields['metre'].widget.attrs = {'placeholder':'Подощадь натяжного потолка', 'class':'form-control'}
+		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'form-control'}
+		self.fields['tip_polotna'].widget.attrs = {'class':'form-control'}
+		CHOICES = []
+		filter_type =  FilterType.objects.get(slug="po-fakture")
+		filters = Filter.objects.filter(type=filter_type)
+		for filter in filters:
+			CHOICES.append([filter.id, filter.name])
+		self.fields['tip_polotna'].choices = CHOICES
+		self.fields['metre'].label = ""
+		self.fields['phone'].label = ""
+		self.fields['tip_polotna'].label = "Фактура полотна"
+
 	phone = forms.CharField()
-	phone = forms.Textarea()
+	metre = forms.IntegerField()
+	tip_polotna = forms.ChoiceField()
 
 	class Meta:
 		fields = [
-			'name',
 			'phone',
-			'text'
+			'metre',
+			'tip_polotna'
+
 		]
 		labels = {
-			"name": u"",
 			"phone": u"",
-			"text": u""
+			"metre": u"",
+			"tip_polotna": u""
 		}
 
 	def send_email(self, request):

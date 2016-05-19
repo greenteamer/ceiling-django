@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from configs.forms import SubscribeForm, CeilingForm, ContactForm, СalculatorForm
+from configs.forms import SubscribeForm, CeilingForm, ContactForm
 import json
 from django.http import HttpResponse
 from django.core.mail import send_mail
