@@ -2,6 +2,8 @@
 from django import forms
 from django.core.mail import send_mail
 from methods import get_site_config
+from ceilings.models import FilterType, Filter
+
 
 
 class ContactForm(forms.Form):
@@ -79,7 +81,6 @@ class SubscribeForm(forms.Form):
 		self.fields['text'].label = ""
 	name = forms.CharField()
 	phone = forms.CharField()
-	phone = forms.Textarea()
 
 	class Meta:
 		fields = [
@@ -91,6 +92,49 @@ class SubscribeForm(forms.Form):
 			"name": u"",
 			"phone": u"",
 			"text": u""
+		}
+
+	def send_email(self, request):
+		data = self.cleaned_data
+		# получаем данные конфигурации сайта
+		config = get_site_config(request)
+		# отправка формы
+		subject = u'Подписка пользователя %s' % config.site.domain
+		message = u'Имя: %s \n email: %s \n вопрос: %s' % (data['name'], data['email'], data['text'])
+		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+
+
+class CalculatorForm(forms.Form):
+	def __init__(self, *args, **kwargs):
+		super(CalculatorForm, self).__init__(*args, **kwargs)
+		self.fields['metre'].widget.attrs = {'placeholder':'Подощадь натяжного потолка', 'class':'form-control'}
+		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'form-control'}
+		self.fields['tip_polotna'].widget.attrs = {'class':'form-control'}
+		CHOICES = []
+		filter_type =  FilterType.objects.get(slug="po-fakture")
+		filters = Filter.objects.filter(type=filter_type)
+		for filter in filters:
+			CHOICES.append([filter.id, filter.name])
+		self.fields['tip_polotna'].choices = CHOICES
+		self.fields['metre'].label = ""
+		self.fields['phone'].label = ""
+		self.fields['tip_polotna'].label = "Фактура полотна"
+
+	phone = forms.CharField()
+	metre = forms.IntegerField()
+	tip_polotna = forms.ChoiceField()
+
+	class Meta:
+		fields = [
+			'phone',
+			'metre',
+			'tip_polotna'
+
+		]
+		labels = {
+			"phone": u"",
+			"metre": u"",
+			"tip_polotna": u""
 		}
 
 	def send_email(self, request):

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
-from configs.forms import ContactForm
+from configs.forms import ContactForm, CalculatorForm
 from django.views.generic.edit import FormView
 from siteprojects.models import Project
 from core.models import Service, Post, Review, Partner, Page
@@ -22,10 +22,14 @@ def home(request, template_name="core/home.html"):
 	ceilings.append(ceilings_multylavels)
 	# подготовка текста "о нас"
 	about_page = Page.objects.get(slug='o-nas')
+	# калькулятор форма
+	calculator_form = CalculatorForm()
 	title = u"Главная"
 	description = u""
 	keywords = u""
+
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
 
 
 
@@ -102,3 +106,4 @@ def redirect(request, template_name="404.html"):
 
 	# return redirect('/404')
 	# return render_to_response(template_name, locals(),context_instance=RequestContext(request))
+
