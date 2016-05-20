@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+import json
+import requests
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from configs.forms import SubscribeForm, CeilingForm, ContactForm
-import json
 from django.http import HttpResponse
 from django.core.mail import send_mail
 from methods import get_site_config
@@ -41,8 +42,23 @@ def ceiling_form_view(request, template_name="configs/success.html"):
 
 
 def ajax_zamer_view(request):
-	print ".......... start ajax_zamer_view"
+	# обработка ajax запроса на замер
 	phone = request.POST["phone"]
+	# создание лида в bitrix24
+	lead = {
+		'title':'Заявка на замер',
+		"phone_work": str(phone)
+	}
+	print "........ lead: %s" % lead
+	r = requests.post('https://api-2445581398133.apicast.io:443/v1/lead',
+										headers={
+											# 'Content-Type': 'application/json',
+											'X-API2CRM-USERKEY': '010a999f67ec2ad7fbed9d44f43ceee4',
+											'X-API2CRM-CRMKEY': 'a9fa9c0e8158f5d82247c38e88a8453166356876'
+										},
+										json = lead)
+	print r.text
+	# отправка письма на почту
 	config = get_site_config(request)
 	subject = u'Вызов замерщика'
 	message = u'телефон: %s' % phone

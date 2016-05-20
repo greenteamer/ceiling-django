@@ -50,75 +50,75 @@
 </head>
 
 <body id="top" onLoad="initialize()">
-						<!-- Modal -->
-						<div class="modal fade" id="myModal-calculator" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										<h3 class="modal-title" id="myModalLabel">Расчитать сстоимость потолка</h3>
-									</div>
-									<form id="calculator_form">{% csrf_token %}
-										<div class="modal-body">
-											<div class="calcilator-modal">
-												<div class="col-md-6">
-												<label for="">Площадь потолка<span class="fx_waring">*</span></label>	
-												{{ calculator_form.square }}
-												<span class="fx_input">м²</span>
-											</div>
-											<div class="col-md-6">
-												<label for="">Количество углов<span class="fx_waring">*</span></label>	
-												{{ calculator_form.angle }}
-												<span class="fx_input">шт.</span>
-											</div>
-											<div class="col-md-6">
-												<label for="">Фактура полотна<span class="fx_waring">*</span></label>	
-												{{ calculator_form.tip_polotna }}
-											</div>
-											<div class="col-md-6">
-												<label for="">Торговая марка потолка</label>
-												{{ calculator_form.brend_polotna }}
-											</div>
-											<div class="col-md-6">
-												<div class="form-bottom">
-													<label for="">Трубы уходящие в потолок:</label>
-													{{ calculator_form.tube }}
-													<span class="fx_input">шт.</span>
-												</div>
-												<div class="form-bottom form-height">
-													<label for="">Отверстие под крючковую люстру:</label>
-													{{ calculator_form.perforation }}
-													<span class="fx_input">шт.</span>
-												</div>
-												
-											</div>
-											<div class="col-md-6">
-												<div class="form-bottom">
-													<label for="">Закладная под потолочную люстру:</label>
-													{{ calculator_form.zakladnaya }}
-													<span class="fx_input">шт.</span>
-												</div>
-												<div class="form-bottom">
-													<label for="">Стойка под встраиваемый светильник:</label>
-													{{ calculator_form.strut }}
-													<span class="fx_input">шт.</span>
-												</div>
-											</div>
-											<div class="col-md-12">
-												{{ calculator_form.phone }}
-											</div>
-											<div class="col-md-12 form-text">
-												<p>Отправте размеры и значения Вашенго поталка,мы перезвоним и скажем Вам точную стоимость натяжного потолка.</p>
-											</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="submit" class="btn btn-primary">Отправить</button>
-										</div>
-									</form>
-								</div>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal-calculator" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3 class="modal-title" id="myModalLabel">Расчитать сстоимость потолка</h3>
+				</div>
+				<form id="calculator_form">{% csrf_token %}
+					<div class="modal-body">
+						<div class="calcilator-modal">
+							<div class="col-md-6">
+							<label for="">Площадь потолка<span class="fx_waring">*</span></label>
+							{{ calculator_form.square }}
+							<span class="fx_input">м²</span>
+						</div>
+						<div class="col-md-6">
+							<label for="">Количество углов<span class="fx_waring">*</span></label>
+							{{ calculator_form.angle }}
+							<span class="fx_input">шт.</span>
+						</div>
+						<div class="col-md-6">
+							<label for="">Фактура полотна<span class="fx_waring">*</span></label>
+							{{ calculator_form.tip_polotna }}
+						</div>
+						<div class="col-md-6">
+							<label for="">Торговая марка потолка</label>
+							{{ calculator_form.brend_polotna }}
+						</div>
+						<div class="col-md-6">
+							<div class="form-bottom">
+								<label for="">Трубы уходящие в потолок:</label>
+								{{ calculator_form.tube }}
+								<span class="fx_input">шт.</span>
+							</div>
+							<div class="form-bottom form-height">
+								<label for="">Отверстие под крючковую люстру:</label>
+								{{ calculator_form.perforation }}
+								<span class="fx_input">шт.</span>
+							</div>
+
+						</div>
+						<div class="col-md-6">
+							<div class="form-bottom">
+								<label for="">Закладная под потолочную люстру:</label>
+								{{ calculator_form.zakladnaya }}
+								<span class="fx_input">шт.</span>
+							</div>
+							<div class="form-bottom">
+								<label for="">Стойка под встраиваемый светильник:</label>
+								{{ calculator_form.strut }}
+								<span class="fx_input">шт.</span>
 							</div>
 						</div>
+						<div class="col-md-12">
+							{{ calculator_form.phone }}
+						</div>
+						<div class="col-md-12 form-text">
+							<p>Отправте размеры и значения Вашенго поталка,мы перезвоним и скажем Вам точную стоимость натяжного потолка.</p>
+						</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-primary">Отправить</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 	<div id="preloader">
 		<img src="/static/joyus/images/Preloader.gif" alt="Preloader" />
 	</div>
@@ -230,7 +230,7 @@
 	{% include "authentication/auth_response_modal.html" %}
 
 	<script type="text/javascript">
-	
+
 		$(document).ready(function () {
 			$(".phone").mask("+7(999) 999-9999");
 
@@ -322,72 +322,6 @@
 				});
 				return false;
 			});
-
-			// $("#login-form").on("submit", function (e) {
-			// 	e.preventDefault()
-			// 	// $('#preloader').fadeIn();
-			// 	var csrftoken = $.cookie('csrftoken');
-			// 	var username = $("#id_username").val()
-			// 	var password = $("#id_password").val()
-			// 	// console.log("start /authentication/login/: " + csrftoken + " " + username + " " + password);
-			// 	$.ajax({
-			// 		type: "POST",
-			// 		url: '/authentication/login/',
-			// 		data: {
-			// 			csrfmiddlewaretoken: csrftoken,
-			// 			username: username,
-			// 			password: password
-			// 		},
-			// 		success: function (data) {
-			// 			// Вывод текста результата отправки
-			// 			// $("#response").html(data);
-			// 			$('#preloader').fadeOut();
-			// 			console.log(data)
-			// 			$('#auth-message').html(data.message);
-			// 			$('#auth-response-modal').modal()
-			// 		},
-			// 		error: function (jqXHR, text, error) {
-			// 			// Вывод текста ошибки отправки
-			// 			// $("#response").html(error);
-			// 			$('#preloader').fadeOut();
-			// 			console.log(error)
-			// 		}
-			// 	});
-			// 	return false;
-			// });
-
-			// $("#register-form").on("submit", function (e) {
-			// 	e.preventDefault()
-			// 	// $('#preloader').fadeIn();
-			// 	var csrftoken = $.cookie('csrftoken');
-			// 	var email = $("#id_email").val()
-			// 	var password = $("#id_password").val()
-			// 	// console.log("start /authentication/login/: " + csrftoken + " " + username + " " + password);
-			// 	$.ajax({
-			// 		type: "POST",
-			// 		url: '/authentication/register/',
-			// 		data: {
-			// 			csrfmiddlewaretoken: csrftoken,
-			// 			email: email,
-			// 			password: password
-			// 		},
-			// 		success: function (data) {
-			// 			// Вывод текста результата отправки
-			// 			// $("#response").html(data);
-			// 			$('#preloader').fadeOut();
-			// 			console.log(data)
-			// 			$('#auth-message').html(data.message);
-			// 			$('#auth-response-modal').modal()
-			// 		},
-			// 		error: function (jqXHR, text, error) {
-			// 			// Вывод текста ошибки отправки
-			// 			// $("#response").html(error);
-			// 			$('#preloader').fadeOut();
-			// 			console.log(error)
-			// 		}
-			// 	});
-			// 	return false;
-			// });
 
 		});
 	</script>

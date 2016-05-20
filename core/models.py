@@ -103,7 +103,7 @@ class Post(BaseInfoExtendedModel):
 	icon             = models.CharField(max_length=200,
 														verbose_name=u"Иконка для статьи",
 														help_text=u'пример: <i class="icon-our-service icon-house_sell"></i>')
-	image            = models.ImageField(upload_to="services")
+	image            = models.ImageField(upload_to="posts")
 
 	class Meta:
 		verbose_name = u"Статья"
