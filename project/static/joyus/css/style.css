@@ -3437,7 +3437,7 @@ section.breadcrumbs.breadcrumbs2 {
 	margin-top: 16em;
 }
 #owl-recent-project .item {
-	height: 475px;
+	height: 289px;
 }
 #slides.slides2 img {
 	opacity: 0.8;
@@ -3564,7 +3564,7 @@ html, body, div, p, table, tr, td, th, tbody, tfoot, ul, li, ol, dl, dd, dt, fie
 	width: 31%;
 }
 #owl-recent-project .item {
-	height: 425px;
+	height: 255px;
 }
 #owl-recent-project .item .project-data {
 	padding: 1.85em 2.35em 2.35em;
@@ -4302,7 +4302,7 @@ footer h2 {
 }
 @media only screen and (min-width: 600px) and (max-width: 699px) {
 #owl-recent-project .item {
-	height: 385px;
+	height: 239px;
 }
 }
 /* iPhone 4 & 5 (portrait & landscape)----------- */
