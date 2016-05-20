@@ -1,0 +1,7 @@
+.header-top ul li.auth a {
+  padding: 0 20px;
+  width: auto;
+}
+.header-top ul li.auth.last a {
+  border-right: 0;
+}

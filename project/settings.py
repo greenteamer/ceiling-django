@@ -42,6 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.redirects',
     'django.contrib.sitemaps',
 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.instagram',
+    # 'allauth.socialaccount.providers.odnoklassniki',
+    # 'allauth.socialaccount.providers.vk',
+    # 'allauth.socialaccount.providers.facebook',
+    # 'allauth.socialaccount.providers.mailru',
     # 'graphql-core',
     # 'graphql-relay',
     'django_graphiql',
@@ -51,7 +60,7 @@ INSTALLED_APPS = [
     'sitetree',
     'rest_framework',
     'authentication',
-    'restapi',
+    # 'restapi',
     'ceilings',
     'core',
     'configs',
@@ -113,8 +122,22 @@ ROBOTS_SITEMAP_URLS = [
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
-AUTH_USER_MODEL = 'authentication.Account'
+# AUTH_USER_MODEL = 'auth.User'
 
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+LOGIN_REDIRECT_URL = "/"
+# ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_EMAIL_VERIFICATION = "optional"
+# SOCIALACCOUNT_ADAPTER = 'authentication.adapter.MySocialAccountAdapter'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
