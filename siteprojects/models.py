@@ -6,7 +6,6 @@ from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from mptt.models import MPTTModel, TreeForeignKey
 
-from authentication.models import Account
 from ceilings.models import Filter
 
 

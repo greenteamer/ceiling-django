@@ -18,25 +18,30 @@ sitemaps = {
     'pages': PageSitemap
 }
 # REST API
-from rest_framework import routers
-from restapi.views import *
+# from rest_framework import routers
+# from restapi.views import *
 
 
 
-router = routers.DefaultRouter()
-router.register(r'accounts', AccountsViewSet)
+# router = routers.DefaultRouter()
+# router.register(r'accounts', AccountsViewSet)
 
+
+# from authentication.views import ajax_login_view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(router.urls)),
+    # url(r'^api/', include(router.urls)),
+    url(r'^accounts/', include('allauth.urls')),
     url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit), name='flatblocks-edit'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^robots\.txt$', include('robots.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
+    url(r'^authentication/', include('authentication.urls')),
+
     url(r'^', include('core.urls')),
     url(r'^', include('ceilings.urls')),
-    url(r'^', include('authentication.urls')),
     url(r'^', include('configs.urls')),
     url(r'^', include('siteprojects.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

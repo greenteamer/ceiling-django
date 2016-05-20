@@ -7,9 +7,9 @@
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h3 class="modal-title" id="myModalLabel">Регистрация</h3>
 			</div>
-			<form id="login-form">{% csrf_token %}
+			<form id="register-form" method="post" action="/authentication/register/">{% csrf_token %}
 				<div class="modal-body">
-					{% login_form request %}
+					{% register_form request %}
 				</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-primary">Зарегистрироваться</button>

@@ -157,6 +157,7 @@
 
 	{% include "authentication/login_modal.html" %}
 	{% include "authentication/register_modal.html" %}
+	{% include "authentication/auth_response_modal.html" %}
 
 	<script type="text/javascript">
 		jQuery(function($){
@@ -197,6 +198,73 @@
 				});
 				return false;
 			});
+
+			// $("#login-form").on("submit", function (e) {
+			// 	e.preventDefault()
+			// 	// $('#preloader').fadeIn();
+			// 	var csrftoken = $.cookie('csrftoken');
+			// 	var username = $("#id_username").val()
+			// 	var password = $("#id_password").val()
+			// 	// console.log("start /authentication/login/: " + csrftoken + " " + username + " " + password);
+			// 	$.ajax({
+			// 		type: "POST",
+			// 		url: '/authentication/login/',
+			// 		data: {
+			// 			csrfmiddlewaretoken: csrftoken,
+			// 			username: username,
+			// 			password: password
+			// 		},
+			// 		success: function (data) {
+			// 			// Вывод текста результата отправки
+			// 			// $("#response").html(data);
+			// 			$('#preloader').fadeOut();
+			// 			console.log(data)
+			// 			$('#auth-message').html(data.message);
+			// 			$('#auth-response-modal').modal()
+			// 		},
+			// 		error: function (jqXHR, text, error) {
+			// 			// Вывод текста ошибки отправки
+			// 			// $("#response").html(error);
+			// 			$('#preloader').fadeOut();
+			// 			console.log(error)
+			// 		}
+			// 	});
+			// 	return false;
+			// });
+
+			// $("#register-form").on("submit", function (e) {
+			// 	e.preventDefault()
+			// 	// $('#preloader').fadeIn();
+			// 	var csrftoken = $.cookie('csrftoken');
+			// 	var email = $("#id_email").val()
+			// 	var password = $("#id_password").val()
+			// 	// console.log("start /authentication/login/: " + csrftoken + " " + username + " " + password);
+			// 	$.ajax({
+			// 		type: "POST",
+			// 		url: '/authentication/register/',
+			// 		data: {
+			// 			csrfmiddlewaretoken: csrftoken,
+			// 			email: email,
+			// 			password: password
+			// 		},
+			// 		success: function (data) {
+			// 			// Вывод текста результата отправки
+			// 			// $("#response").html(data);
+			// 			$('#preloader').fadeOut();
+			// 			console.log(data)
+			// 			$('#auth-message').html(data.message);
+			// 			$('#auth-response-modal').modal()
+			// 		},
+			// 		error: function (jqXHR, text, error) {
+			// 			// Вывод текста ошибки отправки
+			// 			// $("#response").html(error);
+			// 			$('#preloader').fadeOut();
+			// 			console.log(error)
+			// 		}
+			// 	});
+			// 	return false;
+			// });
+
 		});
 	</script>
 </body>

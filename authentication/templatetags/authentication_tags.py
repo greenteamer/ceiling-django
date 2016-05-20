@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django import template
 register = template.Library()
-from authentication.forms import LoginForm
+from authentication.forms import LoginForm, RegisterForm
 
 
 def login_form(context, request):
@@ -10,4 +10,13 @@ def login_form(context, request):
 		'form': form,
 		'request': request,
 	}
-register.inclusion_tag('authentication/tags/login_form.html', takes_context=True)(login_form)
+register.inclusion_tag('authentication/tags/form.html', takes_context=True)(login_form)
+
+
+def register_form(context, request):
+	form = RegisterForm()
+	return {
+		'form': form,
+		'request': request,
+	}
+register.inclusion_tag('authentication/tags/form.html', takes_context=True)(register_form)

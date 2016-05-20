@@ -5,4 +5,4 @@ def get_site_config(request):
 	try:
 		return Config.objects.get(site__domain=request.get_host())
 	except Exception:
-		return Config.objects.get(site__domain="example.com")
+		return Config.objects.get(id=1)
