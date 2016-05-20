@@ -41,6 +41,7 @@ def ceiling_form_view(request, template_name="configs/success.html"):
 
 
 def ajax_zamer_view(request):
+	print ".......... start ajax_zamer_view"
 	phone = request.POST["phone"]
 	config = get_site_config(request)
 	subject = u'Вызов замерщика'
@@ -53,6 +54,7 @@ def ajax_zamer_view(request):
 
 
 def ajax_calculator_view(request):
+	print ".......... start ajax_calculator_view"
 	phone = request.POST["phone"]
 	square = request.POST["square"]
 	angle = request.POST["angle"]
