@@ -45,8 +45,11 @@
     opacity: 0.8;
     color: #eeae1e;
 }
-input#phone {
+input.phone {
     background: url("/static/joyus/images/ico_ph.png") 16px 15px no-repeat rgb(255, 255, 255);
+    padding-left: 40px;
+}
+input.phone.form-control {
     padding-left: 40px;
 }
 .predl-uslugi-itogo b {
@@ -200,4 +203,66 @@ footer.footer2 hr.light2 {
     height: 100%;
     background: black url(/static/joyus/images/AjaxLoader.gif) center center no-repeat;
     opacity: .5;
+}
+#calculator_form .form-control{
+    margin: 0;
+}
+#calculator_form .col-md-6, .form-bottom{
+    margin-bottom: 10px;
+}
+span.fx_waring {
+    color: #E54B49;
+    margin-left: 2px;
+}
+ul#id_brend_polotna {
+    list-style-type: none;
+    padding-left: 0;
+}
+.form-bottom {
+    overflow: hidden;
+    line-height: 15px;
+}
+ul#id_brend_polotna li{
+    float: left;
+    margin-right: 14px;
+}
+select#id_tip_polotna {
+    width: 80%;
+}
+.col-md-6 .form-height label{
+    height: 30px;
+}
+span.fx_input{
+    float: right;
+    font-size: 24px;
+}
+#calculator_form input.form-control{
+    float: left;
+    width: 80%;
+}
+.form-text p{
+    margin: 10px 0 0;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: #E54B49;
+}
+#calculator_form .modal-footer {
+    overflow: hidden;
+    border-top: 0;
+}
+
+input#id_phone,.phone.form-control:focus {
+    padding-left: 40px!important;
+    
+}
+#myModal-calculator input,#myModal-calculator select#id_tip_polotna{
+    position: relative;
+    background-color: transparent;
+    padding-left: 1.5em;
+    height: 3em;
+    margin: 1.10em 0;
+}
+ul#id_brend_polotna input{
+    height: 1em;
 }

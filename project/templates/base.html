@@ -50,6 +50,75 @@
 </head>
 
 <body id="top" onLoad="initialize()">
+						<!-- Modal -->
+						<div class="modal fade" id="myModal-calculator" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										<h3 class="modal-title" id="myModalLabel">Расчитать сстоимость потолка</h3>
+									</div>
+									<form id="calculator_form">{% csrf_token %}
+										<div class="modal-body">
+											<div class="calcilator-modal">
+												<div class="col-md-6">
+												<label for="">Площадь потолка<span class="fx_waring">*</span></label>	
+												{{ calculator_form.square }}
+												<span class="fx_input">м²</span>
+											</div>
+											<div class="col-md-6">
+												<label for="">Количество углов<span class="fx_waring">*</span></label>	
+												{{ calculator_form.angle }}
+												<span class="fx_input">шт.</span>
+											</div>
+											<div class="col-md-6">
+												<label for="">Фактура полотна<span class="fx_waring">*</span></label>	
+												{{ calculator_form.tip_polotna }}
+											</div>
+											<div class="col-md-6">
+												<label for="">Торговая марка потолка</label>
+												{{ calculator_form.brend_polotna }}
+											</div>
+											<div class="col-md-6">
+												<div class="form-bottom">
+													<label for="">Трубы уходящие в потолок:</label>
+													{{ calculator_form.tube }}
+													<span class="fx_input">шт.</span>
+												</div>
+												<div class="form-bottom form-height">
+													<label for="">Отверстие под крючковую люстру:</label>
+													{{ calculator_form.perforation }}
+													<span class="fx_input">шт.</span>
+												</div>
+												
+											</div>
+											<div class="col-md-6">
+												<div class="form-bottom">
+													<label for="">Закладная под потолочную люстру:</label>
+													{{ calculator_form.zakladnaya }}
+													<span class="fx_input">шт.</span>
+												</div>
+												<div class="form-bottom">
+													<label for="">Стойка под встраиваемый светильник:</label>
+													{{ calculator_form.strut }}
+													<span class="fx_input">шт.</span>
+												</div>
+											</div>
+											<div class="col-md-12">
+												{{ calculator_form.phone }}
+											</div>
+											<div class="col-md-12 form-text">
+												<p>Отправте размеры и значения Вашенго поталка,мы перезвоним и скажем Вам точную стоимость натяжного потолка.</p>
+											</div>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="submit" class="btn btn-primary">Отправить</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
 	<div id="preloader">
 		<img src="/static/joyus/images/Preloader.gif" alt="Preloader" />
 	</div>
@@ -148,6 +217,7 @@
 	<script src="/static/joyus/js/custom.js"></script>
 	<script src="/static/joyus/js/master.js"></script>
 	<script src="/static/joyus/js/jquery.magnific-popup.min.js"></script>
+	<script src="/static/joyus/js/jquery.maskedinput-1.2.2.js"></script>
 	<script src="/static/joyus/js/popup.js"></script>
 	<script src="/static/joyus/js/jquery.cookie.js"></script>
 	<script src="data:application/octet-stream;base64,LyoKICAgIGpRdWVyeSBNYXNrZWQgSW5wdXQgUGx1Z2luCiAgICBDb3B5cmlnaHQgKGMpIDIwMDcgLSAyMDE1IEpvc2ggQnVzaCAoZGlnaXRhbGJ1c2guY29tKQogICAgTGljZW5zZWQgdW5kZXIgdGhlIE1JVCBsaWNlbnNlIChodHRwOi8vZGlnaXRhbGJ1c2guY29tL3Byb2plY3RzL21hc2tlZC1pbnB1dC1wbHVnaW4vI2xpY2Vuc2UpCiAgICBWZXJzaW9uOiAxLjQuMQoqLwohZnVuY3Rpb24oYSl7ImZ1bmN0aW9uIj09dHlwZW9mIGRlZmluZSYmZGVmaW5lLmFtZD9kZWZpbmUoWyJqcXVlcnkiXSxhKTphKCJvYmplY3QiPT10eXBlb2YgZXhwb3J0cz9yZXF1aXJlKCJqcXVlcnkiKTpqUXVlcnkpfShmdW5jdGlvbihhKXt2YXIgYixjPW5hdmlnYXRvci51c2VyQWdlbnQsZD0vaXBob25lL2kudGVzdChjKSxlPS9jaHJvbWUvaS50ZXN0KGMpLGY9L2FuZHJvaWQvaS50ZXN0KGMpO2EubWFzaz17ZGVmaW5pdGlvbnM6ezk6IlswLTldIixhOiJbQS1aYS16XSIsIioiOiJbQS1aYS16MC05XSJ9LGF1dG9jbGVhcjohMCxkYXRhTmFtZToicmF3TWFza0ZuIixwbGFjZWhvbGRlcjoiXyJ9LGEuZm4uZXh0ZW5kKHtjYXJldDpmdW5jdGlvbihhLGIpe3ZhciBjO2lmKDAhPT10aGlzLmxlbmd0aCYmIXRoaXMuaXMoIjpoaWRkZW4iKSlyZXR1cm4ibnVtYmVyIj09dHlwZW9mIGE/KGI9Im51bWJlciI9PXR5cGVvZiBiP2I6YSx0aGlzLmVhY2goZnVuY3Rpb24oKXt0aGlzLnNldFNlbGVjdGlvblJhbmdlP3RoaXMuc2V0U2VsZWN0aW9uUmFuZ2UoYSxiKTp0aGlzLmNyZWF0ZVRleHRSYW5nZSYmKGM9dGhpcy5jcmVhdGVUZXh0UmFuZ2UoKSxjLmNvbGxhcHNlKCEwKSxjLm1vdmVFbmQoImNoYXJhY3RlciIsYiksYy5tb3ZlU3RhcnQoImNoYXJhY3RlciIsYSksYy5zZWxlY3QoKSl9KSk6KHRoaXNbMF0uc2V0U2VsZWN0aW9uUmFuZ2U/KGE9dGhpc1swXS5zZWxlY3Rpb25TdGFydCxiPXRoaXNbMF0uc2VsZWN0aW9uRW5kKTpkb2N1bWVudC5zZWxlY3Rpb24mJmRvY3VtZW50LnNlbGVjdGlvbi5jcmVhdGVSYW5nZSYmKGM9ZG9jdW1lbnQuc2VsZWN0aW9uLmNyZWF0ZVJhbmdlKCksYT0wLWMuZHVwbGljYXRlKCkubW92ZVN0YXJ0KCJjaGFyYWN0ZXIiLC0xZTUpLGI9YStjLnRleHQubGVuZ3RoKSx7YmVnaW46YSxlbmQ6Yn0pfSx1bm1hc2s6ZnVuY3Rpb24oKXtyZXR1cm4gdGhpcy50cmlnZ2VyKCJ1bm1hc2siKX0sbWFzazpmdW5jdGlvbihjLGcpe3ZhciBoLGksaixrLGwsbSxuLG87aWYoIWMmJnRoaXMubGVuZ3RoPjApe2g9YSh0aGlzWzBdKTt2YXIgcD1oLmRhdGEoYS5tYXNrLmRhdGFOYW1lKTtyZXR1cm4gcD9wKCk6dm9pZCAwfXJldHVybiBnPWEuZXh0ZW5kKHthdXRvY2xlYXI6YS5tYXNrLmF1dG9jbGVhcixwbGFjZWhvbGRlcjphLm1hc2sucGxhY2Vob2xkZXIsY29tcGxldGVkOm51bGx9LGcpLGk9YS5tYXNrLmRlZmluaXRpb25zLGo9W10saz1uPWMubGVuZ3RoLGw9bnVsbCxhLmVhY2goYy5zcGxpdCgiIiksZnVuY3Rpb24oYSxiKXsiPyI9PWI/KG4tLSxrPWEpOmlbYl0/KGoucHVzaChuZXcgUmVnRXhwKGlbYl0pKSxudWxsPT09bCYmKGw9ai5sZW5ndGgtMSksaz5hJiYobT1qLmxlbmd0aC0xKSk6ai5wdXNoKG51bGwpfSksdGhpcy50cmlnZ2VyKCJ1bm1hc2siKS5lYWNoKGZ1bmN0aW9uKCl7ZnVuY3Rpb24gaCgpe2lmKGcuY29tcGxldGVkKXtmb3IodmFyIGE9bDttPj1hO2ErKylpZihqW2FdJiZDW2FdPT09cChhKSlyZXR1cm47Zy5jb21wbGV0ZWQuY2FsbChCKX19ZnVuY3Rpb24gcChhKXtyZXR1cm4gZy5wbGFjZWhvbGRlci5jaGFyQXQoYTxnLnBsYWNlaG9sZGVyLmxlbmd0aD9hOjApfWZ1bmN0aW9uIHEoYSl7Zm9yKDsrK2E8biYmIWpbYV07KTtyZXR1cm4gYX1mdW5jdGlvbiByKGEpe2Zvcig7LS1hPj0wJiYhalthXTspO3JldHVybiBhfWZ1bmN0aW9uIHMoYSxiKXt2YXIgYyxkO2lmKCEoMD5hKSl7Zm9yKGM9YSxkPXEoYik7bj5jO2MrKylpZihqW2NdKXtpZighKG4+ZCYmaltjXS50ZXN0KENbZF0pKSlicmVhaztDW2NdPUNbZF0sQ1tkXT1wKGQpLGQ9cShkKX16KCksQi5jYXJldChNYXRoLm1heChsLGEpKX19ZnVuY3Rpb24gdChhKXt2YXIgYixjLGQsZTtmb3IoYj1hLGM9cChhKTtuPmI7YisrKWlmKGpbYl0pe2lmKGQ9cShiKSxlPUNbYl0sQ1tiXT1jLCEobj5kJiZqW2RdLnRlc3QoZSkpKWJyZWFrO2M9ZX19ZnVuY3Rpb24gdSgpe3ZhciBhPUIudmFsKCksYj1CLmNhcmV0KCk7aWYobyYmby5sZW5ndGgmJm8ubGVuZ3RoPmEubGVuZ3RoKXtmb3IoQSghMCk7Yi5iZWdpbj4wJiYhaltiLmJlZ2luLTFdOyliLmJlZ2luLS07aWYoMD09PWIuYmVnaW4pZm9yKDtiLmJlZ2luPGwmJiFqW2IuYmVnaW5dOyliLmJlZ2luKys7Qi5jYXJldChiLmJlZ2luLGIuYmVnaW4pfWVsc2V7Zm9yKEEoITApO2IuYmVnaW48biYmIWpbYi5iZWdpbl07KWIuYmVnaW4rKztCLmNhcmV0KGIuYmVnaW4sYi5iZWdpbil9aCgpfWZ1bmN0aW9uIHYoKXtBKCksQi52YWwoKSE9RSYmQi5jaGFuZ2UoKX1mdW5jdGlvbiB3KGEpe2lmKCFCLnByb3AoInJlYWRvbmx5Iikpe3ZhciBiLGMsZSxmPWEud2hpY2h8fGEua2V5Q29kZTtvPUIudmFsKCksOD09PWZ8fDQ2PT09Znx8ZCYmMTI3PT09Zj8oYj1CLmNhcmV0KCksYz1iLmJlZ2luLGU9Yi5lbmQsZS1jPT09MCYmKGM9NDYhPT1mP3IoYyk6ZT1xKGMtMSksZT00Nj09PWY/cShlKTplKSx5KGMsZSkscyhjLGUtMSksYS5wcmV2ZW50RGVmYXVsdCgpKToxMz09PWY/di5jYWxsKHRoaXMsYSk6Mjc9PT1mJiYoQi52YWwoRSksQi5jYXJldCgwLEEoKSksYS5wcmV2ZW50RGVmYXVsdCgpKX19ZnVuY3Rpb24geChiKXtpZighQi5wcm9wKCJyZWFkb25seSIpKXt2YXIgYyxkLGUsZz1iLndoaWNofHxiLmtleUNvZGUsaT1CLmNhcmV0KCk7aWYoIShiLmN0cmxLZXl8fGIuYWx0S2V5fHxiLm1ldGFLZXl8fDMyPmcpJiZnJiYxMyE9PWcpe2lmKGkuZW5kLWkuYmVnaW4hPT0wJiYoeShpLmJlZ2luLGkuZW5kKSxzKGkuYmVnaW4saS5lbmQtMSkpLGM9cShpLmJlZ2luLTEpLG4+YyYmKGQ9U3RyaW5nLmZyb21DaGFyQ29kZShnKSxqW2NdLnRlc3QoZCkpKXtpZih0KGMpLENbY109ZCx6KCksZT1xKGMpLGYpe3ZhciBrPWZ1bmN0aW9uKCl7YS5wcm94eShhLmZuLmNhcmV0LEIsZSkoKX07c2V0VGltZW91dChrLDApfWVsc2UgQi5jYXJldChlKTtpLmJlZ2luPD1tJiZoKCl9Yi5wcmV2ZW50RGVmYXVsdCgpfX19ZnVuY3Rpb24geShhLGIpe3ZhciBjO2ZvcihjPWE7Yj5jJiZuPmM7YysrKWpbY10mJihDW2NdPXAoYykpfWZ1bmN0aW9uIHooKXtCLnZhbChDLmpvaW4oIiIpKX1mdW5jdGlvbiBBKGEpe3ZhciBiLGMsZCxlPUIudmFsKCksZj0tMTtmb3IoYj0wLGQ9MDtuPmI7YisrKWlmKGpbYl0pe2ZvcihDW2JdPXAoYik7ZCsrPGUubGVuZ3RoOylpZihjPWUuY2hhckF0KGQtMSksaltiXS50ZXN0KGMpKXtDW2JdPWMsZj1iO2JyZWFrfWlmKGQ+ZS5sZW5ndGgpe3koYisxLG4pO2JyZWFrfX1lbHNlIENbYl09PT1lLmNoYXJBdChkKSYmZCsrLGs+YiYmKGY9Yik7cmV0dXJuIGE/eigpOms+ZisxP2cuYXV0b2NsZWFyfHxDLmpvaW4oIiIpPT09RD8oQi52YWwoKSYmQi52YWwoIiIpLHkoMCxuKSk6eigpOih6KCksQi52YWwoQi52YWwoKS5zdWJzdHJpbmcoMCxmKzEpKSksaz9iOmx9dmFyIEI9YSh0aGlzKSxDPWEubWFwKGMuc3BsaXQoIiIpLGZ1bmN0aW9uKGEsYil7cmV0dXJuIj8iIT1hP2lbYV0/cChiKTphOnZvaWQgMH0pLEQ9Qy5qb2luKCIiKSxFPUIudmFsKCk7Qi5kYXRhKGEubWFzay5kYXRhTmFtZSxmdW5jdGlvbigpe3JldHVybiBhLm1hcChDLGZ1bmN0aW9uKGEsYil7cmV0dXJuIGpbYl0mJmEhPXAoYik/YTpudWxsfSkuam9pbigiIil9KSxCLm9uZSgidW5tYXNrIixmdW5jdGlvbigpe0Iub2ZmKCIubWFzayIpLnJlbW92ZURhdGEoYS5tYXNrLmRhdGFOYW1lKX0pLm9uKCJmb2N1cy5tYXNrIixmdW5jdGlvbigpe2lmKCFCLnByb3AoInJlYWRvbmx5Iikpe2NsZWFyVGltZW91dChiKTt2YXIgYTtFPUIudmFsKCksYT1BKCksYj1zZXRUaW1lb3V0KGZ1bmN0aW9uKCl7Qi5nZXQoMCk9PT1kb2N1bWVudC5hY3RpdmVFbGVtZW50JiYoeigpLGE9PWMucmVwbGFjZSgiPyIsIiIpLmxlbmd0aD9CLmNhcmV0KDAsYSk6Qi5jYXJldChhKSl9LDEwKX19KS5vbigiYmx1ci5tYXNrIix2KS5vbigia2V5ZG93bi5tYXNrIix3KS5vbigia2V5cHJlc3MubWFzayIseCkub24oImlucHV0Lm1hc2sgcGFzdGUubWFzayIsZnVuY3Rpb24oKXtCLnByb3AoInJlYWRvbmx5Iil8fHNldFRpbWVvdXQoZnVuY3Rpb24oKXt2YXIgYT1BKCEwKTtCLmNhcmV0KGEpLGgoKX0sMCl9KSxlJiZmJiZCLm9mZigiaW5wdXQubWFzayIpLm9uKCJpbnB1dC5tYXNrIix1KSxBKCl9KX19KX0pOw=="></script>
@@ -156,11 +226,10 @@
 	</script>
 
 	<script type="text/javascript">
-		jQuery(function($){
-			$("#phone").mask("+7(999) 999-9999");
-		});
-
+	
 		$(document).ready(function () {
+			$(".phone").mask("+7(999) 999-9999");
+
 			$("#zamer-form").on("submit", function (e) {
 				e.preventDefault()
 				$('#preloader').fadeIn();
@@ -170,7 +239,7 @@
 				// Добавление решётки к имени ID
 				var formNm = $('#' + formID);
 				var csrftoken = $.cookie('csrftoken');
-				var phone = $("#phone").val()
+				var phone = $(".phone-zamer").val()
 				$.ajax({
 					type: "POST",
 					url: '/ajax/zamer/',
@@ -184,6 +253,61 @@
 						$('#preloader').fadeOut();
 						console.log(data)
 						$('#zamer-response').modal()
+						setTimeout(function() {
+							$('#zamer-response').modal('hide')
+						}, 1000*3);
+					},
+					error: function (jqXHR, text, error) {
+						// Вывод текста ошибки отправки
+						// $("#response").html(error);
+						$('#preloader').fadeOut();
+						console.log(error)
+					}
+				});
+				return false;
+			});
+
+			$("#calculator_form").on("submit", function (e) {
+				e.preventDefault()
+				$('#preloader').fadeIn();
+				// $('body').delay(350).css({'overflow':'visible'});
+				$('#myModal-calculator').modal('hide')
+				var csrftoken = $.cookie('csrftoken');
+				var phone = $(".phone-calculator").val()
+				var square = $("#id_square").val()
+				var angle = $("#id_angle").val()
+				var tube = $("#id_tube").val()
+				var perforation = $("#id_perforation").val()
+				var zakladnaya = $("#id_zakladnaya").val()
+				var strut = $("#id_strut").val()
+				var tip_polotna = $("#id_tip_polotna").val()
+				var brend_polotna = $("#id_brend_polotna").val()
+				$.ajax({
+					type: "POST",
+					url: '/ajax/calculator/',
+					data: {
+						csrfmiddlewaretoken: csrftoken,
+						phone: phone,
+						square: square,
+						angle: angle,
+						tube: tube,
+						perforation: perforation,
+						zakladnaya: zakladnaya,
+						strut: strut,
+						tip_polotna: tip_polotna,
+						brend_polotna: brend_polotna
+
+					},
+					success: function (data) {
+						// Вывод текста результата отправки
+						// $("#response").html(data);
+						$('#preloader').fadeOut();
+						console.log(data)
+						$('#zamer-response').modal()
+						setTimeout(function() {
+							$('#zamer-response').modal('hide')
+						}, 1000*3);
+
 					},
 					error: function (jqXHR, text, error) {
 						// Вывод текста ошибки отправки

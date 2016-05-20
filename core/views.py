@@ -23,7 +23,7 @@ def home(request, template_name="core/home.html"):
 	# подготовка текста "о нас"
 	about_page = Page.objects.get(slug='o-nas')
 	# калькулятор форма
-	calculator_form = CalculatorForm()
+	calculator_form = CalculatorForm(initial={"angle":4, "tube":0, "perforation":0, "zakladnaya":0, "strut":0})
 	title = u"Главная"
 	description = u""
 	keywords = u""
