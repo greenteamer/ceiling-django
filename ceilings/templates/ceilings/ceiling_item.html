@@ -74,22 +74,6 @@
 
 				{{ ceiling.text|safe }}
 
-			 	<h2 class="prime text-capitalize">Отправить заявку</h2>
-				<p>Оставьте Ваши данные и мы Вам перезвоним в течении 5 минут.</p>
-
-				<form id="contact_form" method="post" action="/ceiling-form/">{% csrf_token %}
-					{{ form.ceiling }}
-					<div class="field-wrapper row">
-						<div class="col-md-6">
-							{{ form.name }}
-						</div>
-						<div class="col-md-6">
-							{{ form.phone }}
-						</div>
-						<div class="col-md-1">
-							<input type="submit" class="btn btn-primary btn-lg" id="submit" name="submit" />
-						</div>
-					</div>
 				</form>
 			</div><!-- end col-md-4 -->
 
