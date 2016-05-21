@@ -52,12 +52,25 @@
 					<ul class="bxslider">
 						{% for image in ceiling.get_all_images %}
 							<li>
-								<img class="img-responsive" src="{{ image.get_url }}" width="725" height="475" alt="Project Name" />
+								<img class="img-responsive" src="{% cropped_thumbnail image "cropping_750x455" scale=1 %}" width="100%" alt="Project Name" />
 							</li>
 						{% endfor %}
 					</ul>
 				</div>
 				<br>
+
+				{{ ceiling.preview_text|safe }}
+
+				<section class="featured BGprime page-block-small" style="margin: 25px 0;padding: 15px 0 0px 0;">
+					<div class="wow fadeInDown" data-wow-duration="0.30s" data-wow-delay="0.30s">
+						<div class="col-md-12">
+							<h2><small>{{ ceiling.name }}</small>Закажите прямо сейчас</h2>
+							<div class="ostav_zayavku">
+								{% round_form request %}
+							</div>
+						</div>
+					</div>
+				</section>
 
 				{{ ceiling.text|safe }}
 
