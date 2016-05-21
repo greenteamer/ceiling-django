@@ -74,30 +74,27 @@
 								</div>
 							{% endfor %}
 
-							<div class="col-md-12">
-								{{ page.preview_text|safe }}
-							</div>
-
-							<div class="col-md-12" style="padding: 0;">
-								<section class="featured BGprime page-block-small" style="margin: 25px 0;padding: 15px 0 0px 0;">
-									<div class="wow fadeInDown" data-wow-duration="0.30s" data-wow-delay="0.30s">
-										<div class="col-md-12">
-											<h2><small>{{ ceiling.name }}</small>Закажите прямо сейчас</h2>
-											<div class="ostav_zayavku">
-												{% round_form request %}
-											</div>
-										</div>
-									</div>
-								</section>
-							</div>
-
-							<div class="col-md-12">
-								{{ page.text|safe }}
-							</div>
-
 						</div><!-- end row -->
 					</div><!-- end container -->
 				</section>
+
+				{{ page.preview_text|safe }}
+
+				<div style="padding: 0;">
+					<section class="featured BGprime page-block-small" style="margin: 25px 0;padding: 15px 0 0px 0;">
+						<div class="wow fadeInDown" data-wow-duration="0.30s" data-wow-delay="0.30s">
+							<div class="col-md-12">
+								<h2><small>{{ ceiling.name }}</small>Закажите прямо сейчас</h2>
+								<div class="ostav_zayavku">
+									{% round_form request %}
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+
+				{{ page.text|safe }}
+
 				<!-- ::: END ::: -->
 			</div><!-- end col-md-4 -->
 
