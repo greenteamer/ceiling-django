@@ -323,6 +323,46 @@
 				return false;
 			});
 
+			$(".header-zakaz_order-button").on("click", function(e){
+				e.preventDefault();
+				$(this).parent().toggleClass("open")
+				// console.log("this: ", );
+				// $("#id_header-zakaz").toggleClass("open");
+			})
+
+			$(".header-zakaz-form").on("submit", function(e){
+				e.preventDefault()
+				$('#preloader').fadeIn();
+				var csrftoken = $.cookie('csrftoken');
+				var phone = $(this).children().find(".round-form-phone").val()
+				console.log("phone: ", phone)
+				$.ajax({
+					type: "POST",
+					url: '/ajax/zamer/',
+					data: {
+						csrfmiddlewaretoken: csrftoken,
+						phone: phone
+					},
+					success: function (data) {
+						// Вывод текста результата отправки
+						// $("#response").html(data);
+						$('#preloader').fadeOut();
+						console.log(data)
+						$('#zamer-response').modal()
+						setTimeout(function() {
+							$('#zamer-response').modal('hide')
+						}, 1000*3);
+					},
+					error: function (jqXHR, text, error) {
+						// Вывод текста ошибки отправки
+						// $("#response").html(error);
+						$('#preloader').fadeOut();
+						console.log(error)
+					}
+				});
+				return false;
+			})
+
 		});
 	</script>
 	<script type="text/javascript" src="//cdn.callbackhunter.com/cbh.js?hunter_code=9b7b3b3152d19629091ee426be3903ce" charset="UTF-8"></script>

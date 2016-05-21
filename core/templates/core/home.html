@@ -64,7 +64,7 @@
 						</h2>
 						<span class="line"></span>
 						<div>{{ ceiling.preview_text|safe }}</div>
-						<a class="btn btn-primary" href="{{ ceiling.get_url }}" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
+						<a class="btn btn-primary border-round" href="{{ ceiling.get_url }}" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
 					</div>
 				{% endfor %}
 			</div>
@@ -79,12 +79,10 @@
 			<div class="col-md-12">
 				<h2><small>Монтаж натяжных потолков</small>Лучшее решение для вашего интерьера</h2>
 				<div class="ostav_zayavku">
-					<div id="forma-zakaza">
-						{% contact_form request %}
-					</div>
+					{% round_form request %}
 				</div>
 			</div>
-		</div><!--end-container-->
+		</div>
 	</section>
 {% endblock trigger1 %}
 
@@ -94,7 +92,7 @@
 		<div class="col-md-12">
 			<div class="section-heading">
 				<h2><i class="fa fa-rub square BGsec"></i>Стоимость натяжного потолка<small>по типу помещения</small></h2>
-				<a class="btn btn-primary" href="/static/joyus/projects-2col.html" title="View All Projects">Смотреть еще <i class="fa fa-chevron-circle-right"></i></a>
+				<a class="btn btn-primary border-round" href="/static/joyus/projects-2col.html" title="View All Projects">Смотреть еще <i class="fa fa-chevron-circle-right"></i></a>
 				<div class="clear"></div>
 			</div>
 
@@ -167,7 +165,7 @@
 	<div class="col-md-12">
 		<div class="section-heading folio-home">
 			<h3><i class="fa fa-picture-o" aria-hidden="true"></i>Наши работы</h3>
-				<a class="btn btn-primary" href="/projects" title="Смотреть еще">Смотреть все работы<i class="fa fa-chevron-circle-right"></i></a>
+				<a class="btn btn-primary border-round" href="/projects" title="Смотреть еще">Смотреть все работы<i class="fa fa-chevron-circle-right"></i></a>
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -266,7 +264,7 @@
 					<div class="clear"></div>
 				</div>
 				<p>{{ about_page.text|truncatewords:100|safe }}</p>
-				<a class="btn btn-primary" href="{{ about_page.get_url }}" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
+				<a class="btn btn-primary border-round" href="{{ about_page.get_url }}" title="See All">Подробнее <i class="fa fa-chevron-circle-right"></i></a>
 			</div>
 
 			<div class="col-md-6 col-sm-6 col-xs-12 content-box wow">
@@ -339,7 +337,7 @@
 
 			<div class="section-heading">
 					<h2><i class="fa fa-quote-left square BGsec"></i>Отзывы клиентов<small>Нас всегда рекомендуют своим друзьям!</small></h2>
-					<a class="btn btn-primary" href="/static/joyus/testimonials.html" title="View All Testimonials">Смотреть все отзывы<i class="fa fa-chevron-circle-right"></i></a>
+					<a class="btn btn-primary border-round" href="/static/joyus/testimonials.html" title="View All Testimonials">Смотреть все отзывы<i class="fa fa-chevron-circle-right"></i></a>
 					<div class="clear"></div>
 			</div>
 
@@ -430,7 +428,7 @@
 				<div class="widget wow fadeInLeft" data-wow-duration="0.30s" data-wow-delay="0.30s">
 						<h2>Калькулятор<small>Расчитайте стоимость своего потолка</small></h2>
 						<p>Внесите параметры своего потолка и мы расчитаем Вам точную стоимость.</p>
-						<button class="btn btn-primary" data-toggle="modal" data-target="#myModal-calculator">Расчитать потолок<i class="fa fa-chevron-circle-right"></i></button>
+						<button class="btn btn-primary border-round" data-toggle="modal" data-target="#myModal-calculator">Расчитать потолок<i class="fa fa-chevron-circle-right"></i></button>
 						<i class="fa fa-calculator"></i>
 				</div>
 				<div class="widget wow fadeInRight" data-wow-duration="0.30s" data-wow-delay="0.30s">
@@ -439,7 +437,7 @@
 						<div class="form-row">
 							 <input type="tel" class="phone phone-zamer form-control"name="phone" value="" placeholder="Ваш номер телефона">
 							 <input type="text" id="sub-security" name="sub-security" class="form-control hide" value="" />
-							 <input type="submit" id="sub-submit" name="sub-submit" value="Отправить &#xf138;" class="btn btn-primary" />
+							 <button type="submit" id="sub-submit" name="sub-submit" class="btn btn-primary border-round" >Отправить <i class="fa fa-chevron-circle-right"></i></button>
 						</div>
 
 					</form>

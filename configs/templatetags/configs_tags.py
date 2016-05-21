@@ -2,7 +2,7 @@
 from django import template
 from configs.models import *
 from configs.methods import get_site_config
-from configs.forms import ContactForm
+from configs.forms import ContactForm, RoundForm
 
 register = template.Library()
 
@@ -24,6 +24,14 @@ def contact_form(context, request):
     }
 register.inclusion_tag('configs/tags/contact_form.html', takes_context=True)(contact_form)
 
+
+def round_form(context, request):
+    form = RoundForm()
+    return {
+        'form': form,
+        'request': request,
+    }
+register.inclusion_tag('configs/tags/round_form.html', takes_context=True)(round_form)
 
 def base_menu(context, request):
     try:
