@@ -101,7 +101,7 @@ color: #E54B49;
     transition: all 0.25s ease-in-out;
 }
 .header_zakaz.open .header-zakaz_order-button {
-    left: -311px;
+    left: -165px;
 }
 .header_zakaz.open .header-zakaz-form {
     left: 0;
