@@ -5,6 +5,17 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
+"""Модель преимущества"""
+class Advantages(models.Model):
+	short = models.CharField(u'Короткое описание',
+								max_length=50,
+								unique=False)
+	long = RichTextUploadingField(u'Длинное описание',
+	              blank=True)
+
+	def __unicode__(self):
+		return self.short
+
 
 """Абстрактный базовый класс для моделей"""
 class BaseModel(models.Model):
@@ -33,6 +44,8 @@ class BaseModel(models.Model):
 	updated_at       = models.DateTimeField(verbose_name=u'Дата обновления',
 														null=True,
 														auto_now=True)
+	advantages       = models.ManyToManyField(Advantages,
+	                          verbose_name=u"Преимущества")
 
 	def __unicode__(self):
 		return self.name

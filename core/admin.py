@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Service, Post, Page, Review, Partner
+from core.models import Service, Post, Page, Review, Partner, Advantages
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -15,6 +15,7 @@ class PostAdmin(admin.ModelAdmin):
 class PageAdmin(admin.ModelAdmin):
     model = Page
     prepopulated_fields = {'slug': ('name',), }
+    filter_horizontal = ('advantages',)
 
     class Media:
         js = ('admin/js/admin.js',)
@@ -25,3 +26,4 @@ admin.site.register(Post, PostAdmin)
 admin.site.register(Page, PageAdmin)
 admin.site.register(Review)
 admin.site.register(Partner)
+admin.site.register(Advantages)
