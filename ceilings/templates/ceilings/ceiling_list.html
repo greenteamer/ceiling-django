@@ -61,7 +61,7 @@
 							{% for ceiling in ceilings %}
 								<div
 									class="col-md-6 {% cycle 'commercial' 'residential' %}"
-									style="background: url({{ ceiling.get_image_url }}) no-repeat center center;">
+									style="background: url({{ ceiling.get_image_url }}) no-repeat center center; background-size: auto 100%;">
 									<div class="absShape {% cycle 'BGprime' 'BGsec' %} opaque">
 										<div class="info">
 												<h3>{{ ceiling.name }}</h3>
