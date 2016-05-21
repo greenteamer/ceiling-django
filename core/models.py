@@ -45,7 +45,8 @@ class BaseModel(models.Model):
 														null=True,
 														auto_now=True)
 	advantages       = models.ManyToManyField(Advantages,
-	                          verbose_name=u"Преимущества")
+	                          verbose_name=u"Преимущества",
+	                          blank=True)
 
 	def __unicode__(self):
 		return self.name
