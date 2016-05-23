@@ -9,6 +9,11 @@ from django.core.mail import send_mail
 from methods import get_site_config
 
 
+def contacts(request, template_name="configs/contacts.html"):
+	config = get_site_config(request)
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
 def subscribe_view(request, template_name="configs/success.html"):
 	if request.method is "POST":
 		form = SubscribeForm(request.POST)

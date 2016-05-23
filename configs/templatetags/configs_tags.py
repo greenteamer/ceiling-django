@@ -33,6 +33,16 @@ def round_form(context, request):
     }
 register.inclusion_tag('configs/tags/round_form.html', takes_context=True)(round_form)
 
+
+def round_form2(context, request):
+    form = RoundForm()
+    return {
+        'form': form,
+        'request': request,
+    }
+register.inclusion_tag('configs/tags/round_form2.html', takes_context=True)(round_form2)
+
+
 def base_menu(context, request):
     try:
         config = Config.objects.get(site__domain=request.get_host())
