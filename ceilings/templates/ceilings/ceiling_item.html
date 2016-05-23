@@ -47,7 +47,9 @@
 					{% endfor %}
 				</h1>
 
-				<div class="price">{{ ceiling.price }} руб/м²</div>
+				<div style="overflow: hidden;">
+					<div class="price">{{ ceiling.price }} руб/м²</div>
+				</div>
 				<div class="smallSlider">
 					<ul class="bxslider">
 						{% for image in ceiling.get_all_images %}
