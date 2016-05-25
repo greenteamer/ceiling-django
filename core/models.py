@@ -5,6 +5,17 @@ from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
+"""Модель преимущества"""
+class Advantages(models.Model):
+	short = models.CharField(u'Короткое описание',
+								max_length=50,
+								unique=False)
+	long = RichTextUploadingField(u'Длинное описание',
+	              blank=True)
+
+	def __unicode__(self):
+		return self.short
+
 
 """Абстрактный базовый класс для моделей"""
 class BaseModel(models.Model):
@@ -33,6 +44,9 @@ class BaseModel(models.Model):
 	updated_at       = models.DateTimeField(verbose_name=u'Дата обновления',
 														null=True,
 														auto_now=True)
+	advantages       = models.ManyToManyField(Advantages,
+	                          verbose_name=u"Преимущества",
+	                          blank=True)
 
 	def __unicode__(self):
 		return self.name
@@ -103,7 +117,7 @@ class Post(BaseInfoExtendedModel):
 	icon             = models.CharField(max_length=200,
 														verbose_name=u"Иконка для статьи",
 														help_text=u'пример: <i class="icon-our-service icon-house_sell"></i>')
-	image            = models.ImageField(upload_to="services")
+	image            = models.ImageField(upload_to="posts")
 
 	class Meta:
 		verbose_name = u"Статья"

@@ -4,6 +4,7 @@ from django.template import RequestContext
 from ceilings.models import Ceiling, Filter, FilterType
 from configs.forms import CeilingForm
 from core.functions import get_meta
+from core.models import Page
 # Create your views here.
 
 def ceiling_list(request, template_name="ceilings/ceiling_list.html"):
@@ -11,6 +12,10 @@ def ceiling_list(request, template_name="ceilings/ceiling_list.html"):
 	title = u"Каталог потолков"
 	description = u""
 	keywords = u""
+	try:
+		page = Page.objects.get(slug="natyazhnye-potolki")
+	except Exception:
+		pass
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
