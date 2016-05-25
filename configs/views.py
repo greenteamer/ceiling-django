@@ -113,3 +113,8 @@ def ajax_calculator_view(request):
 		"phone": phone
 	})
 	return HttpResponse(data, content_type="application/json")
+
+
+def yandex_confirm_view(request, template_name="configs/yandex_confirm.html"):
+
+	return render_to_response(template_name, locals(), content_type='text/plain')
