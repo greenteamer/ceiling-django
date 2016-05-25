@@ -77,6 +77,37 @@ color: #E54B49;
     text-align: center;
     font-size: 16px;
     margin-top: 24px;
+    width: 311px;
+    overflow: hidden;
+    margin: 10px auto;
+    padding: 10px 0;
+    position: relative;
+    min-height: 60px;
+}
+.header_zakaz .header-zakaz_order-button {
+    position: absolute;
+    top: 11px;
+    left: 60px;
+}
+.header_zakaz .header-zakaz-form {
+    position: absolute;
+    top: 11px;
+    left: 311px;
+    width: 311px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+.header_zakaz.open .header-zakaz_order-button {
+    left: -170px;
+}
+.header_zakaz.open .header-zakaz-form {
+    left: 0;
+}
+.header_zakaz .header-zakaz-form button{
+    margin-top: -3px;
 }
 .section-heading h3 {
     float: left;
@@ -187,7 +218,7 @@ footer.footer2 hr.light2 {
     margin: 0;
 }
 {
-    
+
 }
 #forma-zakaza .form-control, #forma-zakaza .form-control:focus {
     padding-left: 1.5em;
@@ -254,7 +285,7 @@ span.fx_input{
 
 input#id_phone,.phone.form-control:focus {
     padding-left: 40px!important;
-    
+
 }
 #myModal-calculator input,#myModal-calculator select#id_tip_polotna{
     position: relative;

@@ -108,7 +108,7 @@ class Ceiling(BaseInfoExtendedModel):
 		return "/natyazhnye-potolki/ceilings/%s/" %  self.slug
 
 	def get_image_url(self):
-		return "/media/%s/" %  self.image
+		return "/media/%s" %  self.image
 
 	def split_name(self):
 		return self.name.split(" ")

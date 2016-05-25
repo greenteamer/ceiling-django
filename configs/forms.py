@@ -37,6 +37,23 @@ class ContactForm(forms.Form):
 		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
 
 
+class RoundForm(forms.Form):
+	def __init__(self, *args, **kwargs):
+		super(RoundForm, self).__init__(*args, **kwargs)
+		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'phone border-round round-form-phone', 'id': ''}
+		self.fields['phone'].label = ""
+
+	phone = forms.CharField()
+
+	class Meta:
+		fields = [
+			'phone',
+		]
+		labels = {
+			"phone": u""
+		}
+
+
 class CeilingForm(forms.Form):
 	def __init__(self, *args, **kwargs):
 		super(CeilingForm, self).__init__(*args, **kwargs)

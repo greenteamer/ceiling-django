@@ -5,3 +5,28 @@
 .header-top ul li.auth.last a {
   border-right: 0;
 }
+
+input.border-round {
+	border-radius: 25px;
+	border: 1px solid #fff;
+	background: #fff;
+	padding: 6px 25px 7px 25px;
+	font-size: 15px;
+	font-weight: 300;
+	font-family: inherit;
+}
+.btn.border-round {
+	border-radius: 25px;
+	font-size: 15px;
+	font-weight: 300;
+	font-family: inherit;
+	margin-top: -1px;
+}
+.btn.border-round:hover,
+button.btn.border-round:hover {
+	border-radius: 25px;
+	/* border-color: #eeae1e; */
+}
+.union .btn.border-round {
+	margin-left: -40px;
+}
