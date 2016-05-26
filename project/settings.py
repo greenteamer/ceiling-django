@@ -118,7 +118,7 @@ TEMPLATES = [
 ]
 
 ROBOTS_SITEMAP_URLS = [
-    'http://joy-us.ru/sitemap.xml',
+    'http://potolok-like.ru/sitemap.xml',
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
