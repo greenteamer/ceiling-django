@@ -11,6 +11,7 @@
 .buildpath
 .project
 .settings
+.ropeproject/
 atlassian-ide-plugin.xml
 
 # Project
