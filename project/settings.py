@@ -26,7 +26,7 @@ SECRET_KEY = 'joyuslsdkjft34lnvsl!73w)z)co07y8s&awfpo0y)^2=-&zo-qxqbdj9h$fw+9t'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-SITE_ID = 2
+SITE_ID = 1
 
 # Application definition
 
