@@ -15,6 +15,7 @@
 atlassian-ide-plugin.xml
 
 # Project
+.env/
 settings_local.py
 logs/
 pids/
