@@ -195,6 +195,22 @@
 		<!--  :::  FOOTER ::: -->
 		{% footer request %}
 		<!-- ::: END ::: -->
+		<div class="modal" id="zamer-response" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" id="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3 class="modal-title">Ваша заявка отправленна</h3>
+					</div>
+					<div class="modal-body" id="modal-body">
+						<strong>Вам перезвонят в теченни минуты</strong>
+					</div>
+					<div class="modal-footer" id="modal-footer">
+						<button type="button" data-dismiss="modal" class="btn btn-primary">Закрыть</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div><!-- end boxed -->
 	<a href="#top" class="top"><i class="fa fa-angle-up fa-lg"></i></a>
 
@@ -347,11 +363,10 @@
 						// Вывод текста результата отправки
 						// $("#response").html(data);
 						$('#preloader').fadeOut();
-						console.log(data)
 						$('#zamer-response').modal()
-						setTimeout(function() {
-							$('#zamer-response').modal('hide')
-						}, 1000*3);
+						// setTimeout(function() {
+						// 	$('#zamer-response').modal('hide')
+						// }, 1000*3);
 					},
 					error: function (jqXHR, text, error) {
 						// Вывод текста ошибки отправки
