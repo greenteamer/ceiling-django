@@ -10,17 +10,15 @@
     <div class="col-md-8 hidden-sm hidden-xs">
 
       <ul class="social list-inline pull-right">
-        <li><a class="fb" href="/static/joyus/index.html#" title="Follow Us on Facebook"><i class="fa fa-facebook"></i></a></li>
-        <li><a class="tw" href="/static/joyus/index.html#" title="Follow Us on Twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a class="yt" href="/static/joyus/index.html#" title="Watch Our Videos"><i class="fa fa-youtube-play"></i></a></li>
-        <li><a class="pt" href="/static/joyus/index.html#" title="Watch Our Videos"><i class="fa fa-pinterest"></i></a></li>
-        <li><a class="li" href="/static/joyus/index.html#" title="Follow Us on LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-        <li><a class="fl" href="/static/joyus/index.html#" title="Watch Our gallery"><i class="fa fa-flickr"></i></a></li>
-        <li>
-          <a class="gplus" href="{% provider_login_url "google" title="Google" method="js_sdk" %}"><i class="fa fa-google-plus"></i></a>
-        </li>
-        <li><a class="ig" href="/static/joyus/index.html#" title="Watch Our Gallery"><i class="fa fa-instagram"></i></a></li>
-        <li><a class="vk" href="/static/joyus/index.html#" title="Follow Us on vk"><i class="fa fa-vk"></i></a></li>
+        <li><a class="fb" name="" title="Follow Us on Facebook"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="tw" name="" title="Follow Us on Twitter"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="yt" name="" title="Watch Our Videos"><i class="fa fa-youtube-play"></i></a></li>
+        <li><a class="pt" name="" title="Watch Our Videos"><i class="fa fa-pinterest"></i></a></li>
+        <li><a class="li" name="" title="Follow Us on LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="fl" name="" title="Watch Our gallery"><i class="fa fa-flickr"></i></a></li>
+        <li><a class="gplus" href="{% provider_login_url "google" title="Google" method="js_sdk" %}"><i class="fa fa-google-plus"></i></a></li>
+        <li><a class="ig" name="" title="Watch Our Gallery"><i class="fa fa-instagram"></i></a></li>
+        <li><a class="vk" name="" title="Follow Us on vk"><i class="fa fa-vk"></i></a></li>
         {% if request.user.is_authenticated %}
           <li class="auth"><a name="">{{ request.user.email }}</a></li>
           <li class="auth last"><a href="/authentication/logout/">Выйти</a></li>
