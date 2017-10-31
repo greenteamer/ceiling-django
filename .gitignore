@@ -13,6 +13,7 @@
 .settings
 .ropeproject/
 atlassian-ide-plugin.xml
+.vscode/
 
 # Project
 .env/

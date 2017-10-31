@@ -51,74 +51,6 @@
 
 <body id="top" onLoad="initialize()">
 	<!-- Modal -->
-	<div class="modal fade" id="myModal-calculator" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h3 class="modal-title" id="myModalLabel">Расчитать сстоимость потолка</h3>
-				</div>
-				<form id="calculator_form">{% csrf_token %}
-					<div class="modal-body">
-						<div class="calcilator-modal">
-							<div class="col-md-6">
-							<label for="">Площадь потолка<span class="fx_waring">*</span></label>
-							{{ calculator_form.square }}
-							<span class="fx_input">м²</span>
-						</div>
-						<div class="col-md-6">
-							<label for="">Количество углов<span class="fx_waring">*</span></label>
-							{{ calculator_form.angle }}
-							<span class="fx_input">шт.</span>
-						</div>
-						<div class="col-md-6">
-							<label for="">Фактура полотна<span class="fx_waring">*</span></label>
-							{{ calculator_form.tip_polotna }}
-						</div>
-						<div class="col-md-6">
-							<label for="">Торговая марка потолка</label>
-							{{ calculator_form.brend_polotna }}
-						</div>
-						<div class="col-md-6">
-							<div class="form-bottom">
-								<label for="">Трубы уходящие в потолок:</label>
-								{{ calculator_form.tube }}
-								<span class="fx_input">шт.</span>
-							</div>
-							<div class="form-bottom form-height">
-								<label for="">Отверстие под крючковую люстру:</label>
-								{{ calculator_form.perforation }}
-								<span class="fx_input">шт.</span>
-							</div>
-
-						</div>
-						<div class="col-md-6">
-							<div class="form-bottom">
-								<label for="">Закладная под потолочную люстру:</label>
-								{{ calculator_form.zakladnaya }}
-								<span class="fx_input">шт.</span>
-							</div>
-							<div class="form-bottom">
-								<label for="">Стойка под встраиваемый светильник:</label>
-								{{ calculator_form.strut }}
-								<span class="fx_input">шт.</span>
-							</div>
-						</div>
-						<div class="col-md-12">
-							{{ calculator_form.phone }}
-						</div>
-						<div class="col-md-12 form-text">
-							<p>Отправте размеры и значения Вашенго поталка,мы перезвоним и скажем Вам точную стоимость натяжного потолка.</p>
-						</div>
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="submit" class="btn btn-primary">Отправить</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
 	<div id="preloader">
 		<img src="/static/joyus/images/Preloader.gif" alt="Preloader" />
 	</div>
@@ -195,6 +127,23 @@
 		<!--  :::  FOOTER ::: -->
 		{% footer request %}
 		<!-- ::: END ::: -->
+		<div class="modal" id="zamer-response" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header" id="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h3 class="modal-title">Ваша заявка отправленна</h3>
+					</div>
+					<div class="modal-body" id="modal-body">
+						<strong>Вам перезвонят в теченни минуты</strong>
+					</div>
+					<div class="modal-footer" id="modal-footer">
+						<button type="button" data-dismiss="modal" class="btn btn-primary">Закрыть</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% calculator_form request %}
 	</div><!-- end boxed -->
 	<a href="#top" class="top"><i class="fa fa-angle-up fa-lg"></i></a>
 
@@ -347,11 +296,10 @@
 						// Вывод текста результата отправки
 						// $("#response").html(data);
 						$('#preloader').fadeOut();
-						console.log(data)
 						$('#zamer-response').modal()
-						setTimeout(function() {
-							$('#zamer-response').modal('hide')
-						}, 1000*3);
+						// setTimeout(function() {
+						// 	$('#zamer-response').modal('hide')
+						// }, 1000*3);
 					},
 					error: function (jqXHR, text, error) {
 						// Вывод текста ошибки отправки
