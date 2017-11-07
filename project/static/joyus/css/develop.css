@@ -331,3 +331,20 @@ ul#id_brend_polotna input{
     font-weight: bold;
     font-size: 17px;
 }
+.calcilator-modal ul {
+    list-style-type: none;
+}
+.col-md-4.col-sm-4.col-xs-12.logo img {
+    width: 387px;
+}
+footer .col-md-12.col-sm-12.col-xs-12.wow.fadeInDown img {
+    width: 300px;
+}
+li.cal-li {
+    width: 44%;
+    display: inline-block;
+    margin: 0 10px;
+}
+#myModal-calculator select#id_tip_polotna {
+    margin: 0;
+}

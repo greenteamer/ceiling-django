@@ -90,9 +90,9 @@ class Ceiling(BaseInfoExtendedModel):
 														blank=True)
 	price						 = models.DecimalField(verbose_name=u'Цена за м²',
 	                          max_digits=5,
-	                          decimal_places=2, )
+	                          decimal_places=2,blank=True, null=True )
 	image 					 = models.ImageField(verbose_name=u'Изображение',
-														upload_to="ceilings")
+														upload_to="ceilings",blank=True, null=True)
 
 	objects = models.Manager()
 	filter_objects = FilterManager()
