@@ -3,32 +3,17 @@
 
 <div class="header-top BGdark">
   <div class="container">
-    <div class="col-md-4 col-sm-12 col-xs-12">
+    <div class="col-md-6 col-sm-12 col-xs-12">
       {% for p in config.get_all_phones %}
         <span><i class="fa fa-phone"></i> {{ p.site_phone }} </span>
       {% endfor %}
       <span><i class="fa fa-envelope-o"></i> <a href="/static/joyus/mailto:{{ config.site_email }}" title="">{{ config.site_email }}</a> </span>
     </div>
-    <div class="col-md-8 hidden-sm hidden-xs">
+    <div class="col-md-6 hidden-sm hidden-xs">
 
       <ul class="social list-inline pull-right">
-        <li><a class="fb" name="" title="Follow Us on Facebook"><i class="fa fa-facebook"></i></a></li>
-        <li><a class="tw" name="" title="Follow Us on Twitter"><i class="fa fa-twitter"></i></a></li>
-        <li><a class="yt" name="" title="Watch Our Videos"><i class="fa fa-youtube-play"></i></a></li>
-        <li><a class="pt" name="" title="Watch Our Videos"><i class="fa fa-pinterest"></i></a></li>
-        <li><a class="li" name="" title="Follow Us on LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-        <li><a class="fl" name="" title="Watch Our gallery"><i class="fa fa-flickr"></i></a></li>
-        <li><a class="gplus" href="{% provider_login_url "google" title="Google" method="js_sdk" %}"><i class="fa fa-google-plus"></i></a></li>
         <li><a class="ig" name="" title="Watch Our Gallery"><i class="fa fa-instagram"></i></a></li>
         <li><a class="vk" name="" title="Follow Us on vk"><i class="fa fa-vk"></i></a></li>
-        {% if request.user.is_authenticated %}
-          <li class="auth"><a name="">{{ request.user.email }}</a></li>
-          <li class="auth last"><a href="/authentication/logout/">Выйти</a></li>
-        {% else %}
-          <li class="auth"><a href="#" data-toggle="modal" data-target="#loginModal">Войти</a></li>
-          <li class="auth last"><a href="#" data-toggle="modal" data-target="#registerModal">Регистрация</a></li>
-        {% endif %}
-
       </ul>
     </div>
   </div>
