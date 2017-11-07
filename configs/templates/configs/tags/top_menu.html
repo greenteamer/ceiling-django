@@ -4,7 +4,9 @@
 <div class="header-top BGdark">
   <div class="container">
     <div class="col-md-4 col-sm-12 col-xs-12">
-      <span><i class="fa fa-phone"></i> {{ config.get_main_phone }} </span>
+      {% for p in config.get_all_phones %}
+        <span><i class="fa fa-phone"></i> {{ p.site_phone }} </span>
+      {% endfor %}
       <span><i class="fa fa-envelope-o"></i> <a href="/static/joyus/mailto:{{ config.site_email }}" title="">{{ config.site_email }}</a> </span>
     </div>
     <div class="col-md-8 hidden-sm hidden-xs">
