@@ -88,8 +88,7 @@ class FilterManager(models.Manager):
 class Ceiling(BaseInfoExtendedModel):
 	filter					 = models.ManyToManyField(Filter,
 														blank=True)
-	price						 = models.CharField(verbose_name=u'Цена за м²',
-	                         max_length=50, unique=False, blank=True, null=True )
+	price						 = models.CharField(verbose_name=u'Цена за м²', blank=True, null=True )
 	image 					 = models.ImageField(verbose_name=u'Изображение',
 														upload_to="ceilings",blank=True, null=True)
 
