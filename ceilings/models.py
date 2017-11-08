@@ -88,7 +88,7 @@ class FilterManager(models.Manager):
 class Ceiling(BaseInfoExtendedModel):
 	filter					 = models.ManyToManyField(Filter,
 														blank=True)
-	price						 = models.DecimalField(verbose_name=u'Цена за м²',
+	price						 = models.CharField(verbose_name=u'Цена за м²',
 	                          max_digits=5,
 	                          decimal_places=2,blank=True, null=True )
 	image 					 = models.ImageField(verbose_name=u'Изображение',
