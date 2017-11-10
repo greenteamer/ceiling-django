@@ -234,7 +234,6 @@
 				var zakladnaya = $("#id_zakladnaya").val()
 				var strut = $("#id_strut").val()
 				var tip_polotna = $("#id_tip_polotna").val()
-				var brend_polotna = $("#id_brend_polotna").val()
 				$.ajax({
 					type: "POST",
 					url: '/ajax/calculator/',
@@ -248,7 +247,6 @@
 						zakladnaya: zakladnaya,
 						strut: strut,
 						tip_polotna: tip_polotna,
-						brend_polotna: brend_polotna
 
 					},
 					success: function (data) {

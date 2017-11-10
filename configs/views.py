@@ -86,9 +86,9 @@ def ajax_calculator_view(request):
 	zakladnaya = request.POST["zakladnaya"]
 	strut = request.POST["strut"]
 	tip_polotna = request.POST["tip_polotna"]
-	brend_polotna = request.POST["brend_polotna"]
+
 	# подготовка сообщения
-	message = u'телефон: %s, площадь потолка: %s, Фактура полотна: %s, количество углов %s, Торговая марка потолка: %s, Трубы уходящие в потолок: %s, Закладная под потолочную люстру: %s, Отверстие под крючковую люстру: %s, Стойка под встраиваемый светильник: %s '% (phone, square, tip_polotna, angle, brend_polotna, tube, zakladnaya, perforation, strut)
+	message = u'телефон: %s, площадь потолка: %s, Фактура полотна: %s, количество углов %s, Трубы уходящие в потолок: %s, Закладная под потолочную люстру: %s, Отверстие под крючковую люстру: %s, Стойка под встраиваемый светильник: %s '% (phone, square, tip_polotna, angle, tube, zakladnaya, perforation, strut)
 	# создание лида в bitrix24
 	lead = {
 		'title':'Заявка калькулятор',
