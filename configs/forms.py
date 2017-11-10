@@ -137,14 +137,7 @@ class CalculatorForm(forms.Form):
 		filters = Filter.objects.filter(type=filter_type)
 		for filter in filters:
 			CHOICES_TEXTURE.append([filter.id, filter.name])
-		self.fields['brend_polotna'].widget.attrs = {'class':'form-control-radio'}
-		CHOICES_BREND = []
-		filter_type =  FilterType.objects.get(slug="po-brendam")
-		filters = Filter.objects.filter(type=filter_type)
-		for filter in filters:
-			CHOICES_BREND.append([filter.id, filter.name])
 		self.fields['tip_polotna'].choices = CHOICES_TEXTURE
-		self.fields['brend_polotna'].choices = CHOICES_BREND
 		self.fields['square'].label = ""
 		self.fields['tube'].label = ""
 		self.fields['perforation'].label = ""
@@ -152,7 +145,6 @@ class CalculatorForm(forms.Form):
 		self.fields['strut'].label = ""
 		self.fields['phone'].label = ""
 		self.fields['tip_polotna'].label = ""
-		self.fields['brend_polotna'].label = ""
 
 	square = forms.IntegerField()
 	tube = forms.IntegerField()
@@ -161,7 +153,6 @@ class CalculatorForm(forms.Form):
 	zakladnaya = forms.IntegerField()
 	angle = forms.IntegerField()
 	tip_polotna = forms.ChoiceField()
-	brend_polotna = forms.ChoiceField(widget=forms.RadioSelect)
 	phone = forms.CharField()
 
 	class Meta:
@@ -174,7 +165,6 @@ class CalculatorForm(forms.Form):
 			'angle',
 			'phone',
 			'tip_polotna',
-			'brend_polotna'
 
 		]
 		labels = {
@@ -185,7 +175,6 @@ class CalculatorForm(forms.Form):
 			"zakladnaya": u"",
 			"square": u"",
 			"tip_polotna": u"",
-			"brend_polotna": u"",
 			"phone": u""
 		}
 
