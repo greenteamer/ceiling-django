@@ -69,7 +69,7 @@ def ajax_zamer_view(request):
 	config = get_site_config(request)
 	subject = u'Вызов замерщика'
 	message = u'телефон: %s' % phone
-	send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+	send_mail(subject, message, 'potolok-like@yandex.ru', [config.site_email], fail_silently=False)
 	data = json.dumps({
 		"phone": phone
 	})
@@ -108,7 +108,7 @@ def ajax_calculator_view(request):
 	# отправка данных на почту
 	config = get_site_config(request)
 	subject = u'Вызов замерщика'
-	send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+	send_mail(subject, message, 'potolok-like@yandex.ru', [config.site_email], fail_silently=False)
 	data = json.dumps({
 		"phone": phone
 	})
