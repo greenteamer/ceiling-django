@@ -34,7 +34,7 @@ class ContactForm(forms.Form):
 		# отправка формы
 		subject = u'Контактные данные пользователя %s' % config.site.domain
 		message = u'Имя: %s \n телефон: %s' % (data['name'], data['phone'])
-		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+		send_mail(subject, message, 'potolok-like@yandex.ru', [config.site_email], fail_silently=False)
 
 
 class RoundForm(forms.Form):
@@ -84,7 +84,7 @@ class CeilingForm(forms.Form):
 		# отправка формы
 		subject = u'Контактные данные пользователя %s' % config.site.domain
 		message = u'Имя: %s \n телефон: %s' % (data['name'], data['phone'])
-		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+		send_mail(subject, message, 'potolok-like@yandex.ru', [config.site_email], fail_silently=False)
 
 
 class SubscribeForm(forms.Form):
@@ -118,7 +118,7 @@ class SubscribeForm(forms.Form):
 		# отправка формы
 		subject = u'Подписка пользователя %s' % config.site.domain
 		message = u'Имя: %s \n email: %s \n вопрос: %s' % (data['name'], data['email'], data['text'])
-		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+		send_mail(subject, message, 'potolok-like@yandex.ru', [config.site_email], fail_silently=False)
 
 
 class CalculatorForm(forms.Form):
@@ -196,5 +196,5 @@ class CalculatorForm(forms.Form):
 		# отправка формы
 		subject = u'Подписка пользователя %s' % config.site.domain
 		message = u'Имя: %s \n email: %s \n вопрос: %s' % (data['name'], data['email'], data['text'])
-		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+		send_mail(subject, message, 'potolok-like@yandex.ru', [config.site_email], fail_silently=False)
 
