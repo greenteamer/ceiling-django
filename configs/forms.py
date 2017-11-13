@@ -124,7 +124,7 @@ class SubscribeForm(forms.Form):
 class CalculatorForm(forms.Form):
 	def __init__(self, *args, **kwargs):
 		super(CalculatorForm, self).__init__(*args, **kwargs)
-		self.fields['square'].widget.attrs = {'placeholder':'Укажите полощадь', 'class':'form-control'}
+		self.fields['square'].widget.attrs = {'placeholder':'Укажите площадь', 'class':'form-control'}
 		self.fields['angle'].widget.attrs = {'class':'form-control'}
 		self.fields['tube'].widget.attrs = {'class':'form-control'}
 		self.fields['perforation'].widget.attrs = {'class':'form-control'}
