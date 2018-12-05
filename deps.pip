@@ -1,6 +1,4 @@
 Django==1.9.5
-MySQL-python==1.2.5
-Pillow==3.1.1
 django-allauth==0.25.2
 django-appconf==1.0.1
 django-bootstrap-breadcrumbs==0.7.3
@@ -9,6 +7,7 @@ django-filebrowser==3.6.4
 django-filter==0.13.0
 django-flatblocks==0.9.2
 django-graphiql==0.4.4
+django-grappelli==2.7.3
 django-image-cropping==1.0.3
 django-mptt==0.8.3
 django-mptt-tree-editor==0.1.2
@@ -22,10 +21,11 @@ graphql-core==0.4.12.1
 graphql-django-view==1.1.0
 graphql-relay==0.3.3
 oauthlib==1.1.1
+Pillow==3.1.1
+psycopg2==2.7.6.1
 python-openid==2.2.5
 requests==2.10.0
 requests-oauthlib==0.6.1
 singledispatch==3.4.0.3
 six==1.10.0
 sorl-thumbnail==12.3
-wsgiref==0.1.2
